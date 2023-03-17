@@ -7,7 +7,6 @@ const Dashboard = () => {
  return (
   <div className="app_main">
    <Navbar />
-   <div className="app_section">
     <div className="app_content">
      <Routes>
       <Route path="/" element={<MainPage />} />
@@ -17,7 +16,6 @@ const Dashboard = () => {
       <Route path="/online-tracker" element={<SecLoader100 />} />
      </Routes>
     </div>
-   </div>
   </div>
  );
 };

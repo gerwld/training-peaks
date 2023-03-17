@@ -1,16 +1,16 @@
 import React from "react";
-import "./Navbar.css";
+import "./NavbarDefault.css";
 
-const Navbar = () => {
+const NavbarDefault = () => {
  return (
   <div className="navbar-l1 menu-1_closed" id="navbar-l1">
    <div className="navbar-l1_content content_wrapper">
     <a href="/" className="navbar-l1_logo">
-     Training App
+     <img src="./assets/img/logo-bigger.svg" alt="Logo" />
     </a>
    </div>
   </div>
  );
 };
 
-export default Navbar;
+export default NavbarDefault;
