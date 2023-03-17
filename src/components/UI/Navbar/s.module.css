@@ -69,3 +69,8 @@
   font-size: 0;
   line-height: 0;
 }
+
+.header_content {
+  padding-left: 10px;
+  padding-right: 10px;
+}

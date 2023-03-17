@@ -7,9 +7,9 @@ const Navbar = () => {
   <>
    <div className={s.header_content + " line_sect"}>
     <div className={s.logo_box}>
-     <div className={s.logo}>
-      <img src="./assets/img/logo-bigger.svg" alt="Home" />
-     </div>
+    <a href="/" className="navbar-l1_logo">
+     Training App
+    </a>
     </div>
 
     <div className={s.header_group}>

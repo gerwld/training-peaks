@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { SecLoader100, Navbar} from "./components";
+import { SecLoader100, Navbar, NotificationPopupList} from "./components";
 import { MainPage, ReportIssuePage, SettingsPage } from "./pages";
 
 const Dashboard = () => {
