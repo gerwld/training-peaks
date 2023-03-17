@@ -4,7 +4,7 @@ import { privateRoutes, publicRoutes } from "./routes";
 import { MainLoader } from "./components";
 
 const App = () => {
- let authObj = false, isInit = true;
+ let authObj = true, isInit = true;
  const routes = authObj ? privateRoutes : publicRoutes;
  
  if(isInit) return (

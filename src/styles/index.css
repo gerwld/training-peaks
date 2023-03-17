@@ -103,7 +103,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-.main_app {
+.app_main {
   padding: var(--hf-height) 0 0;
   min-height: 100vh;
 }
@@ -415,3 +415,69 @@ a.navbar-l1_logo:hover {
 .checkbox_input_lable span {
   display: inline-block;
 }
+
+/* plan page  */
+
+.plan_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - var(--hf-height));
+}
+
+.plan_title {
+  font-size: 35px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.plan_blocks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 1250px;
+  padding: 60px 30px;
+  margin: 0 auto;
+  
+  background-color: #fff;
+  border-radius: 10px;
+
+}
+
+.plan_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 50px 50px;
+  text-align: center;
+  line-height: 160%;
+  border-right: 1px solid #dddddd;
+}
+
+.plan_block:nth-last-child(1) {
+  border-right: none;
+}
+
+.plan_block__icon {
+  order: -1;
+  font-size: 45px;
+}
+
+.plan_block__title {
+  margin: 20px 0 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.plan_block__desc {
+  font-size: 1.15rem;
+  margin: 1em 0 1.4em;
+}
+
+
+/* plan page end */
