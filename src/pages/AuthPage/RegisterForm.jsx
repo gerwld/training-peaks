@@ -22,8 +22,8 @@ const RegisterForm = ({ onRegister }) => (
     <div className={s.select_block}>
 
     <div className={s.select_item}>
-    <select data-val="true" data-val-required="Preferred sport is required" id="PreferredSport" name="PreferredSport" required>
-     <option value="" selected disabled>
+    <select name="PreferredSport" required defaultValue=''>
+     <option value="" disabled>
       Primary Sport
      </option>
      <option value="Swimmer">Swimmer</option>
@@ -39,8 +39,8 @@ const RegisterForm = ({ onRegister }) => (
     </div>
     
     <div className={s.select_item}>
-    <select name="gender" required>
-     <option value="" selected disabled>
+    <select name="gender" required defaultValue=''>
+     <option value="" disabled>
       Gender
      </option>
      <option value="saab">Male</option>

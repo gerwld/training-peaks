@@ -267,6 +267,7 @@ select {
   border: 1.5px solid #d7dade;
 }
 
+select option:first-child,
 select:invalid {
   color: #a0a0a0;
 }
@@ -399,4 +400,18 @@ a.navbar-l1_logo:hover {
   padding-right: 10px;
   font-size: 0;
   line-height: 0;
+}
+
+.checkbox_input_lable {
+  display: flex;
+  flex-direction: row;
+}
+
+.checkbox_input_lable input {
+  margin-right: 8px;
+  transform: translateY(2px);
+}
+
+.checkbox_input_lable span {
+  display: inline-block;
 }
