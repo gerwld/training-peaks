@@ -25,17 +25,7 @@ const AuthPage = ({ isReg }) => {
     <div className={`${s.login_wrapper} content_wrapper`}>
      <div className={s.login_block}>
       <div className={s.login_block_content}>
-       <h1 className={s.header}>{isReg ? "Create an account" : "Sign in to our platform"}</h1>
-
-       <div className={s.fast_auth}>
-        <button className={s.fast_auth_block}>
-         <img src="./assets/img/google.svg" />
-         <span>Continue with Google</span>
-        </button>
-        <div className={s.fast_auth_sub_wrapper}>
-         <span className={s.fast_auth_sub}>Or sign {isReg ? "up" : "in"} with email</span>
-        </div>
-       </div>
+       <h1 className={s.header}>{isReg ? "Create an account" : "Sign In to our platform"}</h1>
 
        {error?.length ? <span className="error-box">{error}</span> : ""}
        {message?.length ? <span className="success-box">{message}</span> : ""}
