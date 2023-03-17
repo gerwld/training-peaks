@@ -38,8 +38,8 @@
 
   /* langing var's */
 
-  --color-1-blue: #228ad7;
-  --color-2-blue: #228ad7;
+  --color-1-blue: #fb4e05;
+  --color-2-blue: #fb4e05;
   --color-3-blue: #0093FF;
   --color-4-blue: #ACE1FF;
   --color-5-blue: #EEF8FF;
@@ -297,4 +297,11 @@ tr:nth-child(even) {
   font-weight: 600;
   color: #000;
   font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+a.navbar-l1_logo:hover {
+  text-decoration: none;
+  counter-reset: #2c2c2c;
+  transform: translateY(-2px);
 }
