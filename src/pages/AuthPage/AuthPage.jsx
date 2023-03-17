@@ -32,11 +32,6 @@ const AuthPage = ({ isReg }) => {
          <img src="./assets/img/google.svg" />
          <span>Continue with Google</span>
         </button>
-        <button className={s.fast_auth_block}>
-         <img src="./assets/img/apple.svg" />
-         <span>Continue with Apple</span>
-        </button>
-
         <div className={s.fast_auth_sub_wrapper}>
          <span className={s.fast_auth_sub}>Or sign {isReg ? "up" : "in"} with email</span>
         </div>
