@@ -349,6 +349,8 @@ a.navbar-l1_logo:hover {
   font-weight: 400;
   border-bottom: 1px solid var(--basic-border-color);
   background-color: var(--header-color);
+  z-index: 1000;
+  border-bottom: 1px solid #e1e1e1;
 }
 
 .auth_button {
@@ -481,3 +483,7 @@ a.navbar-l1_logo:hover {
 
 
 /* plan page end */
+
+.main_page {
+  margin-top: 30px;
+}
