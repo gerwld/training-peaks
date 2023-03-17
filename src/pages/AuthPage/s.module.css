@@ -277,3 +277,35 @@
 .restore_block .header {
   margin-bottom: 20px;
 }
+
+.select_block {
+  display: flex;
+  padding-top: 10px;
+  user-select: none;
+}
+
+.select_block .select_item:nth-child(1) {
+  margin-right: 15px;
+}
+
+.select_item {
+  position: relative;
+  flex: 1;
+}
+.select_item select {
+  display: block;
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+
+.select_item:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: var(--color-1-blue) transparent transparent transparent;
+}

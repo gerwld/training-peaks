@@ -103,7 +103,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-body {
+.main_app {
   padding: var(--hf-height) 0 0;
   min-height: 100vh;
 }
@@ -204,7 +204,7 @@ input:focus {
   border-color: var(--basic-blue-text) !important;
   padding-left: 5px !important;
 }
-
+select:focus,
 textarea:focus {
   outline: none;
   border-color: var(--basic-blue-text) !important;
@@ -253,6 +253,22 @@ th {
 
 tr:nth-child(even) {
   background-color: #f8f9ff;
+}
+
+select {
+  height: 55px;
+  padding: 10px;
+  margin: 15px 0 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #213547;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1.5px solid #d7dade;
+}
+
+select:invalid {
+  color: #a0a0a0;
 }
 
 .body__fixed {
