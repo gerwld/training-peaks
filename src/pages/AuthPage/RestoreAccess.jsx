@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, Form } from "react-final-form";
 
-import { NavbarDefault } from "../../compontents";
+import { NavbarDefault } from "../../components";
 import s from "./s.module.css";
 
 const RestoreAccess = () => {

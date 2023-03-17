@@ -1,0 +1,70 @@
+.content {
+ margin: 0 5px;
+ position: relative;
+}
+
+.modal_window {
+ position: absolute;
+ top: 100%;
+ right: 0;
+ left: auto;
+
+ min-width: 100%;
+
+ border-radius: 3px;
+ padding: 10px;
+
+ margin-top: 4px;
+ box-shadow: 6px 7px 10px 3px rgb(0 0 0 / 4%);
+ border: 1px solid var(--light-border-color);
+
+ /*on hidden styles */
+ transform: translate(30%, -30%) scale(0.4);
+ opacity: 0;
+ pointer-events: none;
+ user-select: none;
+
+ transition: 0.14s ease;
+}
+
+.modal_visible {
+ transform: translate(0, 0) scale(1);
+ opacity: 1;
+ pointer-events: all;
+ user-select: all;
+}
+
+.modal_window ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ line-height: 1.2em;
+ user-select: none;
+}
+
+.modal_window span,
+.modal_window button,
+.modal_window a {
+ display: block;
+ width: 100%;
+ padding: 10px 15px;
+
+ font-size: 14px;
+ font-weight: 400;
+ text-align: left;
+ text-decoration: none;
+ text-transform: capitalize;
+ white-space: nowrap;
+ color: var(--basic-blue-text);
+
+ border-radius: 3px;
+ border: none;
+ background-color: transparent;
+ cursor: pointer;
+}
+
+.modal_window span:hover,
+.modal_window button:hover,
+.modal_window a:hover {
+ background-color: var(--basic-link-hover);
+}

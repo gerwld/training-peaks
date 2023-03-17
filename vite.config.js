@@ -5,7 +5,7 @@ import path from "path";
 
 export default defineConfig({
  plugins: [jsconfigPaths(), react()],
- base: "/",
+ base: "./",
  define: {
   APP_VERSION: JSON.stringify(process.env.npm_package_version),
  },
@@ -19,8 +19,8 @@ export default defineConfig({
   },
  },
  resolve: {
-  alias: {
-   "@": path.resolve(__dirname, "./src"),
-  },
+  alias: [
+    { find: '@', replacement: path.resolve(__dirname, 'src') },
+  ],
  },
 });

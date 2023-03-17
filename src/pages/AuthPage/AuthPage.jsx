@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import { NavbarDefault } from "../../components";
 
 const AuthPage = ({ isReg }) => {
  const error = "",
@@ -44,14 +45,17 @@ const AuthPage = ({ isReg }) => {
        {error?.length ? <span className="error-box">{error}</span> : ""}
        {message?.length ? <span className="success-box">{message}</span> : ""}
 
-      {isReg ?
-      <RegisterForm onRegister={onRegister} />
-      : <LoginForm onLogin={onLogin} />}
+       {isReg ? <RegisterForm onRegister={onRegister} /> : <LoginForm onLogin={onLogin} />}
 
-      {isReg ?
-      <span className={s.log_nav}>Already have an account? <NavLink to="/sign-in">Login here</NavLink></span>
-      :  <span className={s.log_nav}>Not registered? <NavLink to="/sign-up">Create account</NavLink></span>}
-
+       {isReg ? (
+        <span className={s.log_nav}>
+         Already have an account? <NavLink to="/sign-in">Login here</NavLink>
+        </span>
+       ) : (
+        <span className={s.log_nav}>
+         Not registered? <NavLink to="/sign-up">Create account</NavLink>
+        </span>
+       )}
       </div>
      </div>
     </div>

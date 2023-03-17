@@ -1,10 +1,10 @@
 import React from "react";
 import { RouterProvider } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./routes";
-import { MainLoader } from "./compontents";
+import { MainLoader } from "./components";
 
 const App = () => {
- let authObj = true, isInit = true;
+ let authObj = false, isInit = true;
  const routes = authObj ? privateRoutes : publicRoutes;
  
  if(isInit) return (
