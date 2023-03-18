@@ -40,8 +40,40 @@ b { /* used for event dates/times */
   padding: 1em;
 }
 
+tr:nth-child(even) {
+  background-color: inherit;
+}
+
 .fc { /* the calendar root */
   max-width: 1800px;
-  max-height: 80vh;
+  max-height: calc(100vh - 140px);
   margin: 0 auto;
+}
+
+.fc-view-harness {
+  background-color: #fff;
+  border-radius: 10px!important;
+}
+
+.fc-scrollgrid-section-header  {
+  border-top-left-radius: 10px;
+  overflow: hidden;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  border-radius: 10px!important;
+  border: none;
+}
+
+.calendar-main .fc-theme-standard td, .calendar-main .fc-theme-standard th {
+  border: none;
+  border-right: 1px solid #e3e3e3;
+}
+
+.calendar-main .fc-theme-standard th:nth-last-child(1) {
+  border-top-right-radius: 10px;
+}
+
+thead tr {
+  border-bottom: 1px solid var(--basic-blue-text)!important;
 }
