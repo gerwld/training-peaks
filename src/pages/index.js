@@ -1,8 +1,8 @@
-export { default as AuthPage } from "./AuthPage/AuthPage";
-export { default as Register } from "./AuthPage/RegisterForm";
-export { default as RestoreAccess } from "./AuthPage/RestoreAccess";
-export { default as MainPage } from "./MainPage/MainPage";
-export { default as ReportIssuePage } from "./ReportIssuePage/ReportIssuePage";
-export { default as SettingsPage } from "./SettingsPage/SettingsPage";
+export { default as AuthPage } from "./auth/AuthPage";
+export { default as Register } from "./auth/RegisterForm";
+export { default as RestoreAccess } from "./auth/RestoreAccess";
+export { default as MainPage } from "./main/MainPage";
+export { default as ReportIssuePage } from "./reportIssue/ReportIssuePage";
+export { default as SettingsPage } from "./settings/SettingsPage";
 export { default as PlanPage } from "./PlanPage";
 

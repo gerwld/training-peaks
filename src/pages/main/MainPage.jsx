@@ -1,5 +1,5 @@
 import React from "react";
-import MainPageCalendar from "./MainPageCalendar";
+import MainPageCalendar from "./Calendar";
 
 const MainPage = () => {
  return (
