@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux'
 import { hashById } from '@/utils'
 
 export function weekendsVisible(weekendsVisible = true, action) {

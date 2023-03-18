@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 
 import App from "./App";
 import "./styles/index.css";
+import "./styles/calendar.css";
 
 import { store } from "./redux";
 
