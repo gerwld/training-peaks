@@ -9,7 +9,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import s from "./s.module.css";
 
 
-const ModalAuth = withClickOutside(({ isShow, refElement, toggleShow, authName }) => {
+const ModalAuth = withClickOutside(({ isShow, refElement, toggleShow, authName, ignoreRef }) => {
  const d = useDispatch();
  const n = useNavigate();
  const onLogout = () => {
@@ -24,14 +24,12 @@ const ModalAuth = withClickOutside(({ isShow, refElement, toggleShow, authName }
     <span className="text_btn">{authName.slice(0, 15)}</span>
    </button>
    <div className={`${s.modal_window} ${isShow ? s.modal_visible : ""} modal_l03`}>
-    <ul>
+    <ul onClick={toggleShow}>
      <li>
       <NavLink to="/settings">Settings</NavLink>
      </li>
-     <li>
-      <span onClick={onLogout}>Log Out</span>
-     </li>
     </ul>
+    <button onClick={onLogout} >Log Out</button>
    </div>
   </div>
  );

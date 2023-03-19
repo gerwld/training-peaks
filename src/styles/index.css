@@ -113,11 +113,12 @@ html {
   min-height: 100vh;
 }
 
+.page_content,
 .app_main {
-  animation: appear 1s ease;
+  animation: appear2 0.6s ease;
 }
 
-@keyframes appear {
+@keyframes appear2 {
   0% {
     opacity: 0;
   }
