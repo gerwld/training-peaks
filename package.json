@@ -25,6 +25,7 @@
     "react-router-dom": "^6.9.0",
     "redux": "^4.2.1",
     "reselect": "^4.1.7",
+    "uuid": "^9.0.0",
     "vite-jsconfig-paths": "^2.0.1"
   },
   "devDependencies": {

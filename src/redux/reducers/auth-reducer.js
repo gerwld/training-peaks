@@ -1,5 +1,6 @@
 import axios from "axios";
 import AuthService from "@/api/AuthService";
+import { setMessage } from "./messages-reducer";
 
 const SET_USER_TK = "@@training-app/dash-reducer/SET_USER_TK";
 const SET_USER_DATA = "@@training-app/dash-reducer/SET_USER_DATA";
@@ -25,7 +26,7 @@ let initialState = {
   regErr: null
 };
 
-const authReducer = (state = initialState, action) => {
+export default function authReducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER_TK:
       return {
@@ -60,22 +61,18 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
-//***** Thunk Creators *****//
 
-//User authentication
 export const userAuth = (authData) => {
   return async (dispatch) => {
     let authObj = { password: authData.pass, username: authData.email };
-    console.log(authObj);
     await AuthService.getAuth(authObj)
       .then((authRes) => {
         localStorage.setItem("session", `Bearer ${authRes.data}`);
         dispatch(getUser(`Bearer ${authRes.data}`));
       })
       .catch((err) => {
-        if (err.response) {
-          dispatch(setLogError(err.response.data.message));
-          setTimeout(() => dispatch(setLogError(null)), 30000);
+        if (err.response.data.message) {
+          dispatch(setMessage(err.response.data.message, true));
           localStorage.removeItem("session");
         }
       });
@@ -123,5 +120,3 @@ export const userRegister = (data) => {
     });
   };
 };
-
-export default authReducer;

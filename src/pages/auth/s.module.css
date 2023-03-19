@@ -87,6 +87,7 @@
   text-align: center;
 }
 
+.LoginForm input[type='text'],
 .LoginForm input[type='email'],
 .LoginForm input[type='password'] {
   display: block;

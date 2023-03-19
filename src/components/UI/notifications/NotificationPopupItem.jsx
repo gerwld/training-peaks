@@ -2,9 +2,9 @@ import React from "react";
 import { MdClose, MdInfoOutline } from "react-icons/md";
 import s from "./s.module.css";
 
-const NotificationPopupItem = ({ isError = true, message = "Unknown Error.", onClose, index }) => {
+const NotificationPopupItem = ({ isError = true, message = "Unknown Error.", onClose, id }) => {
  const onCloseCallback = () => {
-  onClose(index);
+  onClose(id);
  };
 
  return (
