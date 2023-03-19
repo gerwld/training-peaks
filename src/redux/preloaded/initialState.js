@@ -2,7 +2,7 @@ const currentThemeFromStorage = localStorage.getItem("currentTheme") || window.m
 const currentLangFromStorage = localStorage.getItem("i18nextLng") || "en";
 
 const initialState = {
- apr: {
+ app: {
   currentTheme: currentThemeFromStorage,
   currentLang: currentLangFromStorage
  },

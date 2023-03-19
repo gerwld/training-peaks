@@ -1,19 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import initialState from "./preloaded/preloadedState";
-import aprReducer from "./reducers/apr-reducer";
-import authReducer from "./reducers/auth-reducer";
-import { weekendsVisible, eventsById } from "./reducers/main-reducer";
+import { appReducer, authReducer } from "./";
+import initialState from "./preloaded/initialState";
 
+import { weekendsVisible, eventsById } from "./reducers/main-reducer";
 
 const store = configureStore({
  reducer: {
-  apr: aprReducer,
+  app: appReducer,
   auth: authReducer,
   weekendsVisible,
   eventsById,
-  
  },
- preloadedState: initialState,
+//  preloadedState: initialState,
 });
 
 export default store;

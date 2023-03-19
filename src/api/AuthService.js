@@ -15,7 +15,7 @@ export default class AuthService {
     return instance.post("users", inputDto);
   }
   static async getCurrentUser(payload) {
-    return axios.get("/users/current", {
+    return instance.get("/users/current", {
       headers: {
       "Authorization": payload
       }

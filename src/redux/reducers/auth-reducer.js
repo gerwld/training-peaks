@@ -17,11 +17,7 @@ let initialState = {
  isAuth: false,
  userToken: null,
  authErr: null,
- authUser: {
-  id: null,
-  username: null,
-  email: null,
- },
+ authObj: null,
  regSuccess: false,
  regErr: null,
 };
@@ -39,7 +35,7 @@ export default function authReducer(state = initialState, action) {
     ...state,
     authErr: null,
     isAuth: action.isAuth,
-    authUser: action.data,
+    authObj: action.data,
    };
   case SET_REG_STATUS:
    return {
@@ -63,7 +59,7 @@ export default function authReducer(state = initialState, action) {
 
 export const userAuth = (authData) => {
  return async (dispatch) => {
-  const fetch = AuthService.getAuth({password: authData.pass, username: authData.email});
+  const fetch = AuthService.getAuth({ password: authData.pass, email: authData.email });
   fetch
    .then((authRes) => {
     localStorage.setItem("session", `Bearer ${authRes.data}`);
@@ -75,7 +71,7 @@ export const userAuth = (authData) => {
     }
    });
 
-   msgHandler.promise(fetch, {
+  msgHandler.promise(fetch, {
    loading: "Loading",
    success: "Success Login.",
    error: (err) => {
@@ -88,8 +84,8 @@ export const userAuth = (authData) => {
 export const getUser = (token) => {
  return async (dispatch) => {
   try {
-   const authUser = await AuthService.getCurrentUser(token);
-   dispatch(setUserData(authUser.data, true));
+   const authObj = await AuthService.getCurrentUser(token);
+   dispatch(setUserData(authObj.data, true));
 
    dispatch(setUserToken(token));
    axios.defaults.headers.post["Authorization"] = token;
@@ -116,9 +112,9 @@ export const userRegister = (data) => {
  return (dispatch) => {
   console.log(data);
   const fetch = AuthService.getReg({
-    email: data.email,
-    password: data.pass,
-   });
+   email: data.email,
+   password: data.pass,
+  });
   fetch.then((e) => {
    if (e.status === 200) {
     dispatch(setRegStatus(true));
@@ -126,11 +122,11 @@ export const userRegister = (data) => {
   });
 
   msgHandler.promise(fetch, {
-    loading: "Loading",
-    success: "Registration Success.",
-    error: (err) => {
-     return err?.response.data.message;
-    },
-   });
+   loading: "Loading",
+   success: "Registration Success.",
+   error: (err) => {
+    return err?.response.data.message;
+   },
+  });
  };
 };
