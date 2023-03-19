@@ -310,3 +310,18 @@
   border: 6px solid transparent;
   border-color: var(--color-1-blue) transparent transparent transparent;
 }
+
+.login_block_content form,
+.login_block_content {
+  animation: appear .3s ease;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+
+  }
+}
