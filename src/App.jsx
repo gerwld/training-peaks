@@ -1,7 +1,8 @@
 import React from "react";
 import { RouterProvider } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./routes";
-import { MainLoader, Notifications } from "./components";
+import { MainLoader } from "./components";
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
  let authObj = false, isInit = true;
@@ -10,7 +11,7 @@ const App = () => {
  if(isInit) return (
   <React.Suspense>
     <RouterProvider router={routes} fallbackElement={<MainLoader />} />
-    <Notifications/>
+    <Toaster />
   </React.Suspense>
  );
  else return <MainLoader />

@@ -1,6 +1,7 @@
 import axios from "axios";
 import AuthService from "@/api/AuthService";
-import { setMessage } from "./messages-reducer";
+import toast from 'react-hot-toast';
+
 
 const SET_USER_TK = "@@training-app/dash-reducer/SET_USER_TK";
 const SET_USER_DATA = "@@training-app/dash-reducer/SET_USER_DATA";
@@ -72,7 +73,7 @@ export const userAuth = (authData) => {
       })
       .catch((err) => {
         if (err.response.data.message) {
-          dispatch(setMessage(err.response.data.message, true));
+          toast.error(err.response.data.message);
           localStorage.removeItem("session");
         }
       });
