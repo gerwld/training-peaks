@@ -1,21 +1,19 @@
 import axios from "axios";
 import AuthService from "@/api/AuthService";
-import msgHandler from "react-hot-toast";
+import showMessage from "react-hot-toast";
+import { setAxiosSession } from "../../utils/setAxiosSession";
 
-const SET_USER_TK = "@@training-app/dash-reducer/SET_USER_TK";
+const LOGOUT = "@@training-app/dash-reducer/LOGOUT";
 const SET_USER_DATA = "@@training-app/dash-reducer/SET_USER_DATA";
 const SET_REG_STATUS = "@@training-app/dash-reducer/SET_REG_STATUS";
-const REG_ERROR = "@@training-app/dash-reducer/REG_ERROR";
-const LOG_ERROR = "@@training-app/dash-reducer/LOG_ERROR";
-export const setUserToken = (token) => ({ type: SET_USER_TK, token });
-export const setUserData = (data, isAuth) => ({ type: SET_USER_DATA, data, isAuth });
+
+export const setUserData = (data) => ({ type: SET_USER_DATA, data });
 export const setRegStatus = (status) => ({ type: SET_REG_STATUS, status });
 export const setRegError = (message) => ({ type: REG_ERROR, message });
 export const setLogError = (message) => ({ type: LOG_ERROR, message });
+export const setLogout = ({ type: LOGOUT });
 
 let initialState = {
- isAuth: false,
- userToken: null,
  authErr: null,
  authObj: null,
  regSuccess: false,
@@ -24,17 +22,10 @@ let initialState = {
 
 export default function authReducer(state = initialState, action) {
  switch (action.type) {
-  case SET_USER_TK:
-   return {
-    ...state,
-    authErr: null,
-    userToken: action.token,
-   };
   case SET_USER_DATA:
    return {
     ...state,
     authErr: null,
-    isAuth: action.isAuth,
     authObj: action.data,
    };
   case SET_REG_STATUS:
@@ -42,16 +33,9 @@ export default function authReducer(state = initialState, action) {
     ...state,
     regSuccess: action.status,
    };
-  case REG_ERROR:
-   return {
-    ...state,
-    regErr: action.message,
-   };
-  case LOG_ERROR:
-   return {
-    ...state,
-    authErr: action.message,
-   };
+  case LOGOUT:
+    return {...state, authObj: null}
+
   default:
    return state;
  }
@@ -61,9 +45,11 @@ export const userAuth = (authData) => {
  return async (dispatch) => {
   const fetch = AuthService.getAuth({ password: authData.pass, email: authData.email });
   fetch
-   .then((authRes) => {
+  .then((authRes) => {
     localStorage.setItem("session", `Bearer ${authRes.data}`);
-    dispatch(getUser(`Bearer ${authRes.data}`));
+    setTimeout(() => 
+    dispatch(getUser(`Bearer ${authRes.data}`))
+    , 1000);
    })
    .catch((err) => {
     if (err.response.data.message) {
@@ -71,62 +57,51 @@ export const userAuth = (authData) => {
     }
    });
 
-  msgHandler.promise(fetch, {
+  showMessage.promise(fetch, {
    loading: "Loading",
    success: "Success Login.",
-   error: (err) => {
-    return err?.response.data.message;
-   },
+   error: (err) =>  err?.response.data.message || 'Unknown error'
   });
  };
 };
 
-export const getUser = (token) => {
+export const getUser = (session) => {
  return async (dispatch) => {
-  try {
-   const authObj = await AuthService.getCurrentUser(token);
-   dispatch(setUserData(authObj.data, true));
-
-   dispatch(setUserToken(token));
-   axios.defaults.headers.post["Authorization"] = token;
-   axios.defaults.headers.common["Authorization"] = token;
-  } catch (error) {
-   axios.defaults.headers.post["Authorization"] = null;
-   axios.defaults.headers.common["Authorization"] = null;
-   localStorage.removeItem("session");
-  }
+   AuthService.getCurrentUser(session)
+   .then(({data}) => {
+    dispatch(setUserData(data));
+    setAxiosSession(session);
+   })
+   .catch(() => setAxiosSession(null));
  };
 };
 
 export const userLogOut = () => {
  return (dispatch) => {
-  dispatch(setUserData(null, false));
-  dispatch(setUserToken(null));
-  localStorage.removeItem("session");
-  axios.defaults.headers.post["Authorization"] = "";
-  axios.defaults.headers.common["Authorization"] = "";
+  setTimeout(() => {
+    dispatch(setLogout);
+    showMessage.success('You have successfully logged out.');
+  }, 300);
+  setAxiosSession(null);
  };
 };
 
 export const userRegister = (data) => {
  return (dispatch) => {
-  console.log(data);
   const fetch = AuthService.getReg({
    email: data.email,
    password: data.pass,
   });
-  fetch.then((e) => {
-   if (e.status === 200) {
+  fetch.then(({status}) => {
+   if (status === 200) {
     dispatch(setRegStatus(true));
    }
   });
 
-  msgHandler.promise(fetch, {
+  showMessage.promise(fetch, {
    loading: "Loading",
    success: "Registration Success.",
-   error: (err) => {
-    return err?.response.data.message;
-   },
+   error: (err) =>  err?.response.data.message || 'Unknown error'
   });
  };
 };

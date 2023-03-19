@@ -1,19 +1,19 @@
-h2 {
+.calendar h2 {
   margin: 0;
   font-size: 16px;
 }
 
-ul {
+.calendar ul {
   margin: 0;
   padding: 0 0 0 1.5em;
 }
 
-li {
+.calendar li {
   margin: 1.5em 0;
   padding: 0;
 }
 
-b { /* used for event dates/times */
+.calendar b { /* used for event dates/times */
   margin-right: 3px;
 }
 

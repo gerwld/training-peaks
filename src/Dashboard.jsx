@@ -1,12 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { SecLoader100, Navbar} from "./components";
 import { MainPage, ReportIssuePage, SettingsPage, PlanPage } from "./pages";
 
 const Dashboard = () => {
+  const {authObj} = useSelector(({auth}) => ({
+    authObj: auth.authObj
+  }))
  return (
   <div className="app_main">
-   <Navbar />
+   <Navbar authName={authObj.email} />
     <div className="app_content">
      <Routes>
       <Route path="/" element={<MainPage />} />
