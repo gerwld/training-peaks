@@ -1,5 +1,5 @@
 import React from "react";
-import withClickOutside from "../../hoc/withClickOutside";
+import withClickOutside from "../../hocs/withClickOutside";
 import s from "./s.module.css";
 
 const ModalAuth = withClickOutside(({ isShow, refElement, toggleShow }) => {

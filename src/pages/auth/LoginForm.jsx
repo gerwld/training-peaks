@@ -12,7 +12,7 @@ const LoginForm = ({ onLogin }) => {
     <form onSubmit={handleSubmit} className={s.LoginForm}>
      <label>
       <span className={s.l_title}>Your Email:</span>
-      <Field component="input" type="email" name="email" placeholder="john@company.com" required />
+      <Field component="input" type="text" name="email" placeholder="john@company.com" required />
      </label>
      <label>
       <span className={s.l_title}>Your Password:</span>

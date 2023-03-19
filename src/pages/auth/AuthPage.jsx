@@ -1,21 +1,25 @@
 import React from "react";
 import s from "./s.module.css";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
-import { NavbarDefault } from "../../components";
+import { NavbarDefault } from "@/components";
+import { userAuth, userRegister } from "@/redux/reducers/auth-reducer";
+
 
 const AuthPage = ({ isReg }) => {
+ const dispatch = useDispatch();
  const error = "",
   message = "";
 
  const onLogin = (res) => {
-  // disp(loginTC(res));
+  dispatch(userAuth(res));
  };
 
  const onRegister = (res) => {
-  // disp(registerTC(res));
+  dispatch(userRegister(res));
  };
 
  return (
