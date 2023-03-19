@@ -2,6 +2,7 @@ import axios from "axios";
 import AuthService from "@/api/AuthService";
 import showMessage from "react-hot-toast";
 import { setAxiosSession } from "../../utils/setAxiosSession";
+import { setInit } from "./app-reducer";
 
 const LOGOUT = "@@training-app/dash-reducer/LOGOUT";
 const SET_USER_DATA = "@@training-app/dash-reducer/SET_USER_DATA";
@@ -70,6 +71,7 @@ export const getUser = (session) => {
    AuthService.getCurrentUser(session)
    .then(({data}) => {
     dispatch(setUserData(data));
+    dispatch(setInit(true));
     setAxiosSession(session);
    })
    .catch(() => setAxiosSession(null));

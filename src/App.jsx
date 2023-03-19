@@ -4,8 +4,6 @@ import { privateRoutes, publicRoutes } from "./routes";
 import { MainLoader } from "./components";
 import { Toaster } from "react-hot-toast";
 import useSession from "./hooks/useSession";
-import { getUser } from "./redux/reducers/auth-reducer";
-import { setInit } from "./redux/reducers/app-reducer";
 import { useSelector } from "react-redux";
 
 const App = () => {
@@ -15,7 +13,7 @@ const App = () => {
  }));
  const routes = authObj ? privateRoutes : publicRoutes;
 
- useSession(getUser, setInit, isInit); 
+ useSession(isInit); 
 
  if (isInit)
   return (

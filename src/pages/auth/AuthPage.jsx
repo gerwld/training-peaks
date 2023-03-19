@@ -1,21 +1,20 @@
 import React from "react";
 import s from "./s.module.css";
 import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import { NavbarDefault } from "@/components";
 import { userAuth, userRegister } from "@/redux/reducers/auth-reducer";
-import { useEffect } from "react";
-
+import useRegSuccess from "@/hooks/useRegSuccess";
 
 const AuthPage = ({ isReg }) => {
+ useRegSuccess();
  const dispatch = useDispatch();
- const {regSuccess} = useSelector(({auth}) => ({
-  regSuccess: auth.regSuccess
- }))
- let error = "", message = "";
+
+ let error = "",
+  message = "";
 
  const onLogin = (res) => {
   dispatch(userAuth(res));
@@ -24,10 +23,6 @@ const AuthPage = ({ isReg }) => {
  const onRegister = (res) => {
   dispatch(userRegister(res));
  };
-
- useEffect(() => {
-  
- }, []);
 
  return (
   <div className={s.bg_wrapper}>
