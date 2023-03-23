@@ -17,6 +17,7 @@ specifiers:
   prettier-plugin-organize-imports: ^3.2.2
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-error-overlay: ^6.0.11
   react-final-form: ^6.5.9
   react-hot-toast: ^2.4.0
   react-icons: ^4.8.0
@@ -42,6 +43,7 @@ dependencies:
   prettier: 2.8.4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-error-overlay: 6.0.11
   react-final-form: 6.5.9_zunk57bvr2t5bgdbaxawch3xh4
   react-hot-toast: 2.4.0_owo25xnefcwdq3zjgtohz6dbju
   react-icons: 4.8.0_react@18.2.0
@@ -1057,6 +1059,10 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-error-overlay/6.0.11:
+    resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
     dev: false
 
   /react-final-form/6.5.9_zunk57bvr2t5bgdbaxawch3xh4:

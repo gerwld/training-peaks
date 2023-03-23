@@ -2,19 +2,17 @@ import React from "react";
 import withClickOutside from "../../hocs/withClickOutside";
 
 import { useDispatch } from "react-redux";
-import { useNavigate, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { userLogOut } from "@/redux/reducers/auth-reducer";
 
 import { AiOutlineUser } from "react-icons/ai";
 import s from "./s.module.css";
 
 
-const ModalAuth = withClickOutside(({ isShow, refElement, toggleShow, authName, ignoreRef }) => {
+const ModalAuth = withClickOutside(({ isShow, refElement, toggleShow, authName }) => {
  const d = useDispatch();
- const n = useNavigate();
  const onLogout = () => {
   d(userLogOut());
-  n('/');
  };
 
  return (

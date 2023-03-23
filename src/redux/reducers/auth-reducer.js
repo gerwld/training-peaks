@@ -90,7 +90,7 @@ export const userLogOut = () => {
 
 export const userRegister = (data) => {
  return (dispatch) => {
-  const fetch = AuthService.getReg({
+  const fetch = AuthService.register({
    email: data.email,
    password: data.pass,
   });
@@ -107,3 +107,10 @@ export const userRegister = (data) => {
   });
  };
 };
+
+export const restorePassword = (data) => {
+  return (dispatch) => {
+    const fetch = AuthService.restorePassword(data);
+    console.log(fetch);
+  }
+}
