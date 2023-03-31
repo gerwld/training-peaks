@@ -9,8 +9,10 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import { setCreateMode } from "../../redux/reducers/app-reducer";
 
 class Calendar extends React.Component {
+  
  render() {
   return (
    <div className="calendar">
@@ -71,9 +73,10 @@ class Calendar extends React.Component {
  // handlers for user actions
  // ------------------------------------------------------------------------------------------
 
- handleDateSelect = (selectInfo) => {
+ handleDateSelect = async (selectInfo) => {
   let calendarApi = selectInfo.view.calendar;
-  let title = prompt("Please enter a new title for your event");
+
+  await this.props.setCreateMode(true);
 
   calendarApi.unselect(); // clear date selection
 
@@ -159,4 +162,4 @@ function mapStateToProps() {
  };
 }
 
-export default connect(mapStateToProps, actionCreators)(Calendar);
+export default connect(mapStateToProps, ({...actionCreators, setCreateMode}))(Calendar);
