@@ -1,12 +1,7 @@
 import { requestEventsInRange, requestEventCreate, requestEventUpdate, requestEventDelete } from '@/api/requests'
+import TrainService from '../api/TrainService'
 
 export default {
-
-  toggleWeekends() {
-    return {
-      type: 'TOGGLE_WEEKENDS'
-    }
-  },
 
   requestEvents(startStr, endStr) {
     return (dispatch) => {
@@ -20,8 +15,8 @@ export default {
   },
 
   createEvent(plainEventObject) {
-    return (dispatch) => {
-      return requestEventCreate(plainEventObject).then((newEventId) => {
+    return async (dispatch) => {
+      return TrainService.createTrain(plainEventObject).then((newEventId) => {
         dispatch({
           type: 'CREATE_EVENT',
           plainEventObject: {

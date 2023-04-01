@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setCreateMode } from "../../../redux/reducers/app-reducer";
 import { CiCirclePlus } from "react-icons/ci";
+import createEvent from '@/api/'
 
 const DayCell = (selectInfo) => {
   const d = useDispatch();
@@ -10,19 +11,23 @@ const DayCell = (selectInfo) => {
 
   d(setCreateMode(true));
 
-  calendarApi.addEvent(
-   {
-    title: "Morning Run",
-    type: "Training Run",
-    desc: "description for train",
-    dist: "5.2",
-    rtss: "60",
-    start: selectInfo.date,
-    allDay: false,
-    editable: true,
-   },
-   true
-  );
+  createEvent()
+
+  d(createEvent)
+
+  // calendarApi.addEvent(
+  //  {
+  //   title: "Morning Run",
+  //   type: "Training Run",
+  //   desc: "description for train",
+  //   dist: "5.2",
+  //   rtss: "60",
+  //   start: selectInfo.date,
+  //   allDay: false,
+  //   editable: true,
+  //  },
+  //  true
+  // );
  };
 
  return (

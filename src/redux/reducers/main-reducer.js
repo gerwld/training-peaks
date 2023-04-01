@@ -30,3 +30,4 @@ export const mainReducer = (state = initState, action) => {
       return state
   }
 }
+

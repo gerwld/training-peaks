@@ -8,6 +8,9 @@ const EditTrainPopup = ({ isEditMode, toggleEdit }) => {
    <div className="modal_content">
     <h1 className="modal_title">Edit Training</h1>
     <EditTrainForm onAddTrain={onAddTrain}/>
+    <button type="button" className="btn_submit btn_submit__delete">
+      Delete Training
+     </button>
     <button onClick={toggleEdit} className="btn_close">
      close
     </button>

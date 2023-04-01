@@ -101,12 +101,12 @@ class Calendar extends React.Component {
   this.props.requestEvents(rangeInfo.startStr, rangeInfo.endStr).catch(reportNetworkError);
  };
 
- handleEventAdd = (addInfo) => {
-  this.props.createEvent(addInfo.event.toPlainObject()).catch(() => {
-   reportNetworkError();
-   addInfo.revert();
-  });
- };
+//  handleEventAdd = (addInfo) => {
+//   this.props.createEvent(addInfo.event.toPlainObject()).catch(() => {
+//    reportNetworkError();
+//    addInfo.revert();
+//   });
+//  };
 
  handleEventChange = (changeInfo) => {
   this.props.updateEvent(changeInfo.event.toPlainObject()).catch(() => {

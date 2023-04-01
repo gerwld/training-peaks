@@ -744,10 +744,10 @@ label {
 
 .btn_submit {
   width: 100%;
-  height: 55px;
+  height: 50px;
 
   padding: 0 15px;
-  margin: 20px 0 20px;
+  margin: 20px 0 10px;
 
   text-transform: capitalize;
   letter-spacing: .03em;
@@ -764,6 +764,18 @@ label {
 .btn_submit:hover {
   background-color: var(--color-1-blue);
   color: #fff;
+}
+
+.btn_submit__delete {
+  color: #fff;
+  border-color: var(--color-1-blue);
+  background-color: var(--color-1-blue);
+  height: 50px;
+  margin: 0;
+}
+
+.btn_submit__delete:hover {
+  opacity: 0.7;
 }
 
 form {
