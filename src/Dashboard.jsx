@@ -30,8 +30,6 @@ const Dashboard = () => {
       <Route path="/add-training" element={<AddTrain />} />
      </Routes>
 
-     <button onClick={toggleCreate}>toggle</button>
-
      {/* POPUPS  */}
      <AddTrainPopup isCreateMode={isCreateMode} toggleCreate={toggleCreate}/>
     </div>

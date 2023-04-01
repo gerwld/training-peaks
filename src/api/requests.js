@@ -9,13 +9,21 @@ let eventGuid = 0
 let eventDb = [
   {
     id: createEventId(),
-    title: 'All-day event',
-    start: todayStr
+    start: todayStr,
+    title: 'Morning Run',
+    type: 'Training Run',
+    desc: 'description for train',
+    dist: '5.2km',
+    rtss: '60',
   },
   {
     id: createEventId(),
-    title: 'Timed event',
-    start: todayStr + 'T12:00:00'
+    title: 'Morning Run',
+    type: 'Training Run',
+    desc: 'description for train',
+    dist: '7.2km',
+    rtss: '60',
+    start: todayStr + 'T12:00:00',
   }
 ]
 

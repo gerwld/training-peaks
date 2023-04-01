@@ -10,6 +10,10 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { setCreateMode } from "../../redux/reducers/app-reducer";
+import tippy from 'tippy.js';
+
+import ReactTooltip from 'react-tooltip';
+import RenderEvent from "./renderEvent/RenderEvent";
 
 class Calendar extends React.Component {
   
@@ -21,28 +25,66 @@ class Calendar extends React.Component {
      <FullCalendar
       plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
       headerToolbar={{
-       left: "prev,next today",
-       center: "title",
-       right: "dayGridMonth,timeGridWeek,timeGridDay",
+       left: "title",
+       center: "",
+       right: 'prev,next today'
       }}
-      initialView="dayGridMonth"
+      initialView="dayGridWeek"
       editable={true}
+      allDaySlot={false}
+      slotEventOverlap={false}
       selectable={true}
       selectMirror={true}
+      displayEventTime={false}
       dayMaxEvents={true}
+      firstDay={1}
       weekends={this.props.weekendsVisible}
       datesSet={this.handleDates}
       select={this.handleDateSelect}
       events={this.props.events}
-      eventContent={renderEventContent} // custom render function
-      eventClick={this.handleEventClick}
+      eventContent={(ev) => <RenderEvent eventInfo={ev}/>}
+      // eventClick={this.handleEventClick}
+
       eventAdd={this.handleEventAdd}
       eventChange={this.handleEventChange} // called for drag-n-drop/resize
       eventRemove={this.handleEventRemove}
-     />
+      displayEventTime={true}
+      // eventMouseEnter={this.handleEventPositioned}
+      eventDidMount={(info) => {
+        console.log(info.el)
+        info.el.remove();
+      }}
+      eventMouseEnter={ (info) => {
+        // console.log(info.event.title)
+     }}
+    //  eventDidMount={ (info) => {
+    //     tippy(info.el, {
+    //        trigger: 'click',
+    //        touch: 'hold',
+    //        allowHTML: true,
+    //        content:
+    //           `
+    //           <div class="desc_train-tooltip">
+    //           <h3>${info.event.extendedProps.type}</h3>
+    //            <hr/>
+    //            <h5>${info.event.extendedProps.distance}</h5>
+    //            <hr/>
+    //            <p>${info.event.extendedProps.description}</p>
+    //            </div>`,
+    //     });
+    //  }}
+  />
+     <ReactTooltip/>
     </div>
    </div>
   );
+ }
+
+ handleEventPositioned(info) {
+  console.log(info);
+  info.el.innerText;
+  info.el.setAttribute("data-tip","some text tip");
+   ReactTooltip.rebuild();
  }
 
  renderSidebar() {
@@ -80,14 +122,19 @@ class Calendar extends React.Component {
 
   calendarApi.unselect(); // clear date selection
 
-  if (title) {
+  if (true) {
    calendarApi.addEvent(
     {
      // will render immediately. will call handleEventAdd
-     title,
+     title: 'Morning Run',
+     type: 'Training Run',
+     desc: 'description for train',
+     dist: '5.2km',
+     rtss: '60',
      start: selectInfo.startStr,
      end: selectInfo.endStr,
-     allDay: selectInfo.allDay,
+     allDay: false,
+     editable: true,
     },
     true
    ); // temporary=true, will get overwritten when reducer gives new events
@@ -127,15 +174,6 @@ class Calendar extends React.Component {
    removeInfo.revert();
   });
  };
-}
-
-function renderEventContent(eventInfo) {
- return (
-  <>
-   <b>{eventInfo.timeText}</b>
-   <i>{eventInfo.event.title}</i>
-  </>
- );
 }
 
 function renderSidebarEvent(plainEventObject) {
