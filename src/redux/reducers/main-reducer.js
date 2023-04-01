@@ -17,7 +17,7 @@ export const mainReducer = (state = initState, action) => {
     case 'UPDATE_EVENT':
       return {
         ...state,
-        eventsById: {[action.plainEventObject.id]: action.plainEventObject}
+        eventsById: {...state.eventsById, [action.plainEventObject.id]: action.plainEventObject}
       }
 
     case 'DELETE_EVENT':
