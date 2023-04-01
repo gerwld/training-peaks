@@ -48,7 +48,6 @@ class Calendar extends React.Component {
       eventAdd={this.handleEventAdd}
       eventChange={this.handleEventChange} // called for drag-n-drop/resize
       eventRemove={this.handleEventRemove}
-      displayEventTime={true}
       // eventMouseEnter={this.handleEventPositioned}
       eventDidMount={(info) => {
         console.log(info.el)
