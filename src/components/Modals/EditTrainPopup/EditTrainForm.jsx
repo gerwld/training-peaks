@@ -1,11 +1,11 @@
 import React from "react";
 import { Field, Form } from "react-final-form";
 
-const AddTrainForm = ({ onAddTrain }) => {
+const EditTrainForm = ({ onEditTrain }) => {
  return (
   <Form
    initialValues={{ remember: true }}
-   onSubmit={onAddTrain}
+   onSubmit={() => e}
    render={({ handleSubmit }) => (
     <form onSubmit={handleSubmit} className="AddTrainForm">
      <label>
@@ -14,11 +14,11 @@ const AddTrainForm = ({ onAddTrain }) => {
      </label>
      <label>
       <span className="l_title">Decription:</span>
-      <Field component="textarea" type="text" name="desc" placeholder="" required autoComplete="off"/>
+      <Field component="textarea" type="text" name="desc" placeholder="" required autoComplete="off" />
      </label>
      <label>
       <span className="l_title">Distance:</span>
-      <Field component="input" type="text" name="distance" placeholder="5km..." required autoComplete="off"/>
+      <Field component="input" type="text" name="distance" placeholder="5km..." required autoComplete="off" />
      </label>
      <div className="label">
       <span className="l_title">Date:</span>
@@ -38,4 +38,4 @@ const AddTrainForm = ({ onAddTrain }) => {
  );
 };
 
-export default AddTrainForm;
+export default EditTrainForm;

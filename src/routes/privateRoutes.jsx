@@ -19,7 +19,7 @@ const privateRoutes = createBrowserRouter([
   element: <Navigate to="/" replace />,
  },
  {
-  path: "/",
+  path: "/*",
   element: <Dashboard />,
  },
  {

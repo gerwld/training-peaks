@@ -7,6 +7,8 @@ export const setCreateMode = (isCreate) => ({ type: SET_CREATEMODE, isCreate });
 let initialState = {
  isInit: false,
  isCreateMode: false,
+ isEditMode: false,
+ currentObj: null
 };
 
 export default function appReducer(state = initialState, action) {
@@ -15,6 +17,10 @@ export default function appReducer(state = initialState, action) {
    return { ...state, isInit: action.payload };
   case SET_CREATEMODE:
    return { ...state, isCreateMode: action.isCreate };
+  case "TOGGLE_EDIT":
+   return { ...state, 
+    currentObj: action.payload,
+    isEditMode: !state.isEditMode };
   default:
    return state;
  }

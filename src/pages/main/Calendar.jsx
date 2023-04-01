@@ -50,7 +50,7 @@ class Calendar extends React.Component {
       eventRemove={this.handleEventRemove}
       // eventMouseEnter={this.handleEventPositioned}
       eventDidMount={(info) => {
-        console.log(info.el)
+        // console.log(info.el)
         info.el.remove();
       }}
       eventMouseEnter={ (info) => {
@@ -128,7 +128,7 @@ class Calendar extends React.Component {
      title: 'Morning Run',
      type: 'Training Run',
      desc: 'description for train',
-     dist: '5.2km',
+     dist: '5.2',
      rtss: '60',
      start: selectInfo.startStr,
      end: selectInfo.endStr,

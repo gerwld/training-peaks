@@ -13,7 +13,7 @@ let eventDb = [
     title: 'Morning Run',
     type: 'Training Run',
     desc: 'description for train',
-    dist: '5.2km',
+    dist: '5.2',
     rtss: '60',
   },
   {
@@ -21,7 +21,7 @@ let eventDb = [
     title: 'Morning Run',
     type: 'Training Run',
     desc: 'description for train',
-    dist: '7.2km',
+    dist: '7.2',
     rtss: '60',
     start: todayStr + 'T12:00:00',
   }
