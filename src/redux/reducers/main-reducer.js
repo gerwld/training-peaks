@@ -1,7 +1,35 @@
 import { hashById } from '@/utils';
 
 const initState = {
-  eventsById: {}
+  eventsById: [
+    {
+      id: '0',
+      start: '2023-04-01',
+      title: 'Morning Run',
+      type: 'Training Run',
+      desc: 'description for train',
+      dist: '5.2',
+      rtss: '60'
+    },
+    {
+      id: '1',
+      title: 'Morning Run',
+      type: 'Training Run',
+      desc: 'description for train',
+      dist: '7.2',
+      rtss: '60',
+      start: '2023-04-01T12:00:00'
+    },
+    {
+      id: '1',
+      title: 'Morning Run',
+      type: 'Training Run',
+      desc: 'description for train',
+      dist: '7.2',
+      rtss: '60',
+      start: '2023-04-01T12:00:00'
+    }
+  ]
 }
 
 export const mainReducer = (state = initState, action) => {

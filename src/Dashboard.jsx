@@ -10,10 +10,11 @@ import EditTrainPopup from "./components/modals/EditTrainPopup/EditTrainPopup";
 
 const Dashboard = () => {
  const d = useDispatch();
- const { authObj, isCreateMode, isEditMode } = useSelector(({ auth, app }) => ({
+ const { authObj, isCreateMode, isEditMode, selectedDate } = useSelector(({ auth, app }) => ({
   authObj: auth.authObj,
   isCreateMode: app.isCreateMode,
   isEditMode: app.isEditMode,
+  selectedDate: app.selectedDate
  }));
  const toggleCreate = () => {
   d(setCreateMode(!isCreateMode));
@@ -22,24 +23,24 @@ const Dashboard = () => {
   d({ type: "TOGGLE_EDIT", payload: null });
  };
  return (
-  <div className="app_main">
-   <Navbar authName={authObj.email} />
-   <div className="app_content">
-    <Routes>
-     <Route path="/*" element={<MainPage />} />
-     <Route path="settings" element={<SettingsPage />} />
+   <div className="app_main">
+     <Navbar authName={authObj.email} />
+     <div className="app_content">
+       <Routes>
+         <Route path="/*" element={<MainPage />} />
+         <Route path="settings" element={<SettingsPage />} />
 
-     <Route path="/report-issue" element={<ReportIssuePage />} />
-     <Route path="/online-tracker" element={<SecLoader100 />} />
-     <Route path="/select-plan" element={<PlanPage />} />
-    </Routes>
+         <Route path="/report-issue" element={<ReportIssuePage />} />
+         <Route path="/online-tracker" element={<SecLoader100 />} />
+         <Route path="/select-plan" element={<PlanPage />} />
+       </Routes>
 
-    {/* POPUPS  */}
-    <AddTrainPopup isCreateMode={isCreateMode} toggleCreate={toggleCreate} />
-    <EditTrainPopup isEditMode={isEditMode} toggleEdit={toggleEdit} />
+       {/* POPUPS  */}
+       <AddTrainPopup {...{ isCreateMode, toggleCreate, selectedDate }} />
+       <EditTrainPopup isEditMode={isEditMode} toggleEdit={toggleEdit} />
+     </div>
    </div>
-  </div>
- );
+ )
 };
 
 export default Dashboard;

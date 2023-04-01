@@ -1,10 +1,13 @@
 import React from "react";
 import { Field, Form } from "react-final-form";
+import  epochConvert from "@/utils/epochConvert";
 
-const AddTrainForm = ({ onAddTrain }) => {
+const AddTrainForm = ({ onAddTrain, selectedDate }) => {
+ const epochDate = epochConvert(selectedDate, true);
+
  return (
   <Form
-   initialValues={{ remember: true }}
+   initialValues={{ remember: true, epochDate }}
    onSubmit={onAddTrain}
    render={({ handleSubmit }) => (
     <form onSubmit={handleSubmit} className="AddTrainForm">
@@ -14,7 +17,7 @@ const AddTrainForm = ({ onAddTrain }) => {
      </label>
      <label>
       <span className="l_title">Decription:</span>
-      <Field component="textarea" type="text" name="desc" placeholder="" required autoComplete="off"/>
+      <Field component="textarea" type="text" name="description" placeholder="" required autoComplete="off"/>
      </label>
      <label>
       <span className="l_title">Distance:</span>
@@ -22,7 +25,7 @@ const AddTrainForm = ({ onAddTrain }) => {
      </label>
      <div className="label">
       <span className="l_title">Date:</span>
-      <Field component="input" type="date" name="date" placeholder="••••••••" required />
+      <Field component="input" type="date" name="epochDate" placeholder="••••••••" required />
      </div>
      <label>
       <span className="l_title">Link (not required):</span>

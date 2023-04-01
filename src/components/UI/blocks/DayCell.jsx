@@ -2,19 +2,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setCreateMode } from "../../../redux/reducers/app-reducer";
 import { CiCirclePlus } from "react-icons/ci";
-import createEvent from '@/api/'
+import epochConvert from "@/utils/epochConvert";
 
 const DayCell = (selectInfo) => {
   const d = useDispatch();
  const handleDateSelect = async () => {
-  let calendarApi = selectInfo.view.calendar;
-
-  d(setCreateMode(true));
-
-  createEvent()
-
-  d(createEvent)
-
+  const dateSelected = epochConvert(selectInfo.date, false);
+  d(setCreateMode(true, dateSelected));
+  // let calendarApi = selectInfo.view.calendar;
   // calendarApi.addEvent(
   //  {
   //   title: "Morning Run",

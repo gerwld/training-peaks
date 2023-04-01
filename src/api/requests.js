@@ -5,27 +5,7 @@ functions that simulate network requests
 */
 
 let todayStr = getTodayStr()
-let eventGuid = 0
-let eventDb = [
-  {
-    id: createEventId(),
-    start: todayStr,
-    title: 'Morning Run',
-    type: 'Training Run',
-    desc: 'description for train',
-    dist: '5.2',
-    rtss: '60',
-  },
-  {
-    id: createEventId(),
-    title: 'Morning Run',
-    type: 'Training Run',
-    desc: 'description for train',
-    dist: '7.2',
-    rtss: '60',
-    start: todayStr + 'T12:00:00',
-  }
-]
+let eventGuid = 0;
 
 const DELAY = 200
 let simulateErrors = false
