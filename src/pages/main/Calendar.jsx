@@ -14,6 +14,7 @@ import tippy from 'tippy.js';
 
 import ReactTooltip from 'react-tooltip';
 import RenderEvent from "./renderEvent/RenderEvent";
+import DayCell from "../../components/UI/blocks/DayCell";
 
 class Calendar extends React.Component {
   
@@ -33,22 +34,22 @@ class Calendar extends React.Component {
       editable={true}
       allDaySlot={false}
       slotEventOverlap={false}
-      selectable={true}
+      selectable={false}
+      eventDurationEditable={false}
       selectMirror={true}
       displayEventTime={false}
       dayMaxEvents={true}
       firstDay={1}
       weekends={this.props.weekendsVisible}
       datesSet={this.handleDates}
-      select={this.handleDateSelect}
+      select={this.handleDateSelectTrue}
       events={this.props.events}
-      eventContent={(ev) => <RenderEvent eventInfo={ev}/>}
-      // eventClick={this.handleEventClick}
+      eventContent={e => <RenderEvent {...e}/>}
+      dayCellContent={e => <DayCell {...e} />}
 
       eventAdd={this.handleEventAdd}
       eventChange={this.handleEventChange} // called for drag-n-drop/resize
       eventRemove={this.handleEventRemove}
-      // eventMouseEnter={this.handleEventPositioned}
       eventDidMount={(info) => {
         // console.log(info.el)
         info.el.remove();
@@ -114,6 +115,10 @@ class Calendar extends React.Component {
  // handlers for user actions
  // ------------------------------------------------------------------------------------------
 
+ handleDateSelectTrue = async (selectInfo) => {
+  this.startStr = selectInfo.startStr;
+ }
+
  handleDateSelect = async (selectInfo) => {
   let calendarApi = selectInfo.view.calendar;
 
@@ -121,7 +126,6 @@ class Calendar extends React.Component {
 
   calendarApi.unselect(); // clear date selection
 
-  if (true) {
    calendarApi.addEvent(
     {
      // will render immediately. will call handleEventAdd
@@ -131,13 +135,12 @@ class Calendar extends React.Component {
      dist: '5.2',
      rtss: '60',
      start: selectInfo.startStr,
-     end: selectInfo.endStr,
+    //  end: selectInfo.endStr,
      allDay: false,
      editable: true,
     },
     true
    ); // temporary=true, will get overwritten when reducer gives new events
-  }
  };
 
  handleEventClick = (clickInfo) => {
