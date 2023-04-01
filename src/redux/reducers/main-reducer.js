@@ -1,35 +1,32 @@
-import { hashById } from '@/utils'
+import { hashById } from '@/utils';
 
-export function weekendsVisible(weekendsVisible = true, action) {
-  switch (action.type) {
-
-    case 'TOGGLE_WEEKENDS':
-      return !weekendsVisible
-
-    default:
-      return weekendsVisible
-  }
+const initState = {
+  eventsById: {}
 }
 
-export function eventsById(eventsById = {}, action) {
+export const mainReducer = (state = initState, action) => {
   switch (action.type) {
 
     case 'RECEIVE_EVENTS':
-      return hashById(action.plainEventObjects)
+      let ev = hashById(action.plainEventObjects) ? hashById(action.plainEventObjects) : {};
+      return {
+        ...state,
+        eventsById: ev}
 
     case 'CREATE_EVENT':
     case 'UPDATE_EVENT':
       return {
-        ...eventsById,
-        [action.plainEventObject.id]: action.plainEventObject
+        ...state,
+        eventsById: {[action.plainEventObject.id]: action.plainEventObject}
       }
 
     case 'DELETE_EVENT':
-      eventsById = {...eventsById} // copy
-      delete eventsById[action.eventId]
-      return eventsById
+      return {
+        ...state,
+        eventsById: {...state.eventsById}.filter(({eventId}) => eventId == action.eventId)
+      }
 
     default:
-      return eventsById
+      return state
   }
 }

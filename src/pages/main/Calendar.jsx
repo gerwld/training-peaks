@@ -10,7 +10,6 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { setCreateMode } from "../../redux/reducers/app-reducer";
-import tippy from 'tippy.js';
 
 import ReactTooltip from 'react-tooltip';
 import RenderEvent from "./renderEvent/RenderEvent";
@@ -40,39 +39,16 @@ class Calendar extends React.Component {
       displayEventTime={false}
       dayMaxEvents={true}
       firstDay={1}
-      weekends={this.props.weekendsVisible}
+      weekends={true}
       datesSet={this.handleDates}
       select={this.handleDateSelectTrue}
       events={this.props.events}
       eventContent={e => <RenderEvent {...e}/>}
       dayCellContent={e => <DayCell {...e} />}
 
-      eventAdd={this.handleEventAdd}
+      // eventAdd={this.handleEventAdd}
       eventChange={this.handleEventChange} // called for drag-n-drop/resize
-      eventRemove={this.handleEventRemove}
-      eventDidMount={(info) => {
-        // console.log(info.el)
-        info.el.remove();
-      }}
-      eventMouseEnter={ (info) => {
-        // console.log(info.event.title)
-     }}
-    //  eventDidMount={ (info) => {
-    //     tippy(info.el, {
-    //        trigger: 'click',
-    //        touch: 'hold',
-    //        allowHTML: true,
-    //        content:
-    //           `
-    //           <div class="desc_train-tooltip">
-    //           <h3>${info.event.extendedProps.type}</h3>
-    //            <hr/>
-    //            <h5>${info.event.extendedProps.distance}</h5>
-    //            <hr/>
-    //            <p>${info.event.extendedProps.description}</p>
-    //            </div>`,
-    //     });
-    //  }}
+      // eventRemove={this.handleEventRemove}
   />
      <ReactTooltip/>
     </div>
@@ -80,37 +56,6 @@ class Calendar extends React.Component {
   );
  }
 
- handleEventPositioned(info) {
-  console.log(info);
-  info.el.innerText;
-  info.el.setAttribute("data-tip","some text tip");
-   ReactTooltip.rebuild();
- }
-
- renderSidebar() {
-  return (
-   <div className="calendar-sidebar">
-    <div className="calendar-sidebar-section">
-     <h2>Instructions</h2>
-     <ul>
-      <li>Select dates and you will be prompted to create a new event</li>
-      <li>Drag, drop, and resize events</li>
-      <li>Click an event to delete it</li>
-     </ul>
-    </div>
-    <div className="calendar-sidebar-section">
-     <label>
-      <input type="checkbox" checked={this.props.weekendsVisible} onChange={this.props.toggleWeekends}></input>
-      toggle weekends
-     </label>
-    </div>
-    <div className="calendar-sidebar-section">
-     <h2>All Events ({this.props.events.length})</h2>
-     <ul>{this.props.events.map(renderSidebarEvent)}</ul>
-    </div>
-   </div>
-  );
- }
 
  // handlers for user actions
  // ------------------------------------------------------------------------------------------
@@ -178,26 +123,16 @@ class Calendar extends React.Component {
  };
 }
 
-function renderSidebarEvent(plainEventObject) {
- return (
-  <li key={plainEventObject.id}>
-   <b>{formatDate(plainEventObject.start, { year: "numeric", month: "short", day: "numeric" })}</b>
-   <i>{plainEventObject.title}</i>
-  </li>
- );
-}
-
 function reportNetworkError() {
  alert("This action could not be completed");
 }
 
 function mapStateToProps() {
- const getEventArray = createSelector((state) => state.eventsById, getHashValues);
+ const getEventArray = createSelector((state) => state.main.eventsById, getHashValues);
 
  return (state) => {
   return {
-   events: getEventArray(state),
-   weekendsVisible: state.weekendsVisible,
+   events: getEventArray(state)
   };
  };
 }
