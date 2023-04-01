@@ -72,6 +72,6 @@ export function requestEventDelete(eventId) {
   })
 }
 
-function createEventId() {
+export function createEventId() {
   return String(eventGuid++)
 }
