@@ -7,7 +7,7 @@ const epochConvert = (date, isEpoch) => {
                     .split("T")[0];
                     return dateString
   }
-  return Date.parse(date) / 1000;
+  return (Date.parse(date) / 1000).toFixed(0);
 }
 }
 

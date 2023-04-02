@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
-import actionCreators from "@/redux/actions";
+import {updateEvent} from "@/redux/actions/event-actions";
 import { getHashValues } from "@/utils";
 
 import FullCalendar from "@fullcalendar/react";
@@ -13,6 +13,7 @@ import { setCreateMode } from "../../redux/reducers/app-reducer";
 import ReactTooltip from 'react-tooltip';
 import RenderEvent from "./renderEvent/RenderEvent";
 import DayCell from "../../components/UI/blocks/DayCell";
+import epochConvert from "../../utils/epochConvert";
 
 class Calendar extends React.Component {
 
@@ -102,10 +103,18 @@ class Calendar extends React.Component {
  };
 
  handleEventChange = (changeInfo) => {
-  this.props.updateEvent(changeInfo.event.toPlainObject()).catch(() => {
-   reportNetworkError();
-   changeInfo.revert();
-  });
+  let plain = changeInfo.event.toPlainObject();
+  let newObj = {
+      id: plain.id / 1,
+      name: plain.extendedProps.name,
+      description: plain.extendedProps.description,
+      link: plain.extendedProps.link,
+      distance: plain.extendedProps.distance,
+      epochDate: epochConvert(plain.start),
+      start: plain.start,
+  }
+
+  this.props.updateEvent(newObj);
  };
 
  handleEventRemove = (removeInfo) => {
@@ -130,4 +139,4 @@ function mapStateToProps() {
  };
 }
 
-export default connect(mapStateToProps, ({...actionCreators, setCreateMode}))(Calendar);
+export default connect(mapStateToProps, ({setCreateMode, updateEvent}))(Calendar);

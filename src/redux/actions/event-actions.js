@@ -6,6 +6,33 @@ import { setCreateMode } from "../reducers/app-reducer";
 import { setTrainsInit } from "../reducers/main-reducer";
 import timeAddedConvert from "../../utils/timeAddedConvert";
 
+
+export function fetchEvents(fromDate, toDate) {
+  return (dispatch) => {
+    dispatch(setTrainsInit(false));
+    let fromEpochDate = epochConvert(fromDate);
+    let toEpochDate = epochConvert(toDate);
+
+    TrainService.getTrains(fromEpochDate, toEpochDate)
+    .then(({data}) => {
+      const newData = [...data].map(e => {
+        const start = timeAddedConvert(e.createdAt, e.epochDate)
+        return {...e, start}
+      })
+      dispatch({type: 'RECEIVE_EVENTS', plainEventObjects: newData})
+
+      //delay for fullcalendar re-render
+      setTimeout(() => {
+        dispatch(setTrainsInit(true));
+      }, 200)
+      
+    })
+    .catch((error) => {
+      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+    })
+  }
+}
+
 export function createEvent(plainEventObject) {
   return async (dispatch) => {
     let eventObjectWithEpoch = {
@@ -30,28 +57,24 @@ export function createEvent(plainEventObject) {
   }
 }
 
+export function updateEvent(plainEventObject) {
+  return async (dispatch) => {
+    const eventObject = {...plainEventObject};
+    delete eventObject.start;
+    delete eventObject.date;
 
-export function fetchEvents(fromDate, toDate) {
-  return (dispatch) => {
-    dispatch(setTrainsInit(false));
-    let fromEpochDate = epochConvert(fromDate);
-    let toEpochDate = epochConvert(toDate);
-
-    TrainService.getTrains(fromEpochDate, toEpochDate)
-    .then(({data}) => {
-      const newData = [...data].map(e => {
-        const start = timeAddedConvert(e.createdAt, e.epochDate)
-        return {...e, start}
+    TrainService.updateTrain(eventObject)
+    .then(() => {
+      dispatch({
+        type: 'UPDATE_EVENT',
+        plainEventObject
       })
-      dispatch({type: 'RECEIVE_EVENTS', plainEventObjects: newData})
-      setTimeout(() => {
-        dispatch(setTrainsInit(true));
-      }, 300)
-      
-    })
-    .catch((error) => {
-      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
     })
   }
+}
 
+export function deleteEvent(plainEventObject) {
+  return async (dispatch) => {
+
+  }
 }
