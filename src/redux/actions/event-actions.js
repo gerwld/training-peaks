@@ -69,6 +69,10 @@ export function updateEvent(plainEventObject) {
         type: 'UPDATE_EVENT',
         plainEventObject
       })
+      dispatch({type: 'SET_EDIT', isEditMode: false, payload: null});
+    })
+    .catch((error) => {
+      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
     })
   }
 }

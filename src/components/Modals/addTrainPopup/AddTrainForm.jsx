@@ -1,9 +1,9 @@
-import React from "react";
-import { Field, Form } from "react-final-form";
-import  epochConvert from "@/utils/epochConvert";
+import React from "react"
+import { Field, Form } from "react-final-form"
+import epochConvert from "@/utils/epochConvert"
 
 const AddTrainForm = ({ onAddTrain, selectedDate }) => {
- const date = epochConvert(selectedDate , true);
+ const date = epochConvert(selectedDate, true)
 
  return (
   <Form
@@ -17,11 +17,11 @@ const AddTrainForm = ({ onAddTrain, selectedDate }) => {
      </label>
      <label>
       <span className="l_title">Decription:</span>
-      <Field component="textarea" type="text" name="description" required autoComplete="off"/>
+      <Field component="textarea" type="text" name="description" required autoComplete="off" />
      </label>
      <label>
       <span className="l_title">Distance:</span>
-      <Field component="input" type="text" name="distance" placeholder="5km..." required autoComplete="off"/>
+      <Field component="input" type="text" name="distance" placeholder="5km..." required autoComplete="off" />
      </label>
      <div className="label">
       <span className="l_title">Date:</span>
@@ -38,7 +38,7 @@ const AddTrainForm = ({ onAddTrain, selectedDate }) => {
     </form>
    )}
   />
- );
-};
+ )
+}
 
-export default AddTrainForm;
+export default AddTrainForm

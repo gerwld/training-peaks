@@ -14,6 +14,7 @@ import ReactTooltip from 'react-tooltip';
 import RenderEvent from "./renderEvent/RenderEvent";
 import DayCell from "../../components/UI/blocks/DayCell";
 import epochConvert from "../../utils/epochConvert";
+import eventToPlainObj from "../../utils/eventToPlainObj";
 
 class Calendar extends React.Component {
 
@@ -103,16 +104,7 @@ class Calendar extends React.Component {
  };
 
  handleEventChange = (changeInfo) => {
-  let plain = changeInfo.event.toPlainObject();
-  let newObj = {
-      id: plain.id / 1,
-      name: plain.extendedProps.name,
-      description: plain.extendedProps.description,
-      link: plain.extendedProps.link,
-      distance: plain.extendedProps.distance,
-      epochDate: epochConvert(plain.start),
-      start: plain.start,
-  }
+  let newObj = eventToPlainObj(changeInfo.event);
 
   this.props.updateEvent(newObj);
  };

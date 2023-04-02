@@ -24,6 +24,10 @@ export default function appReducer(state = initialState, action) {
    return { ...state, 
     currentObj: action.payload,
     isEditMode: !state.isEditMode };
+    case "SET_EDIT":
+   return { ...state, 
+    currentObj: action.payload,
+    isEditMode: action.isEditMode };
   default:
    return state;
  }
