@@ -2,33 +2,33 @@ import { hashById } from '@/utils';
 
 const initState = {
   eventsById: [
-    {
-      id: '0',
-      start: '2023-04-01',
-      title: 'Morning Run',
-      type: 'Training Run',
-      desc: 'description for train',
-      dist: '5.2',
-      rtss: '60'
+    { id: 36,
+      name: 'test lable',
+      description: 'test descr',
+      link: 'link',
+      distance: 100,
+      epochDate: 1680220800,
+      createdAt: '2023-04-02T16:09:22.504198Z',
+      start: '2023-03-31'
     },
-    {
-      id: '1',
-      title: 'Morning Run',
-      type: 'Training Run',
-      desc: 'description for train',
-      dist: '7.2',
-      rtss: '60',
-      start: '2023-04-01T12:00:00'
+    { id: 35,
+      name: 'test lable',
+      description: 'test descr',
+      link: 'link',
+      distance: 100,
+      epochDate: 1680220800,
+      createdAt: '2023-04-02T16:09:22.504198Z',
+      start: '2023-03-31'
     },
-    {
-      id: '1',
-      title: 'Morning Run',
-      type: 'Training Run',
-      desc: 'description for train',
-      dist: '7.2',
-      rtss: '60',
-      start: '2023-04-01T12:00:00'
-    }
+        { id: 33,
+      name: 'test lable',
+      description: 'test descr',
+      link: 'link',
+      distance: 100,
+      epochDate: 1680220800,
+      createdAt: '2023-04-02T16:09:22.504198Z',
+      start: '2023-03-31'
+    },
   ]
 }
 

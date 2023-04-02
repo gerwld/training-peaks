@@ -12,16 +12,17 @@ const RenderEvent = (eventInfo) => {
 
  return (
   <div className="tc_event">
-   <span className="tc_title">
+
+  <span className="tc_title">
     <span className="tc_icon">
-     <GiRunningShoe />
+      <GiRunningShoe />
     </span>
-    {eventInfo.event.title}
-   </span>
+    {infoProps.name}
+  </span>
 
    <div className="tc_content">
-    <span className="tc_desc">{infoProps.desc}</span>
-    <span className="tc_dist">{infoProps.dist} <span className="metric">km</span></span>
+    <span className="tc_desc">{infoProps.description}</span>
+    <span className="tc_dist">{infoProps.distance} <span className="metric">km</span></span>
     <span className="tc_rtss">{infoProps.rtss} <span className="metric">rTSS</span></span>
    </div>
 

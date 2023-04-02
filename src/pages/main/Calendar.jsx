@@ -4,7 +4,6 @@ import { createSelector } from "@reduxjs/toolkit";
 import actionCreators from "@/redux/actions";
 import { getHashValues } from "@/utils";
 
-import { formatDate } from "@fullcalendar/core";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -16,13 +15,14 @@ import RenderEvent from "./renderEvent/RenderEvent";
 import DayCell from "../../components/UI/blocks/DayCell";
 
 class Calendar extends React.Component {
-  
+
  render() {
   return (
    <div className="calendar">
     {/* {this.renderSidebar()} */}
     <div className="calendar-main">
      <FullCalendar
+     ref={this.calendarRef}
       plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
       headerToolbar={{
        left: "title",
