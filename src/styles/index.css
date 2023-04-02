@@ -139,6 +139,10 @@ button:focus {
   min-height: 100vh;
 }
 
+.app_main {
+  position: relative;
+}
+
 .page_content,
 .app_main {
   animation: appear2 0.6s ease;

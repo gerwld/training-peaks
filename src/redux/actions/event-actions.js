@@ -24,7 +24,7 @@ export function fetchEvents(fromDate, toDate) {
       //delay for fullcalendar re-render
       setTimeout(() => {
         dispatch(setTrainsInit(true));
-      }, 200)
+      }, 100)
       
     })
     .catch((error) => {
