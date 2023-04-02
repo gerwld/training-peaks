@@ -22,4 +22,9 @@ export default class TrainService {
   static async updateTrain(payload) {
     return instance.put(`/trains/${payload.id}`, payload)
   }
+
+
+  static async deleteTrain(eventID) {
+    return instance.delete(`/trains/${eventID}`)
+  }
 }

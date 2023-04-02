@@ -77,8 +77,18 @@ export function updateEvent(plainEventObject) {
   }
 }
 
-export function deleteEvent(plainEventObject) {
+export function deleteEvent(eventID) {
   return async (dispatch) => {
-
+    TrainService.deleteTrain(eventID)
+    .then(() => {
+      dispatch({
+        type: 'DELETE_EVENT',
+        eventID
+      })
+      dispatch({type: 'SET_EDIT', isEditMode: false, payload: null});
+    })
+    .catch((error) => {
+      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+    })
   }
 }
