@@ -2,8 +2,13 @@ import axios from "axios"
 import { instance } from "./instance"
 
 export default class TrainService {
-  static async getTrains(payload) {
-    return instance.get("/trains", payload)
+  static async getTrains(fromEpochDate, toEpochDate) {
+    return instance.get("/trains", {
+      params: {
+        fromEpochDate, 
+        toEpochDate
+      }
+    })
   }
 
   static async getTrain(id) {

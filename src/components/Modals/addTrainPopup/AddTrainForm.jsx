@@ -3,7 +3,7 @@ import { Field, Form } from "react-final-form";
 import  epochConvert from "@/utils/epochConvert";
 
 const AddTrainForm = ({ onAddTrain, selectedDate }) => {
- const date = epochConvert(selectedDate, true);
+ const date = epochConvert(selectedDate , true);
 
  return (
   <Form

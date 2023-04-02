@@ -98,15 +98,8 @@ class Calendar extends React.Component {
  // ------------------------------------------------------------------------------------------
 
  handleDates = (rangeInfo) => {
-  this.props.requestEvents(rangeInfo.startStr, rangeInfo.endStr).catch(reportNetworkError);
+  this.props.fetchEventsCallback(rangeInfo.startStr, rangeInfo.endStr);
  };
-
-//  handleEventAdd = (addInfo) => {
-//   this.props.createEvent(addInfo.event.toPlainObject()).catch(() => {
-//    reportNetworkError();
-//    addInfo.revert();
-//   });
-//  };
 
  handleEventChange = (changeInfo) => {
   this.props.updateEvent(changeInfo.event.toPlainObject()).catch(() => {
