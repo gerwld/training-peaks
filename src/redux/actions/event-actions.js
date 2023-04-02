@@ -4,6 +4,7 @@ import showMessage from "react-hot-toast";
 
 import { setCreateMode } from "../reducers/app-reducer";
 import { setTrainsInit } from "../reducers/main-reducer";
+import timeAddedConvert from "../../utils/timeAddedConvert";
 
 export function createEvent(plainEventObject) {
   return async (dispatch) => {
@@ -14,18 +15,17 @@ export function createEvent(plainEventObject) {
     }
     return TrainService.createTrain(eventObjectWithEpoch)
       .then(({data}) => {
-        const timeAdded = data.createdAt.split('T')[1];
-        const date = `${epochConvert(data.epochDate, true)}T${timeAdded}`;
+        const start = timeAddedConvert(data.createdAt, data.epochDate)
 
         dispatch({
           type: "CREATE_EVENT",
-          plainEventObject: {...data, start:date},
+          plainEventObject: {...data, start},
         })
 
         dispatch(setCreateMode(false));
       })
-      .catch(({err}) => {
-        showMessage.error(err?.response.data.message || 'Unknown error')
+      .catch((error) => {
+        showMessage.error(error?.response.data.message || error.message || 'Unknown error')
       })
   }
 }
@@ -40,13 +40,17 @@ export function fetchEvents(fromDate, toDate) {
     TrainService.getTrains(fromEpochDate, toEpochDate)
     .then(({data}) => {
       const newData = [...data].map(e => {
-        return {...e, start: epochConvert(e.epochDate, true)}
+        const start = timeAddedConvert(e.createdAt, e.epochDate)
+        return {...e, start}
       })
       dispatch({type: 'RECEIVE_EVENTS', plainEventObjects: newData})
-      dispatch(setTrainsInit(true));
+      setTimeout(() => {
+        dispatch(setTrainsInit(true));
+      }, 300)
+      
     })
-    .catch(({err}) => {
-      showMessage.error(err?.response.data.message || 'Unknown error')
+    .catch((error) => {
+      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
     })
   }
 
