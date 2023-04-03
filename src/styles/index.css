@@ -1031,7 +1031,8 @@ span.tc_title {
   display: block;
   font-size: 0.87rem;
   line-height: 180%;
-
+  word-wrap: break-word;
+  white-space: break-spaces;
 }
 
 .calendar-main .fc-theme-standard th:nth-last-child(1),
