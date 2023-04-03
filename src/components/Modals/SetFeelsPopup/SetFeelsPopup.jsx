@@ -6,7 +6,8 @@ import epochConvert from "utils/epochConvert"
 const SetFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {
  const [newDate, setDate] = useState(null)
  const d = useDispatch()
- const onAddTrain = (data) => {
+
+ const onAddFeel = (data) => {
   onCloseFeels()
  }
 
@@ -15,14 +16,16 @@ const SetFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {
  }
 
  useEffect(() => {
-  if (selectedDate) setDate(selectedDate)
+  selectedDate && setDate(selectedDate)
  }, [selectedDate])
 
  return (
   <div className={`modal modal_createnew ${isFeelsMode ? "modal_open" : "modal_close"}`}>
    <div className="modal_content">
-    <h1 className="modal_title">Add Feel ({epochConvert(newDate, true)})</h1>
-    <SetFeelsForm {...{ onAddTrain, selectedDate }} />
+    <h1 className="modal_title">
+     {currentFeelsObj ? "Edit" : "Add"} Feel ({epochConvert(newDate, true)})
+    </h1>
+    <SetFeelsForm {...{ onAddFeel, selectedDate, currentFeelsObj }} />
     <button onClick={onCloseFeels} className="btn_close">
      close
     </button>

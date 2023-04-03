@@ -797,7 +797,6 @@ form {
 }
 
 
-
 .modal {
   position: fixed;
   top: 0;
@@ -849,14 +848,14 @@ form {
   height: 0;
   overflow: hidden;
   pointer-events: none;
+  will-change: opacity;
 }
 
 .modal_open {
   opacity: 1;
   height: 100%;
   pointer-events: all;
-  /* backdrop-filter: blur(3px); */
-  transition: opacity 0.3s, backdrop-filter 0.1s 0.25s;
+  transition: opacity 0s;
   overflow: scroll;
 }
 
@@ -864,13 +863,13 @@ form {
   opacity: 0;
   height: 0;
   overflow: hidden;
-  transition: opacity 0.18s, height 0s 0.5s;
+  transition: opacity 0.1s 0s, height 0s 0.5s;
 }
 
 
 .modal_content {
   transform: translateY(-20px);
-  transition: transform 0.25s;
+  transition: transform 0.25s ease;
 }
 
 .modal_open .modal_content {
@@ -879,7 +878,6 @@ form {
 
 .modal_close .modal_content {
   transform: translateY(100px);
-  transition: transform 0.18s;
 }
 
 

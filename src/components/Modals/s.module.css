@@ -24,7 +24,7 @@
  pointer-events: none;
  user-select: none;
 
- transition: 0.14s ease;
+ transition: 0.1s ease;
 }
 
 .modal_visible {
