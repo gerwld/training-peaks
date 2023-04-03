@@ -2,13 +2,13 @@ import React from "react"
 import { Field, Form } from "react-final-form"
 import epochConvert from "@/utils/epochConvert"
 
-const SetFeelsForm = ({ onAddTrain, selectedDate }) => {
+const SetFeelsForm = ({ onAddFeel, selectedDate }) => {
  const date = epochConvert(selectedDate, true)
 
  return (
   <Form
    initialValues={{ date }}
-   onSubmit={onAddTrain}
+   onSubmit={onAddFeel}
    render={({ handleSubmit }) => (
     <form onSubmit={handleSubmit} className="SetFeelsForm">
      <label>
