@@ -1,8 +1,7 @@
-import React, { useEffect } from "react"
-import MainPageCalendar from "./Calendar"
+import React from "react"
+import MainPageCalendar from "./calendar/Calendar"
 import { useDispatch, useSelector } from "react-redux"
 import { SecLoader100 } from "@/components"
-import { fetchEvents } from "../../redux/actions/event-actions"
 
 const MainPage = () => {
   const d = useDispatch()
@@ -11,13 +10,9 @@ const MainPage = () => {
     isTrainInit: main.isTrainInit,
   }))
 
-  const fetchEventsCallback = (fromDate, toDate) => {
-    d(fetchEvents(fromDate, toDate))
-  }
-
   return (
     <div className="page_content main_page">
-      <MainPageCalendar {...{ events, fetchEventsCallback }} />
+      <MainPageCalendar {...{events}} />
 
       <SecLoader100 isVisible={!isTrainInit} />
     </div>

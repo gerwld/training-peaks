@@ -88,7 +88,7 @@ li {
 *::after {
   box-sizing: border-box;
   letter-spacing: 0.02em;
-  user-select: none;
+  /* user-select: none; */
 }
 
 body {
@@ -1125,8 +1125,8 @@ span.metric {
   font-size: 40px;
   border: 1.5px solid var(--basic-blue);
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.1s ease 0s;
+  pointer-events: all;
+  transition: opacity 0.1s linear;
 }
 
 .fc-daygrid-day-number {
@@ -1139,8 +1139,10 @@ span.metric {
   pointer-events: all;
 }
 
+.fc-day:hover .fc_addbtn:hover,
 .fc_addbtn:hover {
-  opacity: 1 !important;
+  opacity: 1;
+  transition: 0s;
 }
 
 .fc_dayheader {
@@ -1149,7 +1151,7 @@ span.metric {
 
 
 
-thead .fc-day-today .fc_dayheader__title::after {
+thead .fc-day-today .fc_daygeader__title::after {
   content: '(today)';
   margin-left: 5px;
   font-size: 0.95em;
@@ -1201,4 +1203,13 @@ thead .fc-day-today .fc_dayheader__title::after {
 
 .fc_daygeader__feelbtn:focus {
   outline: none;
+}
+
+.cf_dayfeel {
+  order: -2;
+}
+
+.fc-daygrid-day-number {
+  pointer-events: none;
+  user-select: none;
 }
