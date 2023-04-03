@@ -33,6 +33,21 @@ const AuthPage = ({ isReg }) => {
       <div className={s.login_block_content}>
        <h1 className={s.header}>{isReg ? "Create an account" : "Sign In to our platform"}</h1>
 
+       <div className={s.fast_auth}>
+        <NavLink to="/oauth/google/" className={s.fast_auth_block}>
+         <img src="./assets/img/google.svg" />
+         <span>Continue with Google</span>
+        </NavLink>
+        {/* <button className={s.fast_auth_block}>
+         <img src="./assets/img/apple.svg" />
+         <span>Continue with Apple</span>
+        </button> */}
+
+        <div className={s.fast_auth_sub_wrapper}>
+         <span className={s.fast_auth_sub}>Or sign {isReg ? "up" : "in"} with email</span>
+        </div>
+       </div>
+
        {error?.length ? <span className="error-box">{error}</span> : ""}
        {message?.length ? <span className="success-box">{message}</span> : ""}
 

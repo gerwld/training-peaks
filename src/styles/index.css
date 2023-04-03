@@ -434,6 +434,15 @@ a.navbar-l1_logo:hover {
   text-decoration: underline;
 }
 
+
+.oauth-page {
+  height: 100vh;
+  background-color: #fff;
+  padding: 15px;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 1rem;
+}
 .lang_button {
   min-height: 60px;
   min-width: 60px;

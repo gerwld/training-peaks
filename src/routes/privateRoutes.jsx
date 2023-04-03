@@ -2,6 +2,10 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import Dashboard from "../Dashboard";
 
 const privateRoutes = createBrowserRouter([
+  {
+    path: "/oauth/*",
+    element: <Navigate to="/" replace />,
+   },
  {
   path: "/sign-in",
   element: <Navigate to="/" replace />,

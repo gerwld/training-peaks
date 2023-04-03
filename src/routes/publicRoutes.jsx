@@ -1,7 +1,12 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { AuthPage, RestoreAccess } from "../pages";
+import AuthSocial from "../pages/auth/AuthSocial";
 
 const publicRoutes = createBrowserRouter([
+  {
+    path: "/oauth/:authBy/",
+    element: <AuthSocial/>,
+   },
  {
   path: "/sign-in",
   element: <AuthPage/>,

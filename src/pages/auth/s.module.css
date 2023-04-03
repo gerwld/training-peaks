@@ -190,11 +190,17 @@
   text-align: center;
   user-select: none;
 
+  color: #000;
+
   border-radius: 5px;
   border: 1.5px solid #d7dade;
   background: transparent;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+.fast_auth_block:hover {
+  text-decoration: none!important;
 }
 
 .fast_auth_sub_wrapper {
