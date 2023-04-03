@@ -1,14 +1,12 @@
-const SET_INIT = "@@training-app/app-reducer/SET_INIT";
-const SET_CREATEMODE = "@@training-app/app-reducer/SET_CREATEMODE";
-
-export const setInit = (payload) => ({ type: SET_INIT, payload });
-export const setCreateMode = (isCreate, selectedDate) => ({ type: SET_CREATEMODE, isCreate, selectedDate });
+import { SET_CREATEMODE, SET_INIT } from "@/redux/actions/app-actions";
 
 let initialState = {
  isInit: false,
  isCreateMode: false,
  isEditMode: false,
+ isFeelsMode: false,
  currentObj: null,
+ currentFeelObj: null,
  selectedDate: null
 };
 
@@ -28,6 +26,16 @@ export default function appReducer(state = initialState, action) {
    return { ...state, 
     currentObj: action.payload,
     isEditMode: action.isEditMode };
+  case "SET_FEELSMODE":
+    return { ...state, 
+      selectedDate: action.selectedDate,
+      currentFeelObj: action.isFeel ? action.currentFeelObj : null,
+      isFeelsMode: action.isFeel };
+  case "CLOSE_FEELSMODE":
+    return { ...state, 
+      selectedDate: null,
+      currentFeelObj: null,
+      isFeelsMode: false };
   default:
    return state;
  }

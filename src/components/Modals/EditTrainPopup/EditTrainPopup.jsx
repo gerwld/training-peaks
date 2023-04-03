@@ -1,14 +1,11 @@
 import React from "react"
 import EditTrainForm from "./EditTrainForm"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { updateEvent } from "@/redux/actions/event-actions"
 import { deleteEvent } from "@/redux/actions/event-actions"
 
-const EditTrainPopup = ({ isEditMode, toggleEdit }) => {
+const EditTrainPopup = ({ isEditMode, toggleEdit, currentObj }) => {
  const d = useDispatch()
- const { currentObj } = useSelector(({ app }) => ({
-  currentObj: app.currentObj,
- }))
 
  const onEditTrain = (data) => {
   d(updateEvent(data))

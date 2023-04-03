@@ -2,7 +2,7 @@ import TrainService from "@/api/TrainService"
 import epochConvert from "@/utils/epochConvert";
 import showMessage from "react-hot-toast";
 
-import { setCreateMode } from "../reducers/app-reducer";
+import { setCreateMode } from "@/redux/actions/app-actions";
 import { setTrainsInit } from "../reducers/main-reducer";
 import timeAddedConvert from "../../utils/timeAddedConvert";
 

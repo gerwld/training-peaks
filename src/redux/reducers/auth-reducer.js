@@ -2,7 +2,7 @@ import axios from "axios";
 import AuthService from "@/api/AuthService";
 import showMessage from "react-hot-toast";
 import { setAxiosSession } from "../../utils/setAxiosSession";
-import { setInit } from "./app-reducer";
+import { setInit } from "@/redux/actions/app-actions";
 
 const LOGOUT = "@@training-app/dash-reducer/LOGOUT";
 const SET_USER_DATA = "@@training-app/dash-reducer/SET_USER_DATA";

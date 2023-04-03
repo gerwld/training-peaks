@@ -8,11 +8,12 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { setCreateMode } from "../../redux/reducers/app-reducer";
+import { setCreateMode } from "@/redux/actions/app-actions";
 
 import ReactTooltip from 'react-tooltip';
 import RenderEvent from "./renderEvent/RenderEvent";
 import DayCell from "../../components/UI/blocks/DayCell";
+import DayHeader from "../../components/UI/blocks/DayHeader";
 import epochConvert from "../../utils/epochConvert";
 import eventToPlainObj from "../../utils/eventToPlainObj";
 
@@ -47,6 +48,7 @@ class Calendar extends React.Component {
       events={this.props.events}
       eventContent={e => <RenderEvent {...e}/>}
       dayCellContent={e => <DayCell {...e} />}
+      dayHeaderContent={e => <DayHeader {...e} />}
 
       // eventAdd={this.handleEventAdd}
       eventChange={this.handleEventChange} // called for drag-n-drop/resize

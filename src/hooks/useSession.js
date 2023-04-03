@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setInit } from "../redux/reducers/app-reducer";
+import { setInit } from "@/redux/actions/app-actions";
 import { getUser } from "../redux/reducers/auth-reducer";
 
 export default function useSession(isInit) {

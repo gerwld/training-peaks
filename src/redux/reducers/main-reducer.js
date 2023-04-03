@@ -5,6 +5,7 @@ export const setTrainsInit = (isInit) => ({type: SET_TRAINS_INIT, isInit});
 
 const initState = {
   isTrainInit: false,
+  feelsById: null,
   eventsById: [
     { id: 36,
       name: 'test lable',
@@ -62,6 +63,32 @@ export const mainReducer = (state = initState, action) => {
         ...state,
         isTrainInit: action.isInit
       }
+    
+
+
+      case 'RECEIVE_FEELS':
+        let ev2 = hashById(action.plainEventObjects) ? hashById(action.plainEventObjects) : {};
+        return {
+          ...state,
+          feelsById: ev2}
+  
+      case 'CREATE_FEELS':
+      case 'UPDATE_FEELS':
+        return {
+          ...state,
+          feelsById: {...state.feelsById, [action.plainEventObject.id]: action.plainEventObject}
+        }
+  
+      case 'DELETE_FEELS':
+        return {
+          ...state,
+          feelsById: {...state.feelsById}.filter(({eventId}) => eventId == action.eventId)
+        }
+      case 'SET_FEELS_INIT':
+        return {
+          ...state,
+          isTrainInit: action.isInit
+        }
     default:
       return state
   }

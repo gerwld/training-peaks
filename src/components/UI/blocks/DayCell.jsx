@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setCreateMode } from "../../../redux/reducers/app-reducer";
+import { setCreateMode } from "@/redux/actions/app-actions";
 import { CiCirclePlus } from "react-icons/ci";
 import epochConvert from "@/utils/epochConvert";
 

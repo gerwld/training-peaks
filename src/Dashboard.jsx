@@ -3,18 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { SecLoader100, Navbar } from "./components";
 import { MainPage, ReportIssuePage, SettingsPage, PlanPage } from "./pages";
-import { setCreateMode } from "./redux/reducers/app-reducer";
+import { setCreateMode } from "@/redux/actions/app-actions";
 
 import AddTrainPopup from "./components/modals/AddTrainPopup/AddTrainPopup";
 import EditTrainPopup from "./components/modals/EditTrainPopup/EditTrainPopup";
+import SetFeelsPopup from "./components/modals/SetFeelsPopup/SetFeelsPopup";
 
 const Dashboard = () => {
  const d = useDispatch();
- const { authObj, isCreateMode, isEditMode, selectedDate } = useSelector(({ auth, app }) => ({
+ const { authObj, isCreateMode, isEditMode, selectedDate, isFeelsMode, currentObj, currentFeelsObj } = useSelector(({ auth, app }) => ({
   authObj: auth.authObj,
   isCreateMode: app.isCreateMode,
   isEditMode: app.isEditMode,
-  selectedDate: app.selectedDate
+  isFeelsMode: app.isFeelsMode,
+  selectedDate: app.selectedDate,
+  currentObj: app.currentObj,
+  currentFeelsObj: app.currentFeelsObj
  }));
  const toggleCreate = () => {
   d(setCreateMode(!isCreateMode));
@@ -37,7 +41,8 @@ const Dashboard = () => {
 
        {/* POPUPS  */}
        <AddTrainPopup {...{ isCreateMode, toggleCreate, selectedDate }} />
-       <EditTrainPopup isEditMode={isEditMode} toggleEdit={toggleEdit} />
+       <SetFeelsPopup {...{ isFeelsMode, selectedDate, currentFeelsObj, toggleCreate }} />
+       <EditTrainPopup isEditMode={isEditMode} toggleEdit={toggleEdit} currentObj={currentObj} />
      </div>
    </div>
  )
