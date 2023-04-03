@@ -88,7 +88,17 @@ li {
 *::after {
   box-sizing: border-box;
   letter-spacing: 0.02em;
-  /* user-select: none; */
+  user-select: none;
+}
+
+input,
+textarea,
+p {
+  user-select: all;
+}
+
+button span {
+  user-select: none;
 }
 
 body {
@@ -1116,9 +1126,11 @@ span.metric {
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 100%;
   height: 60px;
 
+  padding: 0;
   margin: 0;
 
   color: var(--basic-blue-text);
@@ -1149,6 +1161,11 @@ span.metric {
   display: block;
 }
 
+.fc-daygrid-day-events,
+.fc-daygrid-event-harness,
+.fc_daygeader__title {
+  user-select: none!important;
+}
 
 
 thead .fc-day-today .fc_daygeader__title::after {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useDispatch } from "react-redux"
 import { setCreateMode } from "@/redux/actions/app-actions"
 import { CiCirclePlus } from "react-icons/ci"
@@ -12,9 +12,9 @@ const DayCell = (selectInfo) => {
  }
 
  return (
-   <button onClick={handleDateSelect} className="fc_addbtn">
-    <CiCirclePlus />
-   </button>
+  <button onClick={handleDateSelect} className="fc_addbtn">
+   <CiCirclePlus />
+  </button>
  )
 }
 
