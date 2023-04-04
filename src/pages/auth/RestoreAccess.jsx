@@ -1,18 +1,19 @@
-import React from "react";
-import { Field, Form } from "react-final-form";
-import { useDispatch } from "react-redux";
+import React from "react"
+import { Field, Form } from "react-final-form"
+import { useDispatch } from "react-redux"
 
-import { NavbarDefault } from "../../components";
-import { restorePassword } from "../../redux/reducers/auth-reducer";
-import s from "./s.module.css";
+import { NavbarDefault } from "components"
+import { restorePassword } from "redux/reducers/auth-reducer"
+import s from "./s.module.css"
 
 const RestoreAccess = () => {
-  const d = useDispatch();
+ const d = useDispatch()
+
  const onRestore = (data) => {
   if (data) {
-   d(restorePassword(data));
+   d(restorePassword(data))
   }
- };
+ }
 
  return (
   <div className={s.restore_content}>
@@ -27,8 +28,8 @@ const RestoreAccess = () => {
       render={({ handleSubmit, form }) => (
        <form
         onSubmit={(e) => {
-         handleSubmit(e);
-         form.reset();
+         handleSubmit(e)
+         form.reset()
         }}
         className={s.LoginForm}
        >
@@ -46,7 +47,7 @@ const RestoreAccess = () => {
     </div>
    </div>
   </div>
- );
-};
+ )
+}
 
-export default RestoreAccess;
+export default RestoreAccess

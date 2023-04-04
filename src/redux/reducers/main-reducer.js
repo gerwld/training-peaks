@@ -5,7 +5,29 @@ export const setTrainsInit = (isInit) => ({type: SET_TRAINS_INIT, isInit});
 
 const initState = {
   isTrainInit: false,
-  feelsById: null,
+  feelsById: {
+      "additionalProp1": {
+        "date": "string",
+        "epochDay": 1680991200,
+        "heartRate": 0,
+        "text": "string",
+        "weight": 0
+      },
+      "additionalProp2": {
+        "date": "string",
+        "epochDay": 1680732000,
+        "heartRate": 0,
+        "text": "string",
+        "weight": 0
+      },
+      "additionalProp3": {
+        "date": "string",
+        "epochDay": 0,
+        "heartRate": 0,
+        "text": "string",
+        "weight": 0
+      }
+    },
   eventsById: [
     { id: 36,
       name: 'test lable',

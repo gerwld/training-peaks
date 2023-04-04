@@ -23,6 +23,9 @@ const ModalAuth = withClickOutside(({ isShow, refElement, toggleShow, authName }
    </button>
    <div className={`${s.modal_window} ${isShow ? s.modal_visible : ""} modal_l03`}>
     <ul onClick={toggleShow}>
+    <li>
+      <NavLink to="/settings">Statistics</NavLink>
+     </li>
      <li>
       <NavLink to="/settings">Settings</NavLink>
      </li>

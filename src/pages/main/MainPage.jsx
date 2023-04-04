@@ -5,14 +5,15 @@ import { SecLoader100 } from "@/components"
 
 const MainPage = () => {
   const d = useDispatch()
-  const { events, isTrainInit } = useSelector(({ main }) => ({
+  const { events,feels, isTrainInit } = useSelector(({ main }) => ({
     events: main.eventsById,
+    feels: main.feelsById,
     isTrainInit: main.isTrainInit,
   }))
 
   return (
     <div className="page_content main_page">
-      <MainPageCalendar {...{events}} />
+      <MainPageCalendar {...{events, feels}} />
 
       <SecLoader100 isVisible={!isTrainInit} />
     </div>
