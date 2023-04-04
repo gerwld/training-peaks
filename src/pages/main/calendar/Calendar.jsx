@@ -53,7 +53,7 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
       const findFeel = feelsArray.find((e) => Number(e.epochDay) === Number(date))
 
       if (findFeel) {
-       ReactDOM.createRoot(mountData.el).render(<DayFeel {...{ findFeel }} ref={feelRef} />)
+       ReactDOM.createRoot(mountData.el).render(<DayFeel {...{ findFeel, date }} ref={feelRef} />)
 
        const cf_height = feelRef?.current;
        mountData.el.querySelector(".fc-daygrid-day-frame").style.minHeight =  `calc(100% - ${cf_height ? cf_height + 16 : '132'}px)`
