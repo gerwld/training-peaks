@@ -5,7 +5,9 @@ import store from "redux/store"
 import { FaRegEdit } from "react-icons/fa"
 import withSetFeel from "hocs/withSetFeel"
 
-const DayFeel = withSetFeel(({ onFeelSelect }) => {
+const DayFeel = withSetFeel((props) => {
+  const { onFeelSelect, findFeel } = props;
+  console.log(props);
  return (
   <div className="cf_dayfeel">
    <div className="cf_dayfeel__header">
@@ -20,13 +22,16 @@ const DayFeel = withSetFeel(({ onFeelSelect }) => {
      Sleep hours: <span className="metric">8.72h</span>
     </span>
     <span className="cf_dayfeel__param">
-     Weight: <span className="metric">8.72h</span>
+     Weight: <span className="metric">{findFeel.weight}kg</span>
     </span>
     <span className="cf_dayfeel__param">
-     Mood: <span className="metric">8</span>
+     Heart Rate: <span className="metric">{findFeel.heartRate}bpm</span>
     </span>
     <span className="cf_dayfeel__param">
-     Productiveness: <span className="metric">7</span>
+     Mood: <span className="metric">{8}/10</span>
+    </span>
+    <span className="cf_dayfeel__param">
+     <span className="metric">{findFeel.text}</span>
     </span>
    </div>
   </div>

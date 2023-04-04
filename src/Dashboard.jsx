@@ -7,7 +7,7 @@ import { setCreateMode } from "@/redux/actions/app-actions";
 
 import AddTrainPopup from "./components/modals/train/AddTrainPopup/AddTrainPopup";
 import EditTrainPopup from "./components/modals/train/EditTrainPopup/EditTrainPopup";
-import AddFeelsPopup from "./components/modals/feels/AddFeelsPopup/AddFeelsPopup";
+import SetFeelsPopup from "./components/modals/feels/SetFeelsPopup";
 
 const Dashboard = () => {
  const d = useDispatch();
@@ -41,7 +41,7 @@ const Dashboard = () => {
 
        {/* POPUPS  */}
        <AddTrainPopup {...{ isCreateMode, toggleCreate, selectedDate }} />
-       <AddFeelsPopup {...{ isFeelsMode, selectedDate, currentFeelsObj, toggleCreate }} />
+       <SetFeelsPopup {...{ isFeelsMode, selectedDate, currentFeelsObj, toggleCreate }} />
        <EditTrainPopup isEditMode={isEditMode} toggleEdit={toggleEdit} currentObj={currentObj} />
      </div>
    </div>

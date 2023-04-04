@@ -21,7 +21,7 @@ const AddTrainForm = ({ onAddTrain, selectedDate }) => {
      </label>
      <label>
       <span className="l_title">Distance:</span>
-      <Field component="input" type="text" name="distance" placeholder="5km..." required autoComplete="off" />
+      <Field component="input" type="number" name="distance" placeholder="5km..." required autoComplete="off" />
      </label>
      <div className="label">
       <span className="l_title">Date:</span>
@@ -29,7 +29,7 @@ const AddTrainForm = ({ onAddTrain, selectedDate }) => {
      </div>
      <label>
       <span className="l_title">Link (not required):</span>
-      <Field component="input" type="text" name="link" placeholder="strava.com/?training=123" required autoComplete="off" />
+      <Field component="input" type="text" name="link" placeholder="strava.com/?training=123" autoComplete="off" />
      </label>
 
      <button type="submit" className="btn_submit">

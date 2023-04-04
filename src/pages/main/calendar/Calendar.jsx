@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import ReactDOM from "react-dom/client"
 import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
@@ -9,16 +9,14 @@ import withCalendar from "hocs/withCalendar"
 import RenderEvent from "./RenderEvent"
 import DayCell from "./DayCell"
 import DayHeader from "./DayHeader"
-import { getHashValues } from "../../../utils"
+import { getHashValues } from "utils"
 import DayFeel from "./DayFeel"
-import epochConvert from "../../../utils/epochConvert"
-import findFeelByDate from "../../../utils/findFeelByDate"
+import findFeelByDate from "utils/findFeelByDate"
 
 const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
  const fullCalendar = React.useRef()
  const feelRef = React.useRef()
  const feelsArray = getHashValues(feels)
-
 
  return (
   <div className="calendar">
@@ -47,21 +45,22 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
      eventContent={(e) => <RenderEvent {...e} />}
      dayCellContent={(e) => <DayCell {...e} />}
      dayHeaderContent={(e) => {
-
-      return <DayHeader {...{...e, findFeel: findFeelByDate(e.date, feelsArray)}} />;
+      const findFeel = findFeelByDate(e.date, feelsArray)
+      return <DayHeader {...{ ...e, findFeel }} />
      }}
      eventChange={handleEventChange}
-     
+
      //custom injection for DayFeel
      dayCellDidMount={(mountData) => {
-      const findFeel = findFeelByDate(mountData.date, feelsArray);
+      const findFeel = findFeelByDate(mountData.date, feelsArray)
       if (findFeel) {
        ReactDOM.createRoot(mountData.el).render(<DayFeel {...{ findFeel, date: mountData.date }} ref={feelRef} />)
 
-       const cf_height = feelRef.current?.clientHeight;
-       mountData.el.querySelector(".fc-daygrid-day-frame").style.minHeight =  `calc(100% - ${cf_height ? (cf_height + 16) : '132'}px)`
+       const cf_height = feelRef.current?.clientHeight
+       mountData.el.querySelector(".fc-daygrid-day-frame").style.minHeight = `calc(100% - ${cf_height ? cf_height + 16 : "132"}px)`
       }
      }}
+
     />
    </div>
   </div>

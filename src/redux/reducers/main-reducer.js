@@ -9,16 +9,16 @@ const initState = {
       "additionalProp1": {
         "date": "string",
         "epochDay": 1680991200,
-        "heartRate": 0,
-        "text": "string",
-        "weight": 0
+        "heartRate": 60,
+        "text": "Desrciption 1",
+        "weight": 89
       },
       "additionalProp2": {
         "date": "string",
         "epochDay": 1680732000,
-        "heartRate": 0,
-        "text": "string",
-        "weight": 0
+        "heartRate": 120,
+        "text": "Description 2",
+        "weight": 85
       },
       "additionalProp3": {
         "date": "string",

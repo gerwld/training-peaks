@@ -9,5 +9,5 @@ export const setCreateMode = (isCreate, selectedDate) =>
 export const addFeelsMode = (currentObj, isFeel, selectedDate) => 
 ({ type: "SET_FEELSMODE", currentObj, isFeel, selectedDate });
 
-export const editFeelsMode = (currentFeelObj, isFeel, selectedDate) => 
-({ type: "EDIT_FEELSMODE", selectedDate, currentFeelObj, isFeel });
+export const editFeelsMode = (currentFeelsObj, isFeel, selectedDate) => 
+({ type: "EDIT_FEELSMODE", selectedDate, currentFeelsObj, isFeel });

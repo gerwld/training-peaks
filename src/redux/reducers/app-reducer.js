@@ -6,7 +6,7 @@ let initialState = {
  isEditMode: false,
  isFeelsMode: false,
  currentObj: null,
- currentFeelObj: null,
+ currentFeelsObj: null,
  selectedDate: null
 };
 
@@ -31,13 +31,13 @@ export default function appReducer(state = initialState, action) {
   case "SET_FEELSMODE":
     return { ...state, 
       selectedDate: action.selectedDate,
-      currentFeelObj: action.isFeel ? action.currentFeelObj : null,
+      currentFeelsObj: action.isFeel ? action.currentObj : null,
       isFeelsMode: action.isFeel };
 
   case "CLOSE_FEELSMODE":
     return { ...state, 
       selectedDate: null,
-      currentFeelObj: null,
+      currentFeelsObj: null,
       isFeelsMode: false };
 
 
