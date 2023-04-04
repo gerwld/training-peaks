@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import { IoIosTimer } from "react-icons/io"
 
 const DayFeel = () => {
@@ -17,4 +17,4 @@ const DayFeel = () => {
  )
 }
 
-export default DayFeel
+export default forwardRef(DayFeel);
