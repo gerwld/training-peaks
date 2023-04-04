@@ -1233,6 +1233,8 @@ thead .fc-day-today .fc_daygeader__title::after {
 .cf_dayfeel {
   position: relative;
   order: -2;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
   z-index: 100;
 }
 
@@ -1291,11 +1293,6 @@ thead .fc-day-today .fc_daygeader__title::after {
 
 .cf_dayfeel .metric {
   color: #495662;
-}
-
-.cf_dayfeel {
-  cursor: pointer;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .cf_dayfeel .tc_edit {

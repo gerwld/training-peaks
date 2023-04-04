@@ -1,27 +1,20 @@
 import React, { forwardRef } from "react"
 import { IoIosTimer } from "react-icons/io"
-import { Provider, useDispatch } from "react-redux"
+import { Provider } from "react-redux"
 import store from "redux/store"
-import { setFeelsMode } from "redux/actions/app-actions"
 import { FaRegEdit } from "react-icons/fa"
+import withSetFeel from "hocs/withSetFeel"
 
-const DayFeel = ({ findFeel, date }) => {
- const d = useDispatch()
-
- const onEditFeels = () => {
-  d(setFeelsMode(findFeel, true, date))
- }
-
+const DayFeel = withSetFeel(({ onFeelSelect }) => {
  return (
   <div className="cf_dayfeel">
    <div className="cf_dayfeel__header">
     <IoIosTimer />
-
-    <button onClick={onEditFeels} className="tc_edit" title="Edit training">
-    <FaRegEdit />
-    edit
-   </button>
+    <button onClick={onFeelSelect} className="tc_edit" title="Edit feel resource">
+     <FaRegEdit />
+    </button>
    </div>
+
    <div className="cf_dayfeel__content">
     <span className="cf_dayfeel__param">
      Sleep hours: <span className="metric">8.72h</span>
@@ -38,10 +31,12 @@ const DayFeel = ({ findFeel, date }) => {
    </div>
   </div>
  )
-}
+})
 
-export default forwardRef(() => (
- <Provider store={store}>
-  <DayFeel />
- </Provider>
+export default forwardRef((props, ref) => (
+ <div ref={ref}>
+  <Provider store={store}>
+   <DayFeel {...props} />
+  </Provider>
+ </div>
 ))

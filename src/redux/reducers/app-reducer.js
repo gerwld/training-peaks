@@ -26,16 +26,21 @@ export default function appReducer(state = initialState, action) {
    return { ...state, 
     currentObj: action.payload,
     isEditMode: action.isEditMode };
+
+
   case "SET_FEELSMODE":
     return { ...state, 
       selectedDate: action.selectedDate,
       currentFeelObj: action.isFeel ? action.currentFeelObj : null,
       isFeelsMode: action.isFeel };
+
   case "CLOSE_FEELSMODE":
     return { ...state, 
       selectedDate: null,
       currentFeelObj: null,
       isFeelsMode: false };
+
+
   default:
    return state;
  }

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
-import SetFeelsForm from "./SetFeelsForm"
+import AddFeelsForm from "./EditFeelsForm"
 import epochConvert from "utils/epochConvert"
 
-const SetFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {
+const AddFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {
  const [newDate, setDate] = useState(null)
  const d = useDispatch()
 
@@ -25,7 +25,7 @@ const SetFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {
     <h1 className="modal_title">
      {currentFeelsObj ? "Edit" : "Add"} Feel ({epochConvert(newDate, true)})
     </h1>
-    <SetFeelsForm {...{ onAddFeel, selectedDate, currentFeelsObj }} />
+    <AddFeelsForm {...{ onAddFeel, selectedDate, currentFeelsObj }} />
     <button onClick={onCloseFeels} className="btn_close">
      close
     </button>
@@ -34,4 +34,4 @@ const SetFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {
  )
 }
 
-export default SetFeelsPopup
+export default AddFeelsPopup

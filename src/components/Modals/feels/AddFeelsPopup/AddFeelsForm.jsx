@@ -2,7 +2,7 @@ import React from "react"
 import { Field, Form } from "react-final-form"
 import epochConvert from "@/utils/epochConvert"
 
-const SetFeelsForm = ({ onAddFeel, selectedDate }) => {
+const AddFeelsForm = ({ onAddFeel, selectedDate }) => {
  const date = epochConvert(selectedDate, true)
 
  return (
@@ -10,7 +10,7 @@ const SetFeelsForm = ({ onAddFeel, selectedDate }) => {
    initialValues={{ date }}
    onSubmit={onAddFeel}
    render={({ handleSubmit }) => (
-    <form onSubmit={handleSubmit} className="SetFeelsForm">
+    <form onSubmit={handleSubmit} className="AddFeelsForm">
      <label>
       <span className="l_title">Training Lable:</span>
       <Field component="input" type="text" name="name" placeholder="Morning Run" autoComplete="false" required />
@@ -41,4 +41,4 @@ const SetFeelsForm = ({ onAddFeel, selectedDate }) => {
  )
 }
 
-export default SetFeelsForm
+export default AddFeelsForm

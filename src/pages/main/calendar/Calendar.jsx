@@ -12,11 +12,13 @@ import DayHeader from "./DayHeader"
 import { getHashValues } from "../../../utils"
 import DayFeel from "./DayFeel"
 import epochConvert from "../../../utils/epochConvert"
+import findFeelByDate from "../../../utils/findFeelByDate"
 
 const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
  const fullCalendar = React.useRef()
  const feelRef = React.useRef()
  const feelsArray = getHashValues(feels)
+
 
  return (
   <div className="calendar">
@@ -44,19 +46,20 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
      events={getHashValues(events)}
      eventContent={(e) => <RenderEvent {...e} />}
      dayCellContent={(e) => <DayCell {...e} />}
-     dayHeaderContent={(e) => <DayHeader {...e} />}
+     dayHeaderContent={(e) => {
+
+      return <DayHeader {...{...e, findFeel: findFeelByDate(e.date, feelsArray)}} />;
+     }}
      eventChange={handleEventChange}
      
      //custom injection for DayFeel
      dayCellDidMount={(mountData) => {
-      const date = epochConvert(mountData.date)
-      const findFeel = feelsArray.find((e) => Number(e.epochDay) === Number(date))
-
+      const findFeel = findFeelByDate(mountData.date, feelsArray);
       if (findFeel) {
-       ReactDOM.createRoot(mountData.el).render(<DayFeel {...{ findFeel, date }} ref={feelRef} />)
+       ReactDOM.createRoot(mountData.el).render(<DayFeel {...{ findFeel, date: mountData.date }} ref={feelRef} />)
 
-       const cf_height = feelRef?.current;
-       mountData.el.querySelector(".fc-daygrid-day-frame").style.minHeight =  `calc(100% - ${cf_height ? cf_height + 16 : '132'}px)`
+       const cf_height = feelRef.current?.clientHeight;
+       mountData.el.querySelector(".fc-daygrid-day-frame").style.minHeight =  `calc(100% - ${cf_height ? (cf_height + 16) : '132'}px)`
       }
      }}
     />

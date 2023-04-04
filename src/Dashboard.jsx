@@ -5,9 +5,9 @@ import { SecLoader100, Navbar } from "./components";
 import { MainPage, ReportIssuePage, SettingsPage, PlanPage } from "./pages";
 import { setCreateMode } from "@/redux/actions/app-actions";
 
-import AddTrainPopup from "./components/modals/AddTrainPopup/AddTrainPopup";
-import EditTrainPopup from "./components/modals/EditTrainPopup/EditTrainPopup";
-import SetFeelsPopup from "./components/modals/SetFeelsPopup/SetFeelsPopup";
+import AddTrainPopup from "./components/modals/train/AddTrainPopup/AddTrainPopup";
+import EditTrainPopup from "./components/modals/train/EditTrainPopup/EditTrainPopup";
+import AddFeelsPopup from "./components/modals/feels/AddFeelsPopup/AddFeelsPopup";
 
 const Dashboard = () => {
  const d = useDispatch();
@@ -41,7 +41,7 @@ const Dashboard = () => {
 
        {/* POPUPS  */}
        <AddTrainPopup {...{ isCreateMode, toggleCreate, selectedDate }} />
-       <SetFeelsPopup {...{ isFeelsMode, selectedDate, currentFeelsObj, toggleCreate }} />
+       <AddFeelsPopup {...{ isFeelsMode, selectedDate, currentFeelsObj, toggleCreate }} />
        <EditTrainPopup isEditMode={isEditMode} toggleEdit={toggleEdit} currentObj={currentObj} />
      </div>
    </div>
