@@ -1,25 +1,26 @@
-import TrainService from "@/api/TrainService"
-import epochConvert from "@/utils/epochConvert";
+import TrainService from "api/TrainService"
+import epochConvert from "utils/epochConvert";
+
+import { setCreateMode } from "redux/actions/app-actions";
+import { setFeelsInit, setTrainsInit } from "../reducers/main-reducer";
+import timeAddedConvert from "utils/timeAddedConvert";
+import FeelService from "../../api/FeelService";
 import showMessage from "react-hot-toast";
 
-import { setCreateMode } from "@/redux/actions/app-actions";
-import { setTrainsInit } from "../reducers/main-reducer";
-import timeAddedConvert from "../../utils/timeAddedConvert";
 
 
-export function fetchEvents(fromDate, toDate) {
+// *** TRAINS ***//
+
+export function fetchTrains(fromDate, toDate) {
   return (dispatch) => {
     dispatch(setTrainsInit(false));
-    let fromEpochDate = epochConvert(fromDate);
-    let toEpochDate = epochConvert(toDate);
-
-    TrainService.getTrains(fromEpochDate, toEpochDate)
+    TrainService.getTrains(fromDate, toDate)
     .then(({data}) => {
       const newData = [...data].map(e => {
         const start = timeAddedConvert(e.createdAt, e.epochDate)
         return {...e, start}
       })
-      dispatch({type: 'RECEIVE_EVENTS', plainEventObjects: newData})
+      dispatch({type: 'RECEIVE_TRAINS', plainTrainObjects: newData})
 
       //delay for fullcalendar re-render
       setTimeout(() => {
@@ -27,17 +28,15 @@ export function fetchEvents(fromDate, toDate) {
       }, 100)
       
     })
-    .catch((error) => {
-      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
-    })
+
   }
 }
 
-export function createEvent(plainEventObject) {
+export function createTrains(plainTrainObjects) {
   return async (dispatch) => {
     let eventObjectWithEpoch = {
-     ...plainEventObject,
-     epochDate: epochConvert(plainEventObject.date),
+     ...plainTrainObjects,
+     epochDate: epochConvert(plainTrainObjects.date),
      date: null
     }
     return TrainService.createTrain(eventObjectWithEpoch)
@@ -45,8 +44,8 @@ export function createEvent(plainEventObject) {
         const start = timeAddedConvert(data.createdAt, data.epochDate)
 
         dispatch({
-          type: "CREATE_EVENT",
-          plainEventObject: {...data, start},
+          type: "CREATE_TRAIN",
+          plainTrainObjects: {...data, start},
         })
 
         dispatch(setCreateMode(false));
@@ -57,17 +56,17 @@ export function createEvent(plainEventObject) {
   }
 }
 
-export function updateEvent(plainEventObject) {
+export function updateTrain(plainTrainObject) {
   return async (dispatch) => {
-    const eventObject = {...plainEventObject};
+    const eventObject = {...plainTrainObject};
     delete eventObject.start;
     delete eventObject.date;
 
     TrainService.updateTrain(eventObject)
     .then(() => {
       dispatch({
-        type: 'UPDATE_EVENT',
-        plainEventObject
+        type: 'UPDATE_TRAIN',
+        plainTrainObject
       })
       dispatch({type: 'SET_EDIT', isEditMode: false, payload: null});
     })
@@ -77,12 +76,12 @@ export function updateEvent(plainEventObject) {
   }
 }
 
-export function deleteEvent(eventID) {
+export function deleteTrains(eventID) {
   return async (dispatch) => {
     TrainService.deleteTrain(eventID)
     .then(() => {
       dispatch({
-        type: 'DELETE_EVENT',
+        type: 'DELETE_TRAIN',
         eventID
       })
       dispatch({type: 'SET_EDIT', isEditMode: false, payload: null});
@@ -90,5 +89,40 @@ export function deleteEvent(eventID) {
     .catch((error) => {
       showMessage.error(error?.response.data.message || error.message || 'Unknown error')
     })
+  }
+}
+
+
+// *** FEELS ***//
+
+export function fetchFeels (fromDate, toDate) {
+  return async (dispatch) => {
+    dispatch(setFeelsInit(true));
+    
+    FeelService.getAllFeels(fromDate, toDate).then((data) => {
+      dispatch({type: 'RECEIVE_FEELS', plainTrainObjects: data})
+      dispatch(setFeelsInit(true));
+    })
+    .catch((error) => {
+      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+    })
+  }
+}
+
+export function createFeels (plainFeelObject) {
+  return async (dispatch) => {
+
+  }
+}
+
+export function updateFeels (plainFeelObject) {
+  return async (dispatch) => {
+
+  }
+}
+
+export function deleteFeels (eventID) {
+  return async (dispatch) => {
+
   }
 }

@@ -5,45 +5,45 @@ export default {
 
   requestEvents(startStr, endStr) {
     return (dispatch) => {
-      return requestEventsInRange(startStr, endStr).then((plainEventObjects) => {
+      return requestEventsInRange(startStr, endStr).then((plainTrainObjects) => {
         dispatch({
-          type: 'RECEIVE_EVENTS',
-          plainEventObjects
+          type: 'RECEIVE_TRAINS',
+          plainTrainObjects
         })
       })
     }
   },
 
-  createEvent(plainEventObject) {
+  createTrains(plainTrainObject) {
     return async (dispatch) => {
-      return TrainService.createTrain(plainEventObject).then((newEventId) => {
+      return TrainService.createTrain(plainTrainObject).then((newEventId) => {
         dispatch({
-          type: 'CREATE_EVENT',
-          plainEventObject: {
+          type: 'CREATE_TRAIN',
+          plainTrainObject: {
             id: newEventId,
-            ...plainEventObject
+            ...plainTrainObject
           }
         })
       })
     }
   },
 
-  updateEvent(plainEventObject) {
+  updateTrain(plainTrainObject) {
     return (dispatch) => {
-      return requestEventUpdate(plainEventObject).then(() => {
+      return requestEventUpdate(plainTrainObject).then(() => {
         dispatch({
-          type: 'UPDATE_EVENT',
-          plainEventObject
+          type: 'UPDATE_TRAIN',
+          plainTrainObject
         })
       })
     }
   },
 
-  deleteEvent(eventId) {
+  deleteTrains(eventId) {
     return (dispatch) => {
       return requestEventDelete(eventId).then(() => {
         dispatch({
-          type: 'DELETE_EVENT',
+          type: 'DELETE_TRAIN',
           eventId
         })
       })

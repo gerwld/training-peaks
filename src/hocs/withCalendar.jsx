@@ -1,19 +1,23 @@
 import React from "react"
 import { useDispatch } from "react-redux"
-import { fetchEvents, updateEvent } from "redux/actions/event-actions"
+import { fetchFeels, fetchTrains, updateTrain } from "redux/actions/event-actions"
 import eventToPlainObj from "utils/eventToPlainObj"
+import epochConvert from "../utils/epochConvert"
 
 const withCalendar = (Component) => {
  return (props) => {
   const d = useDispatch()
 
   const handleDates = (rangeInfo) => {
-   d(fetchEvents(rangeInfo.startStr, rangeInfo.endStr))
+   let fromDate = epochConvert(rangeInfo.startStr)
+   let toDate = epochConvert(rangeInfo.endStr)
+   d(fetchTrains(fromDate, toDate))
+   d(fetchFeels(fromDate, toDate))
   }
 
   const handleEventChange = (changeInfo) => {
    let newObj = eventToPlainObj(changeInfo.event)
-   d(updateEvent(newObj))
+   d(updateTrain(newObj))
   }
 
   return <Component {...{ ...props, handleDates, handleEventChange }} />

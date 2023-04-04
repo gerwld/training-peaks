@@ -26,6 +26,7 @@ const Dashboard = () => {
  const toggleEdit = () => {
   d({ type: "TOGGLE_EDIT", payload: null });
  };
+
  return (
    <div className="app_main">
      <Navbar authName={authObj.email} />
@@ -40,8 +41,8 @@ const Dashboard = () => {
        </Routes>
 
        {/* POPUPS  */}
-       <AddTrainPopup {...{ isCreateMode, toggleCreate, selectedDate }} />
        <SetFeelsPopup {...{ isFeelsMode, selectedDate, currentFeelsObj, toggleCreate }} />
+       <AddTrainPopup {...{ isCreateMode, toggleCreate, selectedDate }} />
        <EditTrainPopup isEditMode={isEditMode} toggleEdit={toggleEdit} currentObj={currentObj} />
      </div>
    </div>

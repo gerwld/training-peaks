@@ -7,7 +7,7 @@ import withSetFeel from "hocs/withSetFeel"
 
 const DayFeel = withSetFeel((props) => {
   const { onFeelSelect, findFeel } = props;
-  console.log(props);
+
  return (
   <div className="cf_dayfeel">
    <div className="cf_dayfeel__header">

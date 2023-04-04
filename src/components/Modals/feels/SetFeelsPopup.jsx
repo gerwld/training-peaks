@@ -7,8 +7,13 @@ const SetFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {
   const [isOpened, setIsOpened] = useState(isFeelsMode);
  const d = useDispatch()
 
- const onAddFeel = (data) => {
-  onCloseFeels()
+ const onSubmit = (data) => {
+  if(currentFeelsObj) {
+    console.log('with data');
+  } else {
+    console.log('create new');
+  }
+  onCloseFeels();
  }
 
  const onCloseFeels = () => {
@@ -28,7 +33,7 @@ const SetFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {
     <h1 className="modal_title">
      {currentFeelsObj ? "Edit" : "Add"} Feel ({epochConvert(selectedDate, true)})
     </h1>
-    <SetFeelsForm {...{ onAddFeel, selectedDate, currentFeelsObj }} />
+    <SetFeelsForm {...{ onSubmit, selectedDate, currentFeelsObj }} />
     <button onClick={onCloseFeels} type="button" className="btn_submit btn_submit__delete">
      Cancel
     </button>

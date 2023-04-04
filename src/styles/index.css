@@ -855,7 +855,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 20px;
   height: 20px;
   background: var(--basic-blue);
-  cursor: pointer;
+  cursor:grab;
   border:  1.5px solid rgba(0, 0, 0, 0.167);
   border-radius: 50%;
  
@@ -868,7 +868,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 20px;
   height: 30px;
   background: var(--basic-blue);
-  cursor: pointer;
+  cursor:grab;
   border: 1.5px solid var(--basic-blue);
   border-radius: 4px;
 }

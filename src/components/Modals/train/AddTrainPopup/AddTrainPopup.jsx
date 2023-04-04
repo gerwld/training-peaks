@@ -1,12 +1,12 @@
 import React from "react"
 import AddTrainForm from "./AddTrainForm"
 import { useDispatch } from "react-redux"
-import { createEvent } from "@/redux/actions/event-actions"
+import { createTrains } from "@/redux/actions/event-actions"
 
 const AddTrainPopup = ({ isCreateMode, toggleCreate, selectedDate }) => {
  const d = useDispatch()
  const onAddTrain = (data) => {
-  d(createEvent(data))
+  d(createTrains(data))
  }
 
  return (

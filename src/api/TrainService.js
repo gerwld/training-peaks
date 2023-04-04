@@ -15,8 +15,8 @@ export default class TrainService {
     return instance.get(`/trains/${id}'`)
   }
 
-  static async createTrain(plainEventObject) {
-    return await instance.post("/trains", plainEventObject)
+  static async createTrain(plainTrainObject) {
+    return await instance.post("/trains", plainTrainObject)
   }
 
   static async updateTrain(payload) {
