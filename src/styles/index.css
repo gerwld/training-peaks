@@ -723,11 +723,11 @@ input[type='password'] {
   box-sizing: border-box;
 }
 
-label > span {
+label>span {
   display: block;
 }
 
-label > i {
+label>i {
   display: inline-block;
   margin-left: 8px;
   font-weight: 500;
@@ -744,7 +744,7 @@ input[type='number'] {
 }
 
 input[type='number']:focus {
-  padding-left: 15px!important;
+  padding-left: 15px !important;
 }
 
 input[type='date'] {
@@ -772,7 +772,7 @@ input[type='range'] {
 }
 
 input:focus {
-  padding: 0!important;
+  padding: 0 !important;
 }
 
 
@@ -855,10 +855,10 @@ input[type=number]::-webkit-outer-spin-button {
   width: 20px;
   height: 20px;
   background: var(--basic-blue);
-  cursor:grab;
-  border:  1.5px solid rgba(0, 0, 0, 0.167);
+  cursor: grab;
+  border: 1.5px solid rgba(0, 0, 0, 0.167);
   border-radius: 50%;
- 
+
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 
 }
@@ -868,7 +868,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 20px;
   height: 30px;
   background: var(--basic-blue);
-  cursor:grab;
+  cursor: grab;
   border: 1.5px solid var(--basic-blue);
   border-radius: 4px;
 }
@@ -1288,7 +1288,7 @@ span.metric {
 .fc-daygrid-day-events,
 .fc-daygrid-event-harness,
 .fc_daygeader__title {
-  user-select: none!important;
+  user-select: none !important;
 }
 
 
@@ -1374,7 +1374,7 @@ thead .fc-day-today .fc_daygeader__title::after {
   font-size: 0.9rem;
 }
 
-.cf_dayfeel__content > span {
+.cf_dayfeel__content>span {
   display: block;
 }
 
@@ -1382,7 +1382,7 @@ thead .fc-day-today .fc_daygeader__title::after {
   padding: 5px 0 5px 5px;
 }
 
- .cf_dayfeel__header {
+.cf_dayfeel__header {
   position: relative;
   display: flex;
   align-items: center;
@@ -1398,7 +1398,7 @@ thead .fc-day-today .fc_daygeader__title::after {
 }
 
 
-.cf_dayfeel__header > svg {
+.cf_dayfeel__header>svg {
   font-size: 1.4rem;
   margin-left: 5px;
 }
@@ -1421,4 +1421,66 @@ thead .fc-day-today .fc_daygeader__title::after {
 
 .cf_dayfeel .tc_edit:hover {
   background-color: #ff834d;
+}
+
+.calendar_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cl_btn {
+  display: block;
+  height: 38px;
+  min-height: 38px;
+  max-height: 38px;
+  margin: 0;
+  padding: 0 12px;
+
+  color: #fff;
+  background-color: #2c3e50;
+  border: 1px solid #2c3e50;
+  transition: 0.1s ease;
+}
+
+.cl_btn:focus {
+  outline: 3px solid rgba(44, 62, 80, 0.5);
+}
+
+.cl_btn:hover {
+  background-color: #1e2b37;
+  border-color:#1a252f;
+}
+
+.calendar_block__nav {
+  display: flex;
+}
+
+.cl_btn__inactive {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.cl_btn__today {
+  margin-left: 15px;
+}
+
+.cl_btn__prev {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.cl_btn__next {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.cl_btn .fc-icon {
+ font-size: 22px;
+}
+
+
+.calendar_header .calendar_date {
+  line-height: 120%;
+  font-size: 1.75em;
 }

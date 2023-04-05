@@ -98,9 +98,9 @@ export function deleteTrains(eventID) {
 export function fetchFeels (fromDate, toDate) {
   return async (dispatch) => {
     dispatch(setFeelsInit(true));
-    
+
     FeelService.getAllFeels(fromDate, toDate).then((data) => {
-      dispatch({type: 'RECEIVE_FEELS', plainTrainObjects: data})
+      dispatch({type: 'RECEIVE_FEELS', plainFeelObjects: data})
       dispatch(setFeelsInit(true));
     })
     .catch((error) => {

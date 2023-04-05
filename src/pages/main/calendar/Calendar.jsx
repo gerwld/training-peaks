@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import ReactDOM from "react-dom/client"
 import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
@@ -12,6 +12,7 @@ import DayHeader from "./DayHeader"
 import { getHashValues } from "utils"
 import DayFeel from "./DayFeel"
 import findFeelByDate from "utils/findFeelByDate"
+import CalendarHeader from "./CalendarHeader"
 
 const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
  const fullCalendar = React.useRef()
@@ -21,13 +22,14 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
  return (
   <div className="calendar">
    <div className="calendar-main">
+    <CalendarHeader calendarRef={fullCalendar}/>
     <FullCalendar
      ref={fullCalendar}
      plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
      headerToolbar={{
       left: "title",
       center: "",
-      right: "prev,next today",
+      right: "stats prev,next today",
      }}
      initialView="dayGridWeek"
      editable={true}
@@ -50,6 +52,17 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
      }}
      eventChange={handleEventChange}
 
+     customButtons={{
+      stats: {
+        text: '<img>',
+        click: function() {
+          alert('clicked the custom button!');
+        },
+      },
+    }}
+
+    viewDidMount={(e) => {console.log(e);}}
+
      //custom injection for DayFeel
      dayCellDidMount={(mountData) => {
       const findFeel = findFeelByDate(mountData.date, feelsArray)
@@ -57,7 +70,7 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
        ReactDOM.createRoot(mountData.el).render(<DayFeel {...{ findFeel, date: mountData.date }} ref={feelRef} />)
 
        const cf_height = feelRef.current?.clientHeight
-       mountData.el.querySelector(".fc-daygrid-day-frame").style.minHeight = `calc(100% - ${cf_height ? cf_height + 16 : "132"}px)`
+       mountData.el.querySelector(".fc-daygrid-day-frame").style.minHeight = `calc(100% - ${cf_height ? cf_height + 16 : "152"}px)`
       }
      }}
 
