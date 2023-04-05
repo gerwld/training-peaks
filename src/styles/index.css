@@ -1572,7 +1572,7 @@ thead .fc-day-today .fc_daygeader__title::after {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   grid-template-rows: repeat(auto-fill, 300px);
-  grid-gap: 10px;
+  grid-gap: 12px;
 }
 
 .addPlanForm,
@@ -1581,8 +1581,6 @@ thead .fc-day-today .fc_daygeader__title::after {
   background-color: #fff;
   min-height: 300px;
   border-radius: 5px;
-
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
@@ -1606,19 +1604,8 @@ thead .fc-day-today .fc_daygeader__title::after {
 
 .plan_choosenext button:hover {
   transform: translateY(-2px);
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-
-/* .plan_choosenext button:nth-child(1) {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.plan_choosenext button:nth-child(2) {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-} */
-
 
 
 .addplanpage_title {
@@ -1632,7 +1619,7 @@ thead .fc-day-today .fc_daygeader__title::after {
   font-size: 1.75em;
   font-weight: 600;
   border: none;
-  padding: 0 10px 0!important;
+  padding: 0 10px 0 !important;
   margin-left: -5px;
   border-radius: 8px;
 }
@@ -1651,26 +1638,86 @@ thead .fc-day-today .fc_daygeader__title::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 1;
-  background-color: #f1faff;
+
 }
 
-.addplanitem__freeday span {
-  font-size: 22px;
-  font-weight: 500;
+
+.addplanitem__freeday .content {
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.content {
+  color: #a8b8c7;
 }
 
 .addplanitem {
   position: relative;
-  padding-top: 25px;
+  padding-top: 32px;
 }
 
 span.addplanitem__index {
-  position: absolute;
-  top: 7px;
-  left: 7px;
-
+  display: block;
+  padding: 8px;
+  font-weight: 400;
   font-size: 1rem;
   line-height: 1rem;
-  color: #aab4bb;
+}
+
+.addplanitem__nav {
+  display: flex;
+  justify-content: space-between;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  padding: 2px;
+  height: 30px;
+  color: #445059;
+}
+
+.addplain__btns {
+  opacity: 0.4;
+  transition: 0.2s ease;
+}
+
+.addplanitem:hover .addplain__btns {
+  opacity: 1;
+}
+
+.addplain__btns button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-left: 1px;
+  background-color: #fff;
+  border: none;
+}
+
+.addplain__btns button:hover {
+  background-color: var(--basic-blue-hover);
+}
+
+.addplain__btns button:focus {
+  outline: none;
+}
+
+
+.addplain__btns svg {
+  font-size: 19px;
+  color: #2e2c2a;
+  vertical-align: middle;
+}
+
+
+.addplain__btns button:nth-child(1) svg {
+  margin: -2px -2px 0 0;
+}
+
+.addplain__btns button:nth-child(2) svg {
+  font-size: 23px;
 }

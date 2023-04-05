@@ -68,7 +68,7 @@ const AddPlanPage = () => {
  return (
   <div className="addplanpage">
    <div className="addplanpage_title">
-    <input type="text" placeholder="Click here to select Plan name..." />
+    <input type="text" placeholder="Click here to set plan name..." />
    </div>
 
    <div className="addplanpage_content">
