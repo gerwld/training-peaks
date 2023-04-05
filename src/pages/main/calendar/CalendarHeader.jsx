@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import moment from "moment"
 
 import { MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { AiOutlineBarChart, AiOutlinePlus } from "react-icons/ai"
 import { setCreateMode } from "redux/actions/app-actions"
 import { useDispatch } from "react-redux"
-import epochConvert from "../../../utils/epochConvert"
+import epochConvert from "utils/epochConvert"
 
 const CalendarHeader = ({ calendarRef }) => {
  const d = useDispatch()
+ const weekPicker = useRef();
  const [title, settitle] = useState(new moment().format("MMMM DD, YYYY"))
  const [calendarApi, setApi] = useState()
  const setTitle = () => settitle(calendarApi.currentDataManager.data.viewTitle)
@@ -31,19 +32,28 @@ const CalendarHeader = ({ calendarRef }) => {
   setTitle()
  }
 
+ const toggleWeekPicker = () => {
+  weekPicker.current?.showPicker();
+  }
 
  const handleDateSelect = async () => {
-  const currentEpochDay = epochConvert(new moment().format("MM, DD, YYYY"));
+  const currentEpochDay = epochConvert(new moment().format("MM, DD, YYYY"))
   d(setCreateMode(true, currentEpochDay))
  }
 
  return (
   <div className="calendar_header">
    <div className="calendar_block__ml">
-    <button className="calendar_datepicker">
+    <button onClick={toggleWeekPicker} className="calendar_datepicker">
      <span className="calendar_date">{title}</span>
      <MdOutlineKeyboardArrowDown />
     </button>
+
+    
+
+    <div className="week_picker">
+    <input type="week" ref={weekPicker} />
+    </div>
    </div>
 
    <div className="calendar_block__nav">

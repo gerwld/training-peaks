@@ -1509,6 +1509,7 @@ thead .fc-day-today .fc_daygeader__title::after {
   padding: 5px 0 5px 3px;
   margin-left: -1px;
   border-radius: 3px;
+  transition: transform 0.2s;
 }
 
 .calendar_datepicker svg {
@@ -1517,17 +1518,33 @@ thead .fc-day-today .fc_daygeader__title::after {
   transition: transform 0.2s ease;
 }
 
-.calendar_datepicker:hover {
-  background-color: rgba(255, 255, 255, 1);
-  outline: 3px solid var(--basic-blue-hover);
+.calendar_datepicker:focus svg {
+  transform: rotate(-180deg);
 }
 
 .calendar_datepicker:focus {
-  background-color: #fff;
   transform: translateY(-2px);
-  outline: 3px solid var(--basic-blue-hover);
 }
 
-.calendar_datepicker:focus svg {
-  transform: rotate(-180deg);
+.calendar_block__ml {
+  position: relative;
+}
+
+.calendar_header input {
+  transition: none;
+  opacity: 0;
+  position: absolute;
+  bottom: -3px;
+  left: 0px;
+  pointer-events: none;
+}
+
+.calendar_header input[type="week" i]::-webkit-calendar-picker-indicator  {
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+}
+
+.calendar_header input::-webkit-datetime-edit {
+  pointer-events: none;
 }
