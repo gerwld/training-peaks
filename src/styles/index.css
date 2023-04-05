@@ -1476,6 +1476,18 @@ thead .fc-day-today .fc_daygeader__title::after {
   border-bottom-left-radius: 0;
 }
 
+.cl_btn__addnew,
+.cl_btn__stats {
+  padding: 0 10px;
+  font-size: 22px;
+  line-height: 22px;
+  margin-right: 10px;
+}
+
+.cl_btn__addnew svg {
+  vertical-align:bottom;
+}
+
 .cl_btn .fc-icon {
  font-size: 22px;
 }

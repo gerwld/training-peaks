@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import moment from "moment"
 
 import { MdOutlineKeyboardArrowDown } from "react-icons/md"
+import { AiOutlineBarChart, AiOutlinePlus, AiOutlinePlusCircle } from "react-icons/ai"
 
 const CalendarHeader = ({ calendarRef }) => {
  const [title, settitle] = useState(new moment().format("MMMM DD, YYYY"))
@@ -36,6 +37,14 @@ const CalendarHeader = ({ calendarRef }) => {
    </div>
 
    <div className="calendar_block__nav">
+   <button  className="cl_btn cl_btn__addnew" title="Current week statistics">
+     <AiOutlinePlus />
+    </button>
+   
+    <button  className="cl_btn cl_btn__stats" title="Current week statistics">
+     <AiOutlineBarChart />
+    </button>
+
     <button onClick={prevHandle} className="cl_btn cl_btn__prev" title="Previous week">
      <span className="fc-icon fc-icon-chevron-left" />
     </button>
