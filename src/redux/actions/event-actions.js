@@ -32,11 +32,11 @@ export function fetchTrains(fromDate, toDate) {
   }
 }
 
-export function createTrains(plainTrainObjects) {
+export function createTrains(plainTrainObject) {
   return async (dispatch) => {
     let eventObjectWithEpoch = {
-     ...plainTrainObjects,
-     epochDate: epochConvert(plainTrainObjects.date),
+     ...plainTrainObject,
+     epochDate: epochConvert(plainTrainObject.date),
      date: null
     }
     return TrainService.createTrain(eventObjectWithEpoch)
@@ -45,14 +45,14 @@ export function createTrains(plainTrainObjects) {
 
         dispatch({
           type: "CREATE_TRAIN",
-          plainTrainObjects: {...data, start},
+          plainTrainObject: {...data, start},
         })
 
         dispatch(setCreateMode(false));
       })
-      .catch((error) => {
-        showMessage.error(error?.response.data.message || error.message || 'Unknown error')
-      })
+      // .catch((error) => {
+      //   showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+      // })
   }
 }
 
