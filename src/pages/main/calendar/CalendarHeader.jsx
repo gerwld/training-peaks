@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react"
 import moment from "moment"
 
 import { MdOutlineKeyboardArrowDown } from "react-icons/md"
-import { AiOutlineBarChart, AiOutlinePlus, AiOutlinePlusCircle } from "react-icons/ai"
+import { AiOutlineBarChart, AiOutlinePlus } from "react-icons/ai"
+import { setCreateMode } from "redux/actions/app-actions"
+import { useDispatch } from "react-redux"
+import epochConvert from "../../../utils/epochConvert"
 
 const CalendarHeader = ({ calendarRef }) => {
+ const d = useDispatch()
  const [title, settitle] = useState(new moment().format("MMMM DD, YYYY"))
  const [calendarApi, setApi] = useState()
  const setTitle = () => settitle(calendarApi.currentDataManager.data.viewTitle)
@@ -27,6 +31,12 @@ const CalendarHeader = ({ calendarRef }) => {
   setTitle()
  }
 
+
+ const handleDateSelect = async () => {
+  const currentEpochDay = epochConvert(calendarApi?.currentDataManager.data.currentDate);
+  d(setCreateMode(true, currentEpochDay))
+ }
+
  return (
   <div className="calendar_header">
    <div className="calendar_block__ml">
@@ -37,11 +47,11 @@ const CalendarHeader = ({ calendarRef }) => {
    </div>
 
    <div className="calendar_block__nav">
-   <button  className="cl_btn cl_btn__addnew" title="Current week statistics">
+    <button onClick={handleDateSelect} className="cl_btn cl_btn__addnew" title="Add Training">
      <AiOutlinePlus />
     </button>
-   
-    <button  className="cl_btn cl_btn__stats" title="Current week statistics">
+
+    <button className="cl_btn cl_btn__stats" title="Current week statistics">
      <AiOutlineBarChart />
     </button>
 

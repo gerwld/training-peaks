@@ -6,7 +6,7 @@ import interactionPlugin from "@fullcalendar/interaction"
 
 import withCalendar from "hocs/withCalendar"
 import RenderEvent from "./RenderEvent"
-import DayCell from "./DayCell"
+import DayCell from "./DayCellAddTrain"
 import DayHeader from "./DayHeader"
 import { getHashValues } from "utils"
 import DayFeel from "./DayFeel"
@@ -49,17 +49,7 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
       return <DayHeader {...{ ...e, findFeel }} />
      }}
      eventChange={handleEventChange}
-     customButtons={{
-      stats: {
-       text: "<img>",
-       click: function () {
-        alert("clicked the custom button!")
-       },
-      },
-     }}
-     viewDidMount={(e) => {
-      console.log(e)
-     }}
+     
      //custom injection for DayFeel
      dayCellDidMount={(mountData) => {
       const findFeel = findFeelByDate(mountData.date, feelsArray)
