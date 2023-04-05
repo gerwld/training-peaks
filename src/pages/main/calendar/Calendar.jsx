@@ -31,7 +31,6 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
      headerToolbar={null}
      initialView="dayGridWeek"
      editable={true}
-     allDaySlot={false}
      slotEventOverlap={false}
      selectable={false}
      eventDurationEditable={false}
@@ -49,7 +48,7 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
       return <DayHeader {...{ ...e, findFeel }} />
      }}
      eventChange={handleEventChange}
-     
+
      //custom injection for DayFeel
      dayCellDidMount={(mountData) => {
       const findFeel = findFeelByDate(mountData.date, feelsArray)

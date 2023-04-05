@@ -86,10 +86,11 @@ export function deleteTrains(eventID) {
         eventID
       })
       dispatch({type: 'SET_EDIT', isEditMode: false, payload: null});
+      showMessage.success('Training was successfully deleted.')
     })
-    // .catch((error) => {
-    //   showMessage.error(error?.response.data.message || error.message || 'Unknown error')
-    // })
+    .catch((error) => {
+      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+    })
   }
 }
 
