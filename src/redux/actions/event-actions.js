@@ -77,7 +77,6 @@ export function updateTrain(plainTrainObject) {
 }
 
 export function deleteTrains(eventID) {
-  console.log(eventID);
   return async (dispatch) => {
     TrainService.deleteTrain(eventID)
     .then(() => {
@@ -107,13 +106,17 @@ export function fetchFeels (fromDate, toDate) {
     })
     .catch((error) => {
       showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+
     })
   }
 }
 
 export function createFeels (plainFeelObject) {
   return async (dispatch) => {
-
+    FeelService.createFeel(plainFeelObject)
+    .then(plainTrainObject => {
+      dispatch({type: 'CREATE_FEEL', plainTrainObject});
+    })
   }
 }
 

@@ -52,10 +52,9 @@ export const mainReducer = (state = initState, action) => {
    }
 
   case "RECEIVE_TRAINS":
-   let ev = hashById(action.plainTrainObjects) ? hashById(action.plainTrainObjects) : {}
    return {
     ...state,
-    eventsById: ev,
+    eventsById: hashById(action.plainTrainObjects),
    }
 
 
@@ -78,11 +77,10 @@ export const mainReducer = (state = initState, action) => {
 
 
 
-  case "RECEIVE_FEELS":
-   let ev2 = hashById(action.plainFeelObjects) ? hashById(action.plainFeelObjects) : {}
+  case "RECEIVE_FEELS": 
    return {
     ...state,
-    feelsById: ev2,
+    feelsById: hashById(action.plainFeelObjects),
    }
 
   case "CREATE_FEEL":

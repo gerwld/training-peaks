@@ -8,6 +8,7 @@ import { setCreateMode } from "@/redux/actions/app-actions";
 import AddTrainPopup from "./components/modals/train/AddTrainPopup/AddTrainPopup";
 import EditTrainPopup from "./components/modals/train/EditTrainPopup/EditTrainPopup";
 import SetFeelsPopup from "./components/modals/feels/SetFeelsPopup";
+import AddPlanPage from "./pages/plans/AddPlanPage/AddPlanPage";
 
 const Dashboard = () => {
  const d = useDispatch();
@@ -34,10 +35,10 @@ const Dashboard = () => {
        <Routes>
          <Route path="/*" element={<MainPage />} />
          <Route path="settings" element={<SettingsPage />} />
-
          <Route path="/report-issue" element={<ReportIssuePage />} />
-         <Route path="/online-tracker" element={<SecLoader100 />} />
+
          <Route path="/select-plan" element={<PlanPage />} />
+         <Route path="/select-plan/add-plan" element={<AddPlanPage />} />
        </Routes>
 
        {/* POPUPS  */}

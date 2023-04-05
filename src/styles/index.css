@@ -570,7 +570,7 @@ a.navbar-l1_logo:hover {
 /* plan page end */
 
 .main_page {
-  margin: 10px 0 0 ;
+  margin: 10px 0 0;
 }
 
 .select_line {
@@ -747,12 +747,12 @@ input[type='number'] {
 
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type=number] {
-    -moz-appearance:textfield;
+  -moz-appearance: textfield;
 }
 
 
@@ -1093,7 +1093,7 @@ span.tc_title {
 }
 
 .calendar-main {
-  padding: 0 10px 10px!important;
+  padding: 0 10px 10px !important;
 }
 
 .fc-daygrid-dot-event {
@@ -1465,7 +1465,7 @@ thead .fc-day-today .fc_daygeader__title::after {
 
 .cl_btn:hover {
   background-color: var(--color-2-gray);
-  border-color:var(--color-2-gray);
+  border-color: var(--color-2-gray);
 }
 
 .calendar_block__nav {
@@ -1500,11 +1500,11 @@ thead .fc-day-today .fc_daygeader__title::after {
 }
 
 .cl_btn__addnew svg {
-  vertical-align:bottom;
+  vertical-align: bottom;
 }
 
 .cl_btn .fc-icon {
- font-size: 22px;
+  font-size: 22px;
 }
 
 
@@ -1554,7 +1554,7 @@ thead .fc-day-today .fc_daygeader__title::after {
   pointer-events: none;
 }
 
-.calendar_header input[type="week" i]::-webkit-calendar-picker-indicator  {
+.calendar_header input[type="week" i]::-webkit-calendar-picker-indicator {
   width: 100%;
   height: 100%;
   pointer-events: all;
@@ -1562,4 +1562,115 @@ thead .fc-day-today .fc_daygeader__title::after {
 
 .calendar_header input::-webkit-datetime-edit {
   pointer-events: none;
+}
+
+.addplanpage {
+  padding: 20px;
+}
+
+.addplanpage_content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-rows: repeat(auto-fill, 300px);
+  grid-gap: 10px;
+}
+
+.addPlanForm,
+.addplanitem {
+  padding: 10px;
+  background-color: #fff;
+  min-height: 300px;
+  border-radius: 5px;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.plan_choosenext {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.plan_choosenext button {
+  width: 80%;
+  height: 55px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--color-1-blue);
+  border: 2px solid var(--color-1-blue);
+  border-radius: 5px;
+  transition: 0.2s ease;
+}
+
+.plan_choosenext button:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+/* .plan_choosenext button:nth-child(1) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.plan_choosenext button:nth-child(2) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+} */
+
+
+
+.addplanpage_title {
+  max-width: 500px;
+  padding: 0 0 20px;
+}
+
+.addplanpage_title input:hover,
+.addplanpage_title input:focus,
+.addplanpage_title input {
+  font-size: 1.75em;
+  font-weight: 600;
+  border: none;
+  padding: 0 10px 0!important;
+  margin-left: -5px;
+  border-radius: 8px;
+}
+
+
+.addplanpage_title input:hover,
+.addplanpage_title input:focus {
+  background-color: #fff;
+}
+
+.addplanpage_title input::placeholder {
+  color: #000;
+}
+
+.addplanitem__freeday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  background-color: #f1faff;
+}
+
+.addplanitem__freeday span {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.addplanitem {
+  position: relative;
+  padding-top: 25px;
+}
+
+span.addplanitem__index {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #aab4bb;
 }
