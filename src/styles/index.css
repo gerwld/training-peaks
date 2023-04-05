@@ -1570,18 +1570,18 @@ thead .fc-day-today .fc_daygeader__title::after {
 
 .addplanpage_content {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  grid-template-rows: repeat(auto-fill, 300px);
-  grid-gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  grid-template-rows: repeat(auto-fill, 280px);
+  grid-gap: 14px;
 }
 
 .addPlanForm,
 .addplanitem {
-  padding: 10px;
+  padding: 0 0 10px;
   background-color: #fff;
-  min-height: 300px;
-  border-radius: 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  min-height: 280px;
+  border-radius: 1px;
+  box-shadow: rgba(50, 62, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .plan_choosenext {
@@ -1594,12 +1594,13 @@ thead .fc-day-today .fc_daygeader__title::after {
 .plan_choosenext button {
   width: 80%;
   height: 55px;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
   font-weight: 500;
   color: var(--color-1-blue);
   border: 2px solid var(--color-1-blue);
   border-radius: 5px;
   transition: 0.2s ease;
+  background-color: transparent;
 }
 
 .plan_choosenext button:hover {
@@ -1648,19 +1649,23 @@ thead .fc-day-today .fc_daygeader__title::after {
 }
 
 .content {
-  color: #a8b8c7;
+  color: #828f9b;
+}
+
+.content span {
+  font-size: 0.96rem;
 }
 
 .addplanitem {
   position: relative;
-  padding-top: 32px;
+  padding-top: 34px;
 }
 
 span.addplanitem__index {
   display: block;
-  padding: 8px;
+  padding: 7px;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.04rem;
   line-height: 1rem;
 }
 
@@ -1674,7 +1679,6 @@ span.addplanitem__index {
   top: 0;
 
   padding: 2px;
-  height: 30px;
   color: #445059;
 }
 
@@ -1720,4 +1724,25 @@ span.addplanitem__index {
 
 .addplain__btns button:nth-child(2) svg {
   font-size: 23px;
+}
+
+.bl_dark {
+  color: #4b5157;
+}
+
+
+.tc_title__addplan {
+  padding: 6px 5px;
+  background-color: #dc3c04;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.adp_wrapper {
+  padding: 0 10px;
+  margin-top: 4px;
+}
+
+.ap_desc {
+  display: block;
 }
