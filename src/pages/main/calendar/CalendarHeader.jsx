@@ -33,7 +33,7 @@ const CalendarHeader = ({ calendarRef }) => {
 
 
  const handleDateSelect = async () => {
-  const currentEpochDay = epochConvert(calendarApi?.currentDataManager.data.currentDate);
+  const currentEpochDay = epochConvert(new moment().format("MM, DD, YYYY"));
   d(setCreateMode(true, currentEpochDay))
  }
 
