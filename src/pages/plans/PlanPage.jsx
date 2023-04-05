@@ -1,5 +1,6 @@
 import React from "react";
 import { BsCalendar3, BsAward, BsChatRightText } from 'react-icons/bs';
+import { NavLink } from "react-router-dom";
 
 const PlanPage = () => {
  return (
@@ -13,7 +14,7 @@ const PlanPage = () => {
       <div className="plan_block__icon">
         <BsAward/>
       </div>
-      <button className="plan_btn btn">Start Now</button>
+      <NavLink to="/select-plan/add-plan" className="plan_btn btn">Start Now</NavLink>
      </div>
      <div className="plan_block">
       <h2 className="plan_block__title">Get On A Plan</h2>
