@@ -1,8 +1,7 @@
-import React, { useEffect } from "react"
+import React from "react"
 import ReactDOM from "react-dom/client"
 import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
-import timeGridPlugin from "@fullcalendar/timegrid"
 import interactionPlugin from "@fullcalendar/interaction"
 
 import withCalendar from "hocs/withCalendar"
@@ -13,24 +12,23 @@ import { getHashValues } from "utils"
 import DayFeel from "./DayFeel"
 import findFeelByDate from "utils/findFeelByDate"
 import CalendarHeader from "./CalendarHeader"
+import useWindowDimensions from "hooks/useWindowDimensions"
 
 const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
  const fullCalendar = React.useRef()
  const feelRef = React.useRef()
  const feelsArray = getHashValues(feels)
+ const {height} = useWindowDimensions();
 
  return (
   <div className="calendar">
    <div className="calendar-main">
-    <CalendarHeader calendarRef={fullCalendar}/>
+    <CalendarHeader calendarRef={fullCalendar} />
     <FullCalendar
      ref={fullCalendar}
-     plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-     headerToolbar={{
-      left: "title",
-      center: "",
-      right: "stats prev,next today",
-     }}
+     plugins={[dayGridPlugin, interactionPlugin]}
+     height={Math.max(height - 158, 700)}
+     headerToolbar={null}
      initialView="dayGridWeek"
      editable={true}
      allDaySlot={false}
@@ -51,18 +49,17 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
       return <DayHeader {...{ ...e, findFeel }} />
      }}
      eventChange={handleEventChange}
-
      customButtons={{
       stats: {
-        text: '<img>',
-        click: function() {
-          alert('clicked the custom button!');
-        },
+       text: "<img>",
+       click: function () {
+        alert("clicked the custom button!")
+       },
       },
-    }}
-
-    viewDidMount={(e) => {console.log(e);}}
-
+     }}
+     viewDidMount={(e) => {
+      console.log(e)
+     }}
      //custom injection for DayFeel
      dayCellDidMount={(mountData) => {
       const findFeel = findFeelByDate(mountData.date, feelsArray)
@@ -73,7 +70,6 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
        mountData.el.querySelector(".fc-daygrid-day-frame").style.minHeight = `calc(100% - ${cf_height ? cf_height + 16 : "152"}px)`
       }
      }}
-
     />
    </div>
   </div>
