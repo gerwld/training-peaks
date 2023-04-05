@@ -67,9 +67,11 @@ export const mainReducer = (state = initState, action) => {
    }
 
   case "DELETE_TRAIN":
+    const newObj = {...state.eventsById};
+    delete newObj[Number(action.eventID)];
    return {
     ...state,
-    eventsById: { ...state.eventsById }.filter(({ eventId }) => eventId == action.eventId),
+    eventsById: newObj,
    }
 
 

@@ -42,7 +42,7 @@ export function createTrains(plainTrainObject) {
     return TrainService.createTrain(eventObjectWithEpoch)
       .then(({data}) => {
         const start = timeAddedConvert(data.createdAt, data.epochDate)
-        
+
         dispatch({
           type: "CREATE_TRAIN",
           plainTrainObject: {...data, start},
@@ -77,6 +77,7 @@ export function updateTrain(plainTrainObject) {
 }
 
 export function deleteTrains(eventID) {
+  console.log(eventID);
   return async (dispatch) => {
     TrainService.deleteTrain(eventID)
     .then(() => {
@@ -86,9 +87,9 @@ export function deleteTrains(eventID) {
       })
       dispatch({type: 'SET_EDIT', isEditMode: false, payload: null});
     })
-    .catch((error) => {
-      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
-    })
+    // .catch((error) => {
+    //   showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+    // })
   }
 }
 
