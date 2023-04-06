@@ -1752,16 +1752,36 @@ span.addplanitem__index {
   display: block;
 }
 
-.addplan_form {
-  padding: 10px;
+.addplan_wrap {
+  position: relative;
+  grid-column: span 2; 
+  padding: 35px 8px 8px;
+
   background-color: #fff;
   box-shadow: rgba(50, 62, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.addplan_form {
+  display: flex;
+  height: 100%;
+}
+
+.addplan_form .group {
+  flex: 1;
+}
+
+.addplan_form .group:nth-child(1) {
+  margin-right: 15px;
 }
 
 .addplan_form label > span {
   font-size: 0.8rem;
   line-height: 120%;
-  margin: 10px 0 3px;
+  margin: 6px 0 3px;
+}
+
+.addplan_form label {
+  margin: 0;
 }
 
 
@@ -1769,20 +1789,18 @@ span.addplanitem__index {
   margin: 0;
 }
 
-.addplan_form label:nth-child(1) > span {
-  margin: 0 0 3px;
-}
-
 .addplan_form input,
+.addplan_form input::placeholder,
 .addplan_form textarea,
 .addplan_form {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  line-height: 140%;
 }
 
-
+.addplan_form textarea,
 .addplan_form input:focus,
 .addplan_form input {
-  border: 1px solid var(--basic-blue);
+  border: 1px solid #eee;
   padding: 5px!important;
   height: unset;
   min-height: unset;
@@ -1791,6 +1809,34 @@ span.addplanitem__index {
 
 .addplan_form textarea {
   padding: 3px;
-  height: 40px;
+  height: 60px;
 }
 
+.submit_wrapper {
+  min-width: 220px;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.submit_wrapper label {
+  margin: 0;
+}
+
+.submit_wrapper button {
+  padding: 0 10px;
+  min-height: 36px;
+  margin-left: 8px;
+  color: var(--basic-blue);
+}
+
+.submit_wrapper button:nth-child(2) {
+  background-color: var(--basic-blue);
+  color: #fff;
+}
+
+.nt_gray {
+  font-style: normal;
+  font-size: 0.8em;
+  opacity: 0.4;
+}

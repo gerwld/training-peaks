@@ -61,10 +61,6 @@ const AddPlanPage = () => {
   },
  ]
 
- const onItemSubmit = (data) => {
-
- }
-
  const getMaxPlanDayNumber = (daysArray) => {
   return [...daysArray].map(({ planDayNumber }) => planDayNumber).sort((a, b) => b - a)[0]
  }
@@ -79,7 +75,7 @@ const AddPlanPage = () => {
     {[...Array(getMaxPlanDayNumber(days))].map((_, i) => (
      <AddPlanItem key={uniqueId() + "_planitem"} index={i + 1} item={days.find(({ planDayNumber }) => planDayNumber === (i + 1))} />
     ))}
-    <AddPlanForm onItemSubmit={onItemSubmit} />
+    <AddPlanForm daysTotal={getMaxPlanDayNumber(days)} />
     <div className="plan_choosenext">
      <button>Free day</button>
      <button>Add next day</button>

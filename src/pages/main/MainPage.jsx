@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useLayoutEffect } from "react"
 import MainPageCalendar from "./calendar/Calendar"
 import { useDispatch, useSelector } from "react-redux"
 import { SecLoader100 } from "@/components"
@@ -12,6 +12,9 @@ const MainPage = () => {
   isTrainsInit: main.isTrainsInit,
   isFeelsInit: main.isFeelsInit,
  }))
+
+//  useLayoutEffect(() => {
+//  }, [events])
 
  return (
   <div className="page_content main_page">
