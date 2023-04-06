@@ -9,29 +9,34 @@ const AddPlanItem = ({ item, index }) => {
   return (
    <div className="addplanitem">
     <div className="addplanitem__nav">
-    <span className="addplanitem__index">Day #{index}</span>
-    <div className="addplain__btns">
-     <button title="Edit Plan Day"><FaRegEdit /></button>
-     <button title="Delete Plan Day"><MdClose/></button>
+     <span className="addplanitem__index">Day #{index}</span>
+     <div className="addplain__btns">
+      <button title="Edit Plan Day">
+       <FaRegEdit />
+      </button>
+      <button title="Delete Plan Day">
+       <MdClose />
+      </button>
+     </div>
     </div>
-   </div>
-   <span className="content">
-
-   <div className="tc_title tc_title__addplan">
-    <span className="tc_icon">
-     <GiRunningShoe />
+    <span className="content">
+     <div className="tc_title tc_title__addplan">
+      <span className="tc_icon">
+       <GiRunningShoe />
+      </span>
+      {item.title}
+     </div>
+     <span className="ap_desc adp_wrapper">
+      {item.distance}
+      <span className="bl_dark"> km</span>
+     </span>
+     <span className="ap_desc adp_wrapper">{item.description}</span>
+     <span className="ap_desc adp_wrapper">
+      {" "}
+      <span className="bl_dark">R: </span>
+      {item.expectedResult}
+     </span>
     </span>
-    {item.title}
-   </div>
-   <span className="ap_desc adp_wrapper">{item.time}</span>
-   <span className="ap_desc adp_wrapper">{item.distance}<span className="bl_dark"> km</span></span>
-
-  
-
-    <span className="ap_desc adp_wrapper">{item.description}</span>
-    <span className="ap_desc adp_wrapper"> <span className="bl_dark">R: </span>{item.expectedResult}</span>
-
-  </span>    
    </div>
   )
  return (
@@ -39,8 +44,12 @@ const AddPlanItem = ({ item, index }) => {
    <div className="addplanitem__nav">
     <span className="addplanitem__index">Day #{index}</span>
     <div className="addplain__btns">
-     <button title="Edit Plan Day"><FaRegEdit /></button>
-     <button title="Delete Plan Day"><MdClose/></button>
+     <button title="Edit Plan Day">
+      <FaRegEdit />
+     </button>
+     <button title="Delete Plan Day">
+      <MdClose />
+     </button>
     </div>
    </div>
    <span className="content">Free day</span>

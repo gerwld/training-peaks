@@ -1585,7 +1585,7 @@ thead .fc-day-today .fc_daygeader__title::after {
 .addplanpage_content {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  grid-template-rows: repeat(auto-fill, 280px);
+  grid-template-rows: repeat(auto-fill, 285px);
   grid-gap: 14px;
 }
 
@@ -1613,9 +1613,10 @@ thead .fc-day-today .fc_daygeader__title::after {
 
 .plan_choosenext button {
   width: 80%;
-  height: 55px;
+  height: 50px;
   margin-bottom: 12px;
   font-weight: 400;
+  font-size: 0.96rem;
   color: var(--color-1-orange);
   border: 1.5px solid var(--color-1-orange);
   border-radius: 5px;
@@ -1668,7 +1669,7 @@ thead .fc-day-today .fc_daygeader__title::after {
 
 
 .addplanitem__freeday .content {
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -1677,20 +1678,21 @@ thead .fc-day-today .fc_daygeader__title::after {
 }
 
 .content span {
-  font-size: 0.96rem;
+  font-size: 0.9rem;
 }
 
 .addplanitem {
   position: relative;
-  padding-top: 34px;
+  padding-top: 32px;
 }
 
 span.addplanitem__index {
   display: block;
-  padding: 7px;
+  padding: 7px 0px 0px 7px;
   font-weight: 400;
-  font-size: 1.04rem;
+  font-size: 1rem;
   line-height: 1rem;
+  color: var(--basic-orange);
 }
 
 .addplanitem__nav {
@@ -1716,10 +1718,10 @@ span.addplanitem__index {
 }
 
 .addplain__btns button {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   padding: 0;
-  border-radius: 3px;
+  border-radius: 5px;
   overflow: hidden;
   margin-left: 1px;
   background-color: #fff;
@@ -1756,10 +1758,11 @@ span.addplanitem__index {
 
 
 .tc_title__addplan {
-  padding: 5px;
+  padding: 3px 5px;
   background-color: var(--basic-orange);
   color: #fff;
   text-transform: capitalize;
+  font-size: 0.9rem;
 }
 
 .adp_wrapper {
@@ -1773,30 +1776,28 @@ span.addplanitem__index {
 
 .addplan_wrap {
   position: relative;
-  grid-column: span 2; 
-  padding: 35px 8px 8px;
+  padding: 28px 8px 8px;
 
   background-color: #fff;
   box-shadow: rgba(50, 62, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .addplan_form {
-  display: flex;
+  /* display: flex; */
   height: 100%;
 }
+
+
 
 .addplan_form .group {
   flex: 1;
 }
 
-.addplan_form .group:nth-child(1) {
-  margin-right: 15px;
-}
 
 .addplan_form label > span {
   font-size: 0.8rem;
   line-height: 120%;
-  margin: 6px 0 3px;
+  margin: 4px 0 -1px;
 }
 
 .addplan_form label {
@@ -1812,8 +1813,15 @@ span.addplanitem__index {
 .addplan_form input::placeholder,
 .addplan_form textarea,
 .addplan_form {
-  font-size: 0.8rem;
-  line-height: 140%;
+  width: 100%;
+  min-width: 100%;
+  font-size: 0.82rem;
+  line-height: 120%;
+}
+
+.addplan_form textarea::placeholder,
+.addplan_form input::placeholder {
+  color: #d7dde2;
 }
 
 .addplan_form textarea,
@@ -1832,7 +1840,6 @@ span.addplanitem__index {
 }
 
 .submit_wrapper {
-  min-width: 220px;
   display: flex;
   justify-content: flex-end;
   padding-top: 10px;
@@ -1843,8 +1850,8 @@ span.addplanitem__index {
 }
 
 .submit_wrapper button {
-  padding: 0 10px;
-  min-height: 36px;
+  padding: 0 8px;
+  min-height: 30px;
   margin-left: 8px;
   color: var(--basic-orange);
 }
@@ -1869,16 +1876,13 @@ span.addplanitem__index {
   display: flex;
   justify-content: flex-end;
   padding: 10px 20px;
-  background-color: #fff;
-  border-top: var(--light-border-color);
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-  box-shadow: var(--box-shadow);
 }
 
 .addplan_group button {
   padding: 0 15px;
   margin-left: 14px;
-  height: 60px;
+  height: 50px;
+  font-size: 0.95rem;
 
   font-weight: 500;
 

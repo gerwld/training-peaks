@@ -14,7 +14,7 @@ const PlanPage = () => {
       <div className="plan_block__icon">
         <BsAward/>
       </div>
-      <NavLink to="/show-plan/" className="plan_btn btn">Start Now</NavLink>
+      <NavLink to="/show-plan/id" className="plan_btn btn">Start Now</NavLink>
      </div>
      <div className="plan_block">
       <h2 className="plan_block__title">Get On A Plan</h2>

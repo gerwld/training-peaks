@@ -2,91 +2,42 @@ import React from "react"
 import AddPlanItem from "./AddPlanItem"
 import AddPlanForm from "./AddPlanForm"
 import { v4 as uniqueId } from "uuid"
+import { useDispatch, useSelector } from "react-redux"
 
 const AddPlanPage = () => {
- const days = [
-  {
-   id: 0,
-   title: "string",
-   description: "string",
-   expectedResult: "string",
-   time: "1:09:15",
-   distance: 0,
-   planDayNumber: 0,
-  },
-  {
-   id: 1,
-   title: "string",
-   description: "string",
-   expectedResult: "string",
-   time: "1:09:15",
-   distance: 0,
-   planDayNumber: 3,
-  },
-  {
-   id: 2,
-   title: "string",
-   description: "string",
-   expectedResult: "string",
-   time: "1:09:15",
-   distance: 0,
-   planDayNumber: 5,
-  },
-  {
-   id: 3,
-   title: "string",
-   description: "string",
-   expectedResult: "string",
-   time: "1:09:15",
-   distance: 0,
-   planDayNumber: 6,
-  },
-  {
-   id: 4,
-   title: "string",
-   description: "string",
-   expectedResult: "string",
-   time: "1:09:15",
-   distance: 0,
-   planDayNumber: 9,
-  },
-  {
-   id: 5,
-   title: "string",
-   description: "string",
-   expectedResult: "string",
-   time: "1:09:15",
-   distance: 0,
-   planDayNumber: 10,
-  },
- ]
+ const d = useDispatch()
+ const { currentDays, currentObj, planName } = useSelector(({ plans }) => ({
+  planName: plans.currentPlanName,
+  currentDays: plans.currentPlanByDays,
+  currentObj: plans.currentObj,
+ }))
 
  const getMaxPlanDayNumber = (daysArray) => {
   return [...daysArray].map(({ planDayNumber }) => planDayNumber).sort((a, b) => b - a)[0]
  }
 
+ const onItemSubmit = (data) => {
+  d({type: 'ADD_PLANDAY', payload: data})
+ }
+
  return (
   <div className="addplanpage">
    <div className="addplanpage_title">
-    <input type="text" placeholder="Click here to set plan name..." />
+    <input type="text" placeholder="Click here to set plan name..." value={planName} onChange={() => {}} />
    </div>
 
    <div className="addplanpage_content">
-    {[...Array(getMaxPlanDayNumber(days))].map((_, i) => (
-     <AddPlanItem key={uniqueId() + "_planitem"} index={i + 1} item={days.find(({ planDayNumber }) => planDayNumber === i + 1)} />
-    ))}
-    <AddPlanForm daysTotal={getMaxPlanDayNumber(days)} />
-    <div className="addplanitem plan_choosenext">
-     <div className="addplanitem__nav">
-      <span className="addplanitem__index">Add Next Day</span>
-     </div>
-     <button>Free day</button>
-     <button>Add next day</button>
+    {currentDays.length ? [...Array(currentDays.length)].map((_, i) => <AddPlanItem key={uniqueId() + "_planitem"} index={i + 1} item={currentDays.find(({ planDayNumber }) => planDayNumber === i + 1)} />) : ''}
+
+    <AddPlanForm planDayNumber={currentDays.length || 0} currentObj={currentObj} onItemSubmit={onItemSubmit} />
+    <div className="plan_choosenext">
+     <button>Add New</button>
+     <button>Add Free day</button>
     </div>
    </div>
 
    <div className="addplan_group">
-   <button className="addplab_btn btn">Show my Plans</button>
+    <button className="addplab_btn btn">Show my Plans</button>
     <button className="addplab_btn btn">Save Plan</button>
    </div>
   </div>
