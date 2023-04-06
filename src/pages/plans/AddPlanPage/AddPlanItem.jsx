@@ -29,7 +29,7 @@ const AddPlanItem = ({ item, index }) => {
   
 
     <span className="ap_desc adp_wrapper">{item.description}</span>
-    <span className="ap_desc adp_wrapper"> <span className="bl_dark">R: </span>{item.expectedRedult}</span>
+    <span className="ap_desc adp_wrapper"> <span className="bl_dark">R: </span>{item.expectedResult}</span>
 
   </span>    
    </div>

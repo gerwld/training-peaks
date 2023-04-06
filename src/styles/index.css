@@ -1751,3 +1751,46 @@ span.addplanitem__index {
 .ap_desc {
   display: block;
 }
+
+.addplan_form {
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: rgba(50, 62, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.addplan_form label > span {
+  font-size: 0.8rem;
+  line-height: 120%;
+  margin: 10px 0 3px;
+}
+
+
+.addplan_form label:nth-child(1) {
+  margin: 0;
+}
+
+.addplan_form label:nth-child(1) > span {
+  margin: 0 0 3px;
+}
+
+.addplan_form input,
+.addplan_form textarea,
+.addplan_form {
+  font-size: 0.9rem;
+}
+
+
+.addplan_form input:focus,
+.addplan_form input {
+  border: 1px solid var(--basic-blue);
+  padding: 5px!important;
+  height: unset;
+  min-height: unset;
+}
+
+
+.addplan_form textarea {
+  padding: 3px;
+  height: 40px;
+}
+
