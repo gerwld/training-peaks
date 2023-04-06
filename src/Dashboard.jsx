@@ -38,7 +38,7 @@ const Dashboard = () => {
          <Route path="/report-issue" element={<ReportIssuePage />} />
 
          <Route path="/select-plan" element={<PlanPage />} />
-         <Route path="/select-plan/add-plan" element={<AddPlanPage />} />
+         <Route path="/show-plan/:plan_id" element={<AddPlanPage />} />
        </Routes>
 
        {/* POPUPS  */}

@@ -1,6 +1,5 @@
 import React from "react"
 import { Form, Field } from "react-final-form"
-import { FaRegEdit } from "react-icons/fa"
 import { MdClose } from "react-icons/md"
 
 const AddPlanForm = ({daysTotal}) => {

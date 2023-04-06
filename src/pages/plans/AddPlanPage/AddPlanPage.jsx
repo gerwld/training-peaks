@@ -73,13 +73,21 @@ const AddPlanPage = () => {
 
    <div className="addplanpage_content">
     {[...Array(getMaxPlanDayNumber(days))].map((_, i) => (
-     <AddPlanItem key={uniqueId() + "_planitem"} index={i + 1} item={days.find(({ planDayNumber }) => planDayNumber === (i + 1))} />
+     <AddPlanItem key={uniqueId() + "_planitem"} index={i + 1} item={days.find(({ planDayNumber }) => planDayNumber === i + 1)} />
     ))}
     <AddPlanForm daysTotal={getMaxPlanDayNumber(days)} />
-    <div className="plan_choosenext">
+    <div className="addplanitem plan_choosenext">
+     <div className="addplanitem__nav">
+      <span className="addplanitem__index">Add Next Day</span>
+     </div>
      <button>Free day</button>
      <button>Add next day</button>
     </div>
+   </div>
+
+   <div className="addplan_group">
+   <button className="addplab_btn btn">Show my Plans</button>
+    <button className="addplab_btn btn">Save Plan</button>
    </div>
   </div>
  )

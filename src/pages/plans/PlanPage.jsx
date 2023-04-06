@@ -14,7 +14,7 @@ const PlanPage = () => {
       <div className="plan_block__icon">
         <BsAward/>
       </div>
-      <NavLink to="/select-plan/add-plan" className="plan_btn btn">Start Now</NavLink>
+      <NavLink to="/show-plan/" className="plan_btn btn">Start Now</NavLink>
      </div>
      <div className="plan_block">
       <h2 className="plan_block__title">Get On A Plan</h2>
@@ -22,7 +22,7 @@ const PlanPage = () => {
       <div className="plan_block__icon">
         <BsCalendar3/>
       </div>
-      <button className="plan_btn btn">Start Now</button>
+      <button className="plan_btn btn" disabled>Start Now</button>
      </div>
      <div className="plan_block">
       <h2 className="plan_block__title">Work With A Coach</h2>
@@ -30,7 +30,7 @@ const PlanPage = () => {
       <div className="plan_block__icon">
         <BsChatRightText/>
       </div>
-      <button className="plan_btn btn">Start Now</button>
+      <button className="plan_btn btn" disabled>Start Now</button>
      </div>
     </div>
    </div>
