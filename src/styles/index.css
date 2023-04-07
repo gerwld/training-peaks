@@ -1585,7 +1585,7 @@ thead .fc-day-today .fc_daygeader__title::after {
 .addplanpage_content {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  grid-template-rows: repeat(auto-fill, 285px);
+  grid-template-rows: repeat(auto-fill, 300px);
   grid-gap: 14px;
 }
 
@@ -1824,6 +1824,20 @@ span.addplanitem__index {
   color: #d7dde2;
 }
 
+.addplan_form input[type="checkbox"]:focus,
+.addplan_form input[type="checkbox"] {
+  display: inline-block;
+  width: 14px;
+  min-width: unset;
+  height: 14px;
+  margin: 0 0.5em 0 0;
+}
+
+.checkbox_input_lable {
+  display: flex;
+  align-items: center;
+}
+
 .addplan_form textarea,
 .addplan_form input:focus,
 .addplan_form input {
@@ -1842,7 +1856,7 @@ span.addplanitem__index {
 .submit_wrapper {
   display: flex;
   justify-content: flex-end;
-  padding-top: 10px;
+  padding-top: 6px;
 }
 
 .submit_wrapper label {

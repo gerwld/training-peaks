@@ -1,20 +1,42 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { FaRegEdit } from "react-icons/fa"
 import { GiRunningShoe } from "react-icons/gi"
 import { MdClose } from "react-icons/md"
+import AddPlanForm from "./AddPlanForm"
+import { useDispatch } from "react-redux"
 
 const AddPlanItem = ({ item, index }) => {
- if (item)
+  const d = useDispatch();
+ const [isEditMode, setEditMode] = useState(false)
+
+ const toggleEdit = () => {
+  setEditMode(!isEditMode)
+ }
+
+ const deleteCurrent = () => {
+  d({type: 'DELETE_PLANDAY', payload: item.planDayNumber})
+ }
+
+ if (isEditMode) return (
+   <AddPlanForm
+    {...{
+     currentObj: item,
+     isEditMode: true,
+     toggleEdit,
+    }}
+   />
+  )
+ else if (item && !item?.isFreeDay)
   return (
    <div className="addplanitem">
     <div className="addplanitem__nav">
      <span className="addplanitem__index">Day #{index}</span>
      <div className="addplain__btns">
-      <button title="Edit Plan Day">
+      <button onClick={toggleEdit} title="Edit Plan Day">
        <FaRegEdit />
       </button>
-      <button title="Delete Plan Day">
+      <button onClick={deleteCurrent} title="Delete Plan Day">
        <MdClose />
       </button>
      </div>
@@ -32,9 +54,8 @@ const AddPlanItem = ({ item, index }) => {
      </span>
      <span className="ap_desc adp_wrapper">{item.description}</span>
      <span className="ap_desc adp_wrapper">
-      {" "}
       <span className="bl_dark">R: </span>
-      {item.expectedResult}
+      {item.reminder}
      </span>
     </span>
    </div>
@@ -44,10 +65,10 @@ const AddPlanItem = ({ item, index }) => {
    <div className="addplanitem__nav">
     <span className="addplanitem__index">Day #{index}</span>
     <div className="addplain__btns">
-     <button title="Edit Plan Day">
+     <button onClick={toggleEdit} title="Edit Plan Day">
       <FaRegEdit />
      </button>
-     <button title="Delete Plan Day">
+     <button onClick={deleteCurrent} title="Delete Plan Day">
       <MdClose />
      </button>
     </div>

@@ -1,12 +1,14 @@
+import updatePlanDaysIndexes from "../../utils/updatePlanDaysIndexes"
+
 const initialState = {
  isInit: false,
  isEditMode: false,
  isDeleteMode: false,
 
  currentObj: null,
- currentPlanTotalDays: null,
+ currentDays: null,
  currentPlanName: "My Plan #1",
- currentPlanByDays: [
+ currentDays: [
   // {
   //  id: 0,
   //  title: "string",
@@ -15,52 +17,7 @@ const initialState = {
   //  time: "1:09:15",
   //  distance: 0,
   //  planDayNumber: 0,
-  // },
-  // {
-  //  id: 1,
-  //  title: "string",
-  //  description: "string",
-  //  expectedResult: "string",
-  //  time: "1:09:15",
-  //  distance: 0,
-  //  planDayNumber: 3,
-  // },
-  // {
-  //  id: 2,
-  //  title: "string",
-  //  description: "string",
-  //  expectedResult: "string",
-  //  time: "1:09:15",
-  //  distance: 0,
-  //  planDayNumber: 5,
-  // },
-  // {
-  //  id: 3,
-  //  title: "string",
-  //  description: "string",
-  //  expectedResult: "string",
-  //  time: "1:09:15",
-  //  distance: 0,
-  //  planDayNumber: 6,
-  // },
-  // {
-  //  id: 4,
-  //  title: "string",
-  //  description: "string",
-  //  expectedResult: "string",
-  //  time: "1:09:15",
-  //  distance: 0,
-  //  planDayNumber: 9,
-  // },
-  // {
-  //  id: 5,
-  //  title: "string",
-  //  description: "string",
-  //  expectedResult: "string",
-  //  time: "1:09:15",
-  //  distance: 0,
-  //  planDayNumber: 10,
-  // },
+  // }
  ],
 }
 
@@ -73,32 +30,37 @@ export default function plans(state = initialState, action) {
   }
   case 'SET_PLAN_INTERVAL':
     return {...state, 
-      currentPlanTotalDays: action.payload
+      currentDays: action.payload
     }
   case 'SET_CURRENT_PLAN':
     return {...state,
-      currentPlanByDays: action.payload
+      currentDays: action.payload
     }
 
   case 'ADD_PLANDAY':
     return {
       ...state,
-      currentPlanByDays: [...state.currentPlanByDays, action.payload]
+      currentDays: [...state.currentDays, action.payload]
     }
 
   case 'DELETE_PLANDAY':
+    let currentDaysFiltered = [...state.currentDays].filter(({planDayNumber}) => planDayNumber !== action.payload);
     return {...state,
-    currentPlanByDays: [...state.currentPlanByDays].filter(({id}) => id !== action.payload)
+    currentDays: updatePlanDaysIndexes(currentDaysFiltered, 'planDayNumber')
   }
-  case 'EDIT_PLANDAY':
+  case 'UPDATE_PLANDAY':
     return {...state,
-    currentObj: action.currentObj,
-    isEditMode: action.isEditMode
+    currentDays: [...state.currentDays.filter(({planDayNumber}) => planDayNumber !== action.payload.planDayNumber), action.payload]
   }
+  case 'SET_EDITMODE_PLAN': 
+    return {...state,
+      isEditMode: action.isEditMode,
+      currentObj: action.currentObj
+    }
   case 'CLOSE_EDIT_PLANDAY':
     return {...state,
-    isEditMode: false,
-    currentObj: null
+      isEditMode: false,
+      currentObj: null
   }
   default:
    return state
