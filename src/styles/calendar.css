@@ -75,5 +75,5 @@ tr:nth-child(even) {
 }
 
 thead tr {
-  border-bottom: 1px solid var(--basic-blue-text)!important;
+  border-bottom: 1px solid var(--basic-orange-text)!important;
 }

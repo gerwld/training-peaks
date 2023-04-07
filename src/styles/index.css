@@ -1930,7 +1930,11 @@ span.addplanitem__index {
   padding: 10px 20px;
 }
 
+.addplan_group a,
 .addplan_group button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0 15px;
   margin-left: 14px;
   height: 50px;
