@@ -1,12 +1,10 @@
-import React, { forwardRef } from "react"
+import React from "react"
 import { IoIosTimer } from "react-icons/io"
-import { Provider } from "react-redux"
-import store from "redux/store"
 import { FaRegEdit } from "react-icons/fa"
 import withSetFeel from "hocs/withSetFeel"
 
 const DayFeel = withSetFeel((props) => {
-  const { onFeelSelect, findFeel } = props;
+  const { onFeelSelect, dayFeel } = props;
 
  return (
   <div className="cf_dayfeel">
@@ -22,26 +20,20 @@ const DayFeel = withSetFeel((props) => {
      Sleep hours: <span className="metric">8.72h</span>
     </span>
     <span className="cf_dayfeel__param">
-     Weight: <span className="metric">{findFeel.weight}kg</span>
+     Weight: <span className="metric">{dayFeel.weight}kg</span>
     </span>
     <span className="cf_dayfeel__param">
-     Heart Rate: <span className="metric">{findFeel.heartRate}bpm</span>
+     Heart Rate: <span className="metric">{dayFeel.heartRate}bpm</span>
     </span>
     <span className="cf_dayfeel__param">
      Mood: <span className="metric">{8}/10</span>
     </span>
     <span className="cf_dayfeel__param">
-     <span className="metric">{findFeel.text}</span>
+     <span className="metric">{dayFeel.text}</span>
     </span>
    </div>
   </div>
  )
 })
 
-export default forwardRef((props, ref) => (
- <div ref={ref}>
-  <Provider store={store}>
-   <DayFeel {...props} />
-  </Provider>
- </div>
-))
+export default DayFeel;
