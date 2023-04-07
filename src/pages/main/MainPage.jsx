@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react"
+import React from "react"
 import MainPageCalendar from "./calendar/Calendar"
 import { useDispatch, useSelector } from "react-redux"
 import { SecLoader100 } from "@/components"
