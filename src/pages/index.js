@@ -4,5 +4,6 @@ export { default as RestoreAccess } from "./auth/RestoreAccess";
 export { default as MainPage } from "./main/MainPage";
 export { default as ReportIssuePage } from "./reportIssue/ReportIssuePage";
 export { default as SettingsPage } from "./settings/SettingsPage";
-export { default as PlanPage } from "./plans/PlanPage";
+export { default as PlanPageStart } from "./plans/PlanPageStart";
+export { default as PlanPageAll } from "./plans/PlanPageAll";
 

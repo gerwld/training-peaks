@@ -20,7 +20,7 @@
   --basic-orange: #fb4e05;
   --basic-orange-text: #fb4e05;
   --basic-border-color: #edf1f3;
-  --basic-link-hover: #f6f9fc;
+  --basic-link-hover: #fff2ec;
   --sec-link-hover: #eef3f8;
   --background-color: #fff;
   --background-color-2: #f7f8ff;
@@ -1978,4 +1978,46 @@ span.l_desc {
 .set_plan h3 {
   font-size: 20px;
   margin-bottom: 20px;
+}
+
+.planpg_all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - var(--hf-height));
+}
+
+.planpg_all__content {
+  padding: 40px 30px;
+  width: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.planpg_all__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.planpg_all__item button {
+  margin-left: 6px;
+  color: var(--basic-orange);
+  border: 1.5px solid var(--basic-orange);
+}
+
+.planpg_all__item button:hover {
+  background-color: var(--basic-link-hover);
+}
+
+.planpg_all__item__title {
+  font-weight: 500;
+}
+
+.planpg_all h2 {
+  margin-bottom: 1em;
 }

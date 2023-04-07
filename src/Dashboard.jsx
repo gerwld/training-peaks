@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { SecLoader100, Navbar } from "./components";
-import { MainPage, ReportIssuePage, SettingsPage, PlanPage } from "./pages";
+import { MainPage, ReportIssuePage, SettingsPage, PlanPageAll, PlanPageStart } from "./pages";
 import { setCreateMode } from "@/redux/actions/app-actions";
 
 import AddTrainPopup from "./components/modals/train/AddTrainPopup/AddTrainPopup";
@@ -37,8 +37,9 @@ const Dashboard = () => {
          <Route path="settings" element={<SettingsPage />} />
          <Route path="/report-issue" element={<ReportIssuePage />} />
 
-         <Route path="/select-plan" element={<PlanPage />} />
-         <Route path="/show-plan/:plan_id" element={<AddPlanPage />} />
+         <Route path="/select-plan" element={<PlanPageStart />} />
+         <Route path="/plans/:plan_id" element={<AddPlanPage />} />
+         <Route path="/plans/" element={<PlanPageAll />} />
        </Routes>
 
        {/* POPUPS  */}

@@ -2,7 +2,7 @@ import React from "react";
 import { BsCalendar3, BsAward, BsChatRightText } from 'react-icons/bs';
 import { NavLink } from "react-router-dom";
 
-const PlanPage = () => {
+const PlanPageStart = () => {
  return (
   <div className="plan_page">
    <div className="plan_content">
@@ -38,4 +38,4 @@ const PlanPage = () => {
  );
 };
 
-export default PlanPage;
+export default PlanPageStart;
