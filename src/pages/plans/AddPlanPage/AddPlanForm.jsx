@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux"
 const AddPlanForm = (props) => {
  const { isEditMode, toggleEdit, currentObj, toggleAdd } = props;
  const currentDay = currentObj?.planDayNumber ? currentObj?.planDayNumber 
-                  : props.planDayNumber ? (props.planDayNumber + 1) 
+                  : props.planDayNumber ? props.planDayNumber
                   : 1;
 
 const onClose = () => {

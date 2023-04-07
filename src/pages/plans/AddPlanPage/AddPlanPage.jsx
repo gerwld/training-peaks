@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import AddPlanItem from "./AddPlanItem"
 import AddPlanForm from "./AddPlanForm"
 import { v4 as uniqueId } from "uuid"
@@ -21,7 +21,7 @@ const AddPlanPage = () => {
    return (
     <AddPlanForm
      {...{
-      planDayNumber: currentDays?.length || 0,
+      planDayNumber: currentDays?.length + 1 || 1,
       currentObj,
       toggleAdd
      }}
