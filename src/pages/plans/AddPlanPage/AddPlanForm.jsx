@@ -65,11 +65,11 @@ const FormComponent = ({ currentObj, currentDay, isEditMode, onClose }) => {
 
       <label>
        <span className="l_title">Title:</span>
-       <Field component="input" type="text" name="title" placeholder="Title..." required={!isFreeDay} />
+       <Field component="input" type="text" name="title" required={!isFreeDay} placeholder="Title..." />
       </label>
       <label>
        <span className="l_title">Description:</span>
-       <Field component="textarea" name="description" placeholder="Describe your plan for that day. Detailed, but short and clear" />
+       <Field component="textarea" name="description" required={!isFreeDay} placeholder="Describe your plan for that day. Detailed, but short and clear" />
       </label>
       <label>
        <span className="l_title">

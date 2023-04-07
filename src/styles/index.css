@@ -660,6 +660,7 @@ a.navbar-l1_logo:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
   padding: 20px;
 
   color: #fff;
@@ -1949,6 +1950,11 @@ span.addplanitem__index {
   border-bottom: 1px solid var(--basic-border-color);
 }
 
+.settings_page {
+  min-height: calc(100vh - var(--hf-height));
+  background-color: #fff;
+}
+
 .settings_page label {
   margin: 0;
 }
@@ -2024,4 +2030,8 @@ span.l_desc {
 
 .planpg_all h2 {
   margin-bottom: 1em;
+}
+
+.settings_btn {
+  margin-top: 30px;
 }

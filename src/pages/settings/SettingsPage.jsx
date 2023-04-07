@@ -41,6 +41,8 @@ const SettingsPage = () => {
           <Field component="input" type="date" name="title" placeholder="Title..." required={true} />
          </label>
 
+         <button className="btn settings_btn" type="submit">Save</button>
+
         </section>
        </form>
       )
