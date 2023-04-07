@@ -46,8 +46,8 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
      eventContent={(e) => <RenderEvent {...e} />}
      dayCellContent={(e) => <DayCell {...e} />}
      dayHeaderContent={(e) => {
-      const findFeel = findFeelByDate(e.date, feelsArray)
-      return <DayHeader {...{ ...e, findFeel }} />
+      const dayFeel = findFeelByDate(e.date, feelsArray)
+      return <DayHeader {...{ ...e, dayFeel }} />
      }}
 
      //custom injection for DayFeel

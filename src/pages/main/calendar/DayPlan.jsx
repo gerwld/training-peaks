@@ -8,9 +8,9 @@ const DayPlan = () => {
    <div className="cf_dayplan__header">
     <MdOutlineCenterFocusStrong /> 
     <span>Day #1</span>
-    <button className="tc_edit" title="Edit plan resource">
+    {/* <button className="tc_edit" title="Edit plan resource">
      <FaRegEdit />
-    </button>
+    </button> */}
    </div>
    <div className="cf_dayplan__content">
     <span className="cf_dayplan__title">Title</span>
@@ -21,6 +21,7 @@ const DayPlan = () => {
     </span>
    </div>
   </div>
+  
  )
 }
 

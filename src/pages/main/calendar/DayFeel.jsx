@@ -16,21 +16,26 @@ const DayFeel = withSetFeel((props) => {
    </div>
 
    <div className="cf_dayfeel__content">
+   {dayFeel.sleepHours &&
     <span className="cf_dayfeel__param">
-     Sleep hours: <span className="metric">8.72h</span>
-    </span>
+     Sleep hours: <span className="metric">{dayFeel.sleepHours}h</span>
+    </span>}
+    {dayFeel.weight &&
     <span className="cf_dayfeel__param">
      Weight: <span className="metric">{dayFeel.weight}kg</span>
-    </span>
+    </span>}
+    {dayFeel.heartRate &&
     <span className="cf_dayfeel__param">
      Heart Rate: <span className="metric">{dayFeel.heartRate}bpm</span>
-    </span>
+    </span>}
+    {dayFeel.mood &&
     <span className="cf_dayfeel__param">
-     Mood: <span className="metric">{8}/10</span>
-    </span>
+     Mood: <span className="metric">{dayFeel.mood}/10</span>
+    </span>}
+    {dayFeel.text &&
     <span className="cf_dayfeel__param">
      <span className="metric">{dayFeel.text}</span>
-    </span>
+    </span>}
    </div>
   </div>
  )

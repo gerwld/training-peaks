@@ -6,11 +6,11 @@ import { addFeelsMode } from "redux/actions/app-actions"
 const withSetFeel = (Children) => {
  return (props) => {
   const d = useDispatch()
-  const { findFeel, date } = props
+  const { dayFeel, date } = props
   const selectedDate = epochConvert(date, false)
 
   const onFeelSelect = async () => {
-   d(addFeelsMode(findFeel, true, selectedDate))
+   d(addFeelsMode(dayFeel, true, selectedDate))
   }
 
   return <Children {...{ ...props, onFeelSelect }} />
