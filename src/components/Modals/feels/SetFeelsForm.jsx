@@ -13,7 +13,7 @@ const SetFeelsForm = ({ onSubmit, selectedDate, currentFeelsObj }) => {
     <form onSubmit={handleSubmit} className="SetFeelsForm">
      <label>
       <span className="l_title">Sleep Hours:</span>
-      <Field component="input" type="number" name="sleepHrs" placeholder="8" autoComplete="false" />
+      <Field component="input" type="number" name="sleepHours" placeholder="8" autoComplete="false" />
       <i>hrs</i>
      </label>
      <label>
