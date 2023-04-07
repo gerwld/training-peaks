@@ -5,7 +5,7 @@ const PremiumLeft = ({username}) => {
  return (
   <div className="premiumleft">
    <div className="premiumleft__info">
-    <h3 className="premiumleft__title">Welcome, {username}! You have 12 days left of premium.</h3>
+    <h3 className="premiumleft__title">Welcome, {username}! You have $n days left of premium.</h3>
     <p className="premiumleft__desc">To continue with premium, you can upgrade now.</p>
    </div>
 

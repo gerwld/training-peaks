@@ -41,7 +41,8 @@
   --color-1-orange: #fb4e05;
   --color-2-orange: #fb4e05;
   --color-3-orange: #bc4513;
-  --color-4-orange: #ACE1FF;
+  --color-1-blue: #547ba2;
+  --color-2-blue: #243b60;
   --color-5-orange: #EEF8FF;
   --color-6-orange: #E4F7FF;
   --color-1-gray: #2c3e50;
@@ -602,9 +603,9 @@ a.navbar-l1_logo:hover {
 
 .select_line svg {
   display: block;
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
   margin: 0 5px 2px 0;
 }
 
@@ -1098,7 +1099,7 @@ span.tc_title {
 
   font-size: 0.95rem;
   color: #fff;
-  background-color: var(--color-1-gray);
+  background-color: var(--color-2-blue);
   border-radius: 0px;
 }
 
@@ -1121,7 +1122,7 @@ span.tc_title {
 }
 
 .tc_train {
-  border: 1px solid var(--color-1-gray);
+  border: 1px solid var(--color-2-blue);
 }
 
 .tc_event {
@@ -1142,10 +1143,9 @@ span.tc_title {
   margin: 0;
   border-radius: 0;
   color: #fff;
-  background-color: var(--color-1-gray);
+  background-color: var(--color-2-blue);
   border: none;
-  border-left: 1px solid #c9cccf;
-  transition: 0s;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .tc_edit svg {
@@ -1292,6 +1292,7 @@ span.metric {
   opacity: 0;
   pointer-events: all;
   transition: opacity 0.1s linear;
+  border-radius: 3px;
 }
 
 .fc-daygrid-day-number {
@@ -1375,20 +1376,19 @@ thead .fc-day-today .fc_daygeader__title::after {
   outline: none;
 }
 
+.fc-daygrid-day-number {
+  pointer-events: none;
+  user-select: none;
+}
+
+.cf_dayplan,
 .cf_dayfeel {
   position: relative;
   order: -2;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
   z-index: 100;
-}
 
-.fc-daygrid-day-number {
-  pointer-events: none;
-  user-select: none;
-}
-
-.cf_dayfeel {
   font-weight: 400;
   line-height: 140%;
   color: var(--text-color);
@@ -1398,19 +1398,32 @@ thead .fc-day-today .fc_daygeader__title::after {
   margin: 4px 2px 10px 3px;
 }
 
+.cf_dayplan__content span,
 .cf_dayfeel__content span {
   display: inline-block;
   font-size: 0.9rem;
 }
-
+.cf_dayplan__content>span,
 .cf_dayfeel__content>span {
   display: block;
 }
 
+.cf_dayplan__content,
 .cf_dayfeel__content {
   padding: 5px 0 5px 5px;
 }
 
+span.cf_dayplan__title {
+  font-size: 1.06rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+span.cf_dayplan__distance {
+  font-weight: 500;
+}
+
+.cf_dayplan__header,
 .cf_dayfeel__header {
   position: relative;
   display: flex;
@@ -1426,10 +1439,15 @@ thead .fc-day-today .fc_daygeader__title::after {
   box-sizing: content-box;
 }
 
-
+.cf_dayplan__header>svg,
 .cf_dayfeel__header>svg {
   font-size: 1.4rem;
   margin-left: 5px;
+}
+
+.cf_dayplan__header span {
+  margin-left: 6px;
+  font-size: 0.9rem;
 }
 
 .metric {
@@ -1440,17 +1458,37 @@ thead .fc-day-today .fc_daygeader__title::after {
   color: #495662;
 }
 
+.cf_dayplan .tc_edit,
 .cf_dayfeel .tc_edit {
   background-color: var(--basic-orange);
   height: 30px;
   margin-top: -1px;
   margin-right: -1px;
-  border-left: 1px solid #fff;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .cf_dayfeel .tc_edit:hover {
   background-color: #ff834d;
 }
+
+.cf_dayplan .tc_edit:hover {
+  background-color: #919fb5;
+}
+
+.cf_dayplan .tc_edit,
+.cf_dayplan__header {
+  background-color: var(--color-1-blue);
+  border-color: var(--color-1-blue);
+}
+
+.cf_dayplan {
+  border-color: var(--color-1-blue);
+}
+
+.cf_dayplan .tc_edit {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
 
 .calendar_header {
   display: flex;
@@ -1904,5 +1942,40 @@ span.addplanitem__index {
 }
 
 .dayc_mount {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid var(--basic-border-color);
+}
+
+.settings_page label {
+  margin: 0;
+}
+
+.settings_page label span {
+  margin: 0;
+}
+
+.settings_page select,
+.settings_page input {
+  margin: 5px 0 15px;
+  height: 55px;
+  min-width: 200px;
+  border-radius: 0;
+  background-color: #fff;
+}
+
+.l_title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+span.l_desc {
+  font-size: 0.9rem;
+}
+
+.set_plan {
+  padding-top: 30px;
+}
+
+.set_plan h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
 }

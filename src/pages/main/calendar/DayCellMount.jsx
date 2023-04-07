@@ -3,6 +3,7 @@ import findFeelByDate from "../../../utils/findFeelByDate"
 import { Provider } from "react-redux"
 import store from "../../../redux/store"
 import DayFeel from "./DayFeel"
+import DayPlan from "./DayPlan"
 
 const DayCellMount = ({ mountData, feelsArray }) => {
  const dayCellRef = React.useRef()
@@ -21,6 +22,8 @@ const DayCellMount = ({ mountData, feelsArray }) => {
   <div className="dayc_mount" ref={dayCellRef}>
    {dayFeel &&
      <DayFeel {...{ dayFeel, date: mountData.date }} />}
+
+     <DayPlan/>
   </div>
  )
 }
