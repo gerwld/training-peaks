@@ -84,7 +84,7 @@ export const mainReducer = (state = initState, action) => {
   case "RECEIVE_FEELS": 
    return {
     ...state,
-    feelsById: hashById(action.plainFeelObjects),
+    feelsById: action.plainFeelObjects,
    }
 
   case "CREATE_FEEL":

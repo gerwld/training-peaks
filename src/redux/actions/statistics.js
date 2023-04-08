@@ -9,7 +9,7 @@ export const fetchStatistics = (fromEpochDay, toEpochDay) => {
       dispatch({type: "SET_STATISTICS", payload: data})
     })
     .catch((error) => {
-      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+      showMessage.error(error?.response?.data?.message || error.message || 'Unknown error')
     })
   }
 }

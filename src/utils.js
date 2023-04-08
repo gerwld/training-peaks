@@ -4,6 +4,8 @@ export function getHashValues(hash) {
 }
 
 export function hashById(array) {
+  console.log(array);
+  if(array) {
   let hash = {}
 
   for (let item of array) {
@@ -11,6 +13,8 @@ export function hashById(array) {
   }
 
   return hash
+}
+return []
 }
 
 export function excludeById(array, id) {

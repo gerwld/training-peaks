@@ -51,7 +51,8 @@ export function createTrains(plainTrainObject) {
         dispatch(setCreateMode(false));
       })
       .catch((error) => {
-        showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+        showMessage.error(error?.response?.data?.message || error.message || 'Unknown error')
+        return Promise.reject(error)
       })
   }
 }
@@ -71,7 +72,8 @@ export function updateTrain(plainTrainObject) {
       dispatch({type: 'SET_EDIT', isEditMode: false, payload: null});
     })
     .catch((error) => {
-      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+      showMessage.error(error?.response?.data?.message || error.message || 'Unknown error')
+      return Promise.reject(error)
     })
   }
 }
@@ -88,7 +90,8 @@ export function deleteTrains(eventID) {
       showMessage.success('Training was successfully deleted.')
     })
     .catch((error) => {
-      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
+      showMessage.error(error?.response?.data?.message || error.message || 'Unknown error')
+      return Promise.reject(error)
     })
   }
 }
@@ -100,13 +103,13 @@ export function fetchFeels (fromDate, toDate) {
   return async (dispatch) => {
     dispatch(setFeelsInit(true));
 
-    FeelService.getAllFeels(fromDate, toDate).then((data) => {
+    FeelService.getAllFeels(fromDate, toDate).then(({data}) => {
       dispatch({type: 'RECEIVE_FEELS', plainFeelObjects: data})
       dispatch(setFeelsInit(true));
     })
     .catch((error) => {
-      showMessage.error(error?.response.data.message || error.message || 'Unknown error')
-
+      showMessage.error(error?.response?.data?.message || error.message || 'Unknown error')
+      return Promise.reject(error)
     })
   }
 }
