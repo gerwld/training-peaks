@@ -91,7 +91,7 @@ export const mainReducer = (state = initState, action) => {
   case "UPDATE_FEEL":
    return {
     ...state,
-    feelsById: { ...state.feelsById, [action.payload.id]: action.payload },
+    feelsById: { ...state.feelsById, [action.payload.epochDay]: action.payload },
    }
 
   case "DELETE_FEEL":

@@ -16,7 +16,7 @@ export default class FeelService {
     return instance.get("/feels", id)
   }
   static async updateFeel(payload) {
-    return instance.put(`/feels/${payload.epochDay}`, payload)
+    return instance.put(`/feels/${payload.id}`, payload)
   }
   static async deleteFeel(id) {
     return instance.delete("/feels", id)

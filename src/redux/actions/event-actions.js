@@ -119,7 +119,6 @@ export function fetchFeels (fromDate, toDate) {
 export function createFeel (data) {
   return async (dispatch) => {
     const epochDay = epochDayConvert(data.date);
-    console.log(data.date, epochDay);
     FeelService.createFeel({ epochDay, ...data })
     .then(({data}) => {
       dispatch({type: 'CREATE_FEEL', payload: data});
