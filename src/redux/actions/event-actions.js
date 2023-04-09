@@ -6,6 +6,7 @@ import { setFeelsInit, setTrainsInit } from "../reducers/main-reducer";
 import timeAddedConvert from "utils/timeAddedConvert";
 import FeelService from "../../api/FeelService";
 import showMessage from "react-hot-toast";
+import { hashByEpoch } from "../../utils";
 
 
 
@@ -105,7 +106,7 @@ export function fetchFeels (fromDate, toDate) {
     dispatch(setFeelsInit(true));
 
     FeelService.getAllFeels(fromDate, toDate).then(({data}) => {
-      dispatch({type: 'RECEIVE_FEELS', plainFeelObjects: data})
+      dispatch({type: 'RECEIVE_FEELS', plainFeelObjects: hashByEpoch(data)})
       dispatch(setFeelsInit(true));
     })
     .catch((error) => {
@@ -118,6 +119,7 @@ export function fetchFeels (fromDate, toDate) {
 export function createFeel (data) {
   return async (dispatch) => {
     const epochDay = epochDayConvert(data.date);
+    console.log(data.date, epochDay);
     FeelService.createFeel({ epochDay, ...data })
     .then(({data}) => {
       dispatch({type: 'CREATE_FEEL', payload: data});
@@ -129,7 +131,7 @@ export function updateFeel (data) {
   return async (dispatch) => {
     FeelService.updateFeel(data)
     .then(({data}) => {
-
+      dispatch({type: 'UPDATE_FEEL', payload: data});
     })
   }
 }

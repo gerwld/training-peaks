@@ -16,6 +16,19 @@ export function hashById(array) {
 return []
 }
 
+export function hashByEpoch(array) {
+  if(array) {
+  let hash = {}
+
+  for (let item of array) {
+    hash[item.epochDay] = item
+  }
+
+  return hash
+}
+return []
+}
+
 export function excludeById(array, id) {
   return array.filter((item) => item.id !== id)
 }

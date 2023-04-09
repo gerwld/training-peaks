@@ -28,9 +28,9 @@ const DayFeel = withSetFeel((props) => {
     <span className="cf_dayfeel__param">
      Heart Rate: <span className="metric">{dayFeel.heartRate}bpm</span>
     </span>}
-    {dayFeel.mood &&
+    {dayFeel.moodRate &&
     <span className="cf_dayfeel__param">
-     Mood: <span className="metric">{dayFeel.mood}/10</span>
+     Mood: <span className="metric">{dayFeel.moodRate}/10</span>
     </span>}
     {dayFeel.text &&
     <span className="cf_dayfeel__param">

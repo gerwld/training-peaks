@@ -12,11 +12,12 @@ import { getHashValues } from "utils"
 import CalendarHeader from "./CalendarHeader"
 import useWindowDimensions from "hooks/useWindowDimensions"
 import DayCellMount from "./DayCellMount"
-import { epochDayConvert } from "../../../utils/epochConvert"
+import { epochDayConvert } from "utils/epochConvert"
 
 const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
  const fullCalendar = React.useRef()
  const { height } = useWindowDimensions()
+
 
  return (
   <div className="calendar">
