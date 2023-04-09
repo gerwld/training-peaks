@@ -14,7 +14,7 @@ const initState = {
    epochDay: 1680991200,
    heartRate: 60,
    text: "Desrciption 1",
-   mood: 3,
+   moodRate: 3,
    weight: 89,
   },
   additionalProp2: {
@@ -22,7 +22,7 @@ const initState = {
    epochDay: 1680732000,
    sleepHours: 8,
    heartRate: 120,
-   mood: 6,
+   moodRate: 6,
    text: "Description 2",
    weight: 85,
   },
@@ -30,7 +30,7 @@ const initState = {
    date: "string",
    epochDay: 0,
    heartRate: 0,
-   mood: 4,
+   moodRate: 4,
    text: "string",
    weight: 0,
   },
@@ -91,7 +91,7 @@ export const mainReducer = (state = initState, action) => {
   case "UPDATE_FEEL":
    return {
     ...state,
-    feelsById: { ...state.feelsById, [action.plainTrainObject.id]: action.plainTrainObject },
+    feelsById: { ...state.feelsById, [action.payload.id]: action.payload },
    }
 
   case "DELETE_FEEL":

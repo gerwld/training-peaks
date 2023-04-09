@@ -1,5 +1,5 @@
 import TrainService from "api/TrainService"
-import epochConvert from "utils/epochConvert";
+import {epochDateConvert, epochDayConvert} from "utils/epochConvert";
 
 import { setCreateMode } from "redux/actions/app-actions";
 import { setFeelsInit, setTrainsInit } from "../reducers/main-reducer";
@@ -36,7 +36,7 @@ export function createTrains(plainTrainObject) {
   return async (dispatch) => {
     let eventObjectWithEpoch = {
      ...plainTrainObject,
-     epochDate: epochConvert(plainTrainObject.date),
+     epochDate: epochDateConvert(plainTrainObject.date),
      date: null
     }
     return TrainService.createTrain(eventObjectWithEpoch)
@@ -59,7 +59,7 @@ export function createTrains(plainTrainObject) {
 
 export function updateTrain(plainTrainObject) {
   return async (dispatch) => {
-    let epochDate = epochConvert(timeAddedConvert(plainTrainObject.start, plainTrainObject.epochDate));
+    let epochDate = epochDateConvert(timeAddedConvert(plainTrainObject.start, plainTrainObject.epochDate));
     const eventObject = {...plainTrainObject, epochDate };
     delete eventObject.start;
     delete eventObject.date;
@@ -115,22 +115,26 @@ export function fetchFeels (fromDate, toDate) {
   }
 }
 
-export function createFeels (plainFeelObject) {
+export function createFeel (data) {
   return async (dispatch) => {
-    FeelService.createFeel(plainFeelObject)
-    .then(plainTrainObject => {
-      dispatch({type: 'CREATE_FEEL', plainTrainObject});
+    const epochDay = epochDayConvert(data.date);
+    FeelService.createFeel({ epochDay, ...data })
+    .then(({data}) => {
+      dispatch({type: 'CREATE_FEEL', payload: data});
     })
   }
 }
 
-export function updateFeels (plainFeelObject) {
+export function updateFeel (object) {
   return async (dispatch) => {
+    FeelService.updateFeel(object)
+    .then(({data}) => {
 
+    })
   }
 }
 
-export function deleteFeels (eventID) {
+export function deleteFeel (eventID) {
   return async (dispatch) => {
 
   }

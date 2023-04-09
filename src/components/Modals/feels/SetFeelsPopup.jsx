@@ -1,37 +1,38 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import SetFeelsForm from "./SetFeelsForm"
-import epochConvert from "utils/epochConvert"
+import {epochDateConvert} from "utils/epochConvert"
+import { createFeel, updateFeel } from "redux/actions/event-actions"
 
 const SetFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {
-  const [isOpened, setIsOpened] = useState(isFeelsMode);
+ const [isOpened, setIsOpened] = useState(isFeelsMode)
  const d = useDispatch()
 
  const onSubmit = (data) => {
-  if(currentFeelsObj) {
-    console.log('with data');
+  if (currentFeelsObj) {
+   d(updateFeel(data.id, data))
   } else {
-    console.log('create new');
+   d(createFeel(data))
   }
-  onCloseFeels();
+  onCloseFeels()
  }
 
  const onCloseFeels = () => {
   setIsOpened(false)
   setTimeout(() => {
-    d({ type: "CLOSE_FEELSMODE" })
-  }, 300);
+   d({ type: "CLOSE_FEELSMODE" })
+  }, 300)
  }
 
  useEffect(() => {
-  if(isFeelsMode !== isOpened) setIsOpened(isFeelsMode);
+  if (isFeelsMode !== isOpened) setIsOpened(isFeelsMode)
  }, [isFeelsMode])
 
  return (
   <div className={`modal modal_createnew ${isOpened ? "modal_open" : "modal_close"}`}>
    <div className="modal_content">
     <h1 className="modal_title">
-     {currentFeelsObj ? "Edit" : "Add"} Feel ({epochConvert(selectedDate, true)})
+     {currentFeelsObj ? "Edit" : "Add"} Feel ({epochDateConvert(selectedDate, true)})
     </h1>
     <SetFeelsForm {...{ onSubmit, selectedDate, currentFeelsObj }} />
     <button onClick={onCloseFeels} type="button" className="btn_submit btn_submit__delete">

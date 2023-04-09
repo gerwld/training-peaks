@@ -1,9 +1,9 @@
 import React from "react"
 import { Field, Form } from "react-final-form"
-import epochConvert from "@/utils/epochConvert"
+import {epochDateConvert} from "@/utils/epochConvert"
 
 const AddTrainForm = ({ onAddTrain, selectedDate }) => {
- const date = epochConvert(selectedDate, true)
+ const date = epochDateConvert(selectedDate, true)
 
  return (
   <Form

@@ -2,12 +2,12 @@ import React from "react"
 import { useDispatch } from "react-redux"
 import { setCreateMode } from "@/redux/actions/app-actions"
 import { CiCirclePlus } from "react-icons/ci"
-import epochConvert from "utils/epochConvert"
+import {epochDateConvert} from "utils/epochConvert"
 
 const DayCellAddTrain = (selectInfo) => {
  const d = useDispatch()
  const handleDateSelect = async () => {
-  const dateSelected = epochConvert(selectInfo.date, false)
+  const dateSelected = epochDateConvert(selectInfo.date, false)
   console.log(selectInfo.date, dateSelected)
   d(setCreateMode(true, dateSelected))
  }

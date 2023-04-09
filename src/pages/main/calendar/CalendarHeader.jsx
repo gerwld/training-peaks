@@ -5,7 +5,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { AiOutlineBarChart, AiOutlinePlus } from "react-icons/ai"
 import { setCreateMode } from "redux/actions/app-actions"
 import { useDispatch } from "react-redux"
-import epochConvert from "utils/epochConvert"
+import {epochDateConvert} from "utils/epochConvert"
 
 const CalendarHeader = ({ calendarRef }) => {
  const d = useDispatch()
@@ -37,7 +37,7 @@ const CalendarHeader = ({ calendarRef }) => {
   }
 
  const handleDateSelect = async () => {
-  const currentEpochDay = epochConvert(new moment().format("MM, DD, YYYY"))
+  const currentEpochDay = epochDateConvert(new moment().format("MM, DD, YYYY"))
   d(setCreateMode(true, currentEpochDay))
  }
 

@@ -1,4 +1,4 @@
-import epochConvert from "./epochConvert";
+import {epochDateConvert} from "utils/epochConvert";
 
 const eventToPlainObj = (event) => {
   let plain = event.toPlainObject();
@@ -8,7 +8,7 @@ const eventToPlainObj = (event) => {
       description: plain.extendedProps.description,
       link: plain.extendedProps.link,
       distance: plain.extendedProps.distance,
-      epochDate: epochConvert(plain.start),
+      epochDate: epochDateConvert(plain.start),
       start: plain.start,
   }
 }

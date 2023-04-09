@@ -1,19 +1,19 @@
 import React from "react"
 import { Field, Form } from "react-final-form"
-import epochConvert from "@/utils/epochConvert"
+import {epochDateConvert} from "@/utils/epochConvert"
 
 const SetFeelsForm = ({ onSubmit, selectedDate, currentFeelsObj }) => {
- const date = epochConvert(selectedDate, true)
+ const date = epochDateConvert(selectedDate, true)
 
  return (
   <Form
-   initialValues={{ date, mood: 8, ...currentFeelsObj }}
+   initialValues={{ date, moodRate: 8, ...currentFeelsObj }}
    onSubmit={onSubmit}
    render={({ handleSubmit }) => (
     <form onSubmit={handleSubmit} className="SetFeelsForm">
      <label>
       <span className="l_title">Sleep Hours:</span>
-      <Field component="input" type="number" name="sleepHours" placeholder="8" autoComplete="false" />
+      <Field component="input" type="number" name="sleepTime" placeholder="8" autoComplete="false" />
       <i>hrs</i>
      </label>
      <label>
@@ -30,8 +30,8 @@ const SetFeelsForm = ({ onSubmit, selectedDate, currentFeelsObj }) => {
      <label>
       <span className="l_title">Mood:</span>
       <div className="l_group">
-       <Field component="input" className="slider" type="range" name="mood" min="0" max="10" autoComplete="false" />
-       <Field component="input" type="number" name="mood" />
+       <Field component="input" className="slider" type="range" name="moodRate" min="0" max="10" autoComplete="false" />
+       <Field component="input" type="number" name="moodRate" />
       </div>
      </label>
 

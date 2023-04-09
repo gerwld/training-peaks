@@ -9,14 +9,13 @@ import RenderEvent from "./RenderEvent"
 import DayCell from "./DayCellAddTrain"
 import DayHeader from "./DayHeader"
 import { getHashValues } from "utils"
-import findFeelByDate from "utils/findFeelByDate"
 import CalendarHeader from "./CalendarHeader"
 import useWindowDimensions from "hooks/useWindowDimensions"
 import DayCellMount from "./DayCellMount"
+import { epochDayConvert } from "../../../utils/epochConvert"
 
 const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
  const fullCalendar = React.useRef()
- const feelsArray = getHashValues(feels)
  const { height } = useWindowDimensions()
 
  return (
@@ -46,13 +45,13 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
      eventContent={(e) => <RenderEvent {...e} />}
      dayCellContent={(e) => <DayCell {...e} />}
      dayHeaderContent={(e) => {
-      const dayFeel = findFeelByDate(e.date, feelsArray)
+      const dayFeel = feels[epochDayConvert(e.date)]
       return <DayHeader {...{ ...e, dayFeel }} />
      }}
 
      //custom injection for DayFeel
      dayCellDidMount={(mountData) => {
-      ReactDOM.createRoot(mountData.el).render(<DayCellMount {...{ mountData, feelsArray }} />)
+      ReactDOM.createRoot(mountData.el).render(<DayCellMount {...{ mountData }} />)
      }}
     />
    </div>

@@ -2,7 +2,7 @@ import React from "react"
 import { useDispatch } from "react-redux"
 import { fetchFeels, fetchTrains, updateTrain } from "redux/actions/event-actions"
 import eventToPlainObj from "utils/eventToPlainObj"
-import epochConvert from "utils/epochConvert"
+import {epochDateConvert, epochDayConvert} from "utils/epochConvert"
 import { fetchStatistics } from "redux/actions/statistics"
 
 const withCalendar = (Component) => {
@@ -10,10 +10,14 @@ const withCalendar = (Component) => {
   const d = useDispatch()
 
   const handleDates = (rangeInfo) => {
-   let fromDate = epochConvert(rangeInfo.startStr)
-   let toDate = epochConvert(rangeInfo.endStr)
+   let fromDate = epochDateConvert(rangeInfo.startStr)
+   let toDate = epochDateConvert(rangeInfo.endStr)
+
+   let fromDay = epochDayConvert(rangeInfo.startStr)
+   let toDay = epochDayConvert(rangeInfo.endStr)
+
    d(fetchTrains(fromDate, toDate))
-   d(fetchFeels(fromDate, toDate))
+   d(fetchFeels(fromDay, toDay))
    d(fetchStatistics(fromDate, toDate))
   }
 
