@@ -1,6 +1,7 @@
 import React from 'react'
+import { MainLoader } from '../../components'
 
-const PlanPageAll = () => {
+const PlanPageAll = ({isInit}) => {
   return (
     <div className="planpg_all">
       <h1 class="plan_title">Choose a plan</h1>
@@ -34,6 +35,7 @@ const PlanPageAll = () => {
           </div>
         </div>
       </div>
+      <MainLoader isVisible={!isInit} />
     </div>
   )
 }

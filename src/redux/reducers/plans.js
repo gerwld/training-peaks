@@ -1,24 +1,17 @@
 import updatePlanDaysIndexes from "../../utils/updatePlanDaysIndexes"
 
 const initialState = {
- isInit: false,
+ isInit: true,
  isEditMode: false,
  isDeleteMode: false,
+ isCreatePlanMode: true,
 
+ allPlans: null,
+ currentPlanId: null,
  currentObj: null,
  currentDays: null,
  currentPlanName: "My Plan #1",
- currentDays: [
-  // {
-  //  id: 0,
-  //  title: "string",
-  //  description: "string",
-  //  expectedResult: "string",
-  //  time: "1:09:15",
-  //  distance: 0,
-  //  planDayNumber: 0,
-  // }
- ],
+ currentDays: [],
 }
 
 export default function plans(state = initialState, action) {
@@ -61,6 +54,25 @@ export default function plans(state = initialState, action) {
     return {...state,
       isEditMode: false,
       currentObj: null
+  }
+  case 'SET_CREATEMODE_PLAN': 
+    return {...state,
+      isCreatePlanMode: action.isCreatePlanMode,
+    }
+  case 'CREATE_PLAN': 
+    return {...state,
+      currentPlanId: state.currentPlanId ? state.currentPlanId : action.currentPlanId,
+      isCreatePlanMode: action.isCreatePlanMode,
+    }
+
+  case 'SET_CREATEMODE_PLAN':
+  return {...state,
+    isCreatePlanMode: false
+  }
+  case 'CLOSE_CREATEMODE_PLAN':
+    return {...state,
+      newPlanId: null,
+      isCreatePlanMode: false
   }
   default:
    return state

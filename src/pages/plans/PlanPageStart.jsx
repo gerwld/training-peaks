@@ -1,8 +1,13 @@
 import React from "react";
 import { BsCalendar3, BsAward, BsChatRightText } from 'react-icons/bs';
-import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { MainLoader } from "components";
 
-const PlanPageStart = () => {
+const PlanPageStart = ({isInit}) => {
+  const d = useDispatch();
+  const onCreateNewPlan = () => {
+    d({type: 'SET_CREATEMODE_PLAN', isCreatePlanMode: true})
+  }
  return (
   <div className="plan_page">
    <div className="plan_content">
@@ -14,7 +19,7 @@ const PlanPageStart = () => {
       <div className="plan_block__icon">
         <BsAward/>
       </div>
-      <NavLink to="/plans/id" className="plan_btn btn">Start Now</NavLink>
+      <button onClick={onCreateNewPlan} className="plan_btn btn">Start Now</button>
      </div>
      <div className="plan_block">
       <h2 className="plan_block__title">Get On A Plan</h2>
@@ -34,6 +39,7 @@ const PlanPageStart = () => {
      </div>
     </div>
    </div>
+   <MainLoader isVisible={!isInit} />
   </div>
  );
 };

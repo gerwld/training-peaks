@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import AddPlanItem from "./AddPlanItem"
 import AddPlanForm from "./AddPlanForm"
 import { v4 as uniqueId } from "uuid"
 import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
+import { MainLoader } from "components"
 
-const AddPlanPage = () => {
+const AddPlanPage = ({isInit}) => {
  const [isAddDay, setAddDay] = useState(false)
  const { currentDays, currentObj, planName } = useSelector(({ plans }) => ({
   planName: plans.currentPlanName,
@@ -51,6 +52,7 @@ const AddPlanPage = () => {
     <NavLink to="/plans" className="addplab_btn btn">Show my Plans</NavLink>
     <button className="addplab_btn btn">Save Plan</button>
    </div>
+   <MainLoader isVisible={!isInit} />
   </div>
  )
 }

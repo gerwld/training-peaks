@@ -9,17 +9,20 @@ import AddTrainPopup from "./components/modals/train/AddTrainPopup/AddTrainPopup
 import EditTrainPopup from "./components/modals/train/EditTrainPopup/EditTrainPopup";
 import SetFeelsPopup from "./components/modals/feels/SetFeelsPopup";
 import AddPlanPage from "./pages/plans/AddPlanPage/AddPlanPage";
+import CreatePlanPopup from "./components/modals/plans/CreatePlanPopup";
 
 const Dashboard = () => {
  const d = useDispatch();
- const { authObj, isCreateMode, isEditMode, selectedDate, isFeelsMode, currentObj, currentFeelsObj } = useSelector(({ auth, app }) => ({
+ const { authObj, isCreateMode, isEditMode, selectedDate, isFeelsMode, currentObj, currentFeelsObj, isCreatePlanMode, isPlansInit } = useSelector(({ auth, app, plans }) => ({
   authObj: auth.authObj,
+  isPlansInit: plans.isInit,
   isCreateMode: app.isCreateMode,
   isEditMode: app.isEditMode,
   isFeelsMode: app.isFeelsMode,
   selectedDate: app.selectedDate,
   currentObj: app.currentObj,
-  currentFeelsObj: app.currentFeelsObj
+  currentFeelsObj: app.currentFeelsObj,
+  isCreatePlanMode: plans.isCreatePlanMode
  }));
  const toggleCreate = () => {
   d(setCreateMode(!isCreateMode));
@@ -37,15 +40,16 @@ const Dashboard = () => {
          <Route path="settings" element={<SettingsPage />} />
          <Route path="/report-issue" element={<ReportIssuePage />} />
 
-         <Route path="/select-plan" element={<PlanPageStart />} />
-         <Route path="/plans/:plan_id" element={<AddPlanPage />} />
-         <Route path="/plans/" element={<PlanPageAll />} />
+         <Route path="/select-plan" element={<PlanPageStart isInit={isPlansInit} />} />
+         <Route path="/plans/:plan_id" element={<AddPlanPage isInit={isPlansInit} />} />
+         <Route path="/plans/" element={<PlanPageAll isInit={isPlansInit} />} />
        </Routes>
 
        {/* POPUPS  */}
        <SetFeelsPopup {...{ isFeelsMode, selectedDate, currentFeelsObj, toggleCreate }} />
        <AddTrainPopup {...{ isCreateMode, toggleCreate, selectedDate }} />
        <EditTrainPopup isEditMode={isEditMode} toggleEdit={toggleEdit} currentObj={currentObj} />
+       <CreatePlanPopup isCreatePlanMode={isCreatePlanMode} />
      </div>
    </div>
  )
