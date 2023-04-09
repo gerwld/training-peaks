@@ -17,7 +17,7 @@ export function fetchTrains(fromDate, toDate) {
     TrainService.getTrains(fromDate, toDate)
     .then(({data}) => {
       const newData = [...data].map(e => {
-        const start = timeAddedConvert(e.createdAt, e.epochDate)
+        const start = new Date(e.epochDate).toISOString()
         return {...e, start}
       })
       dispatch({type: 'RECEIVE_TRAINS', plainTrainObjects: newData})
@@ -41,7 +41,7 @@ export function createTrains(plainTrainObject) {
     }
     return TrainService.createTrain(eventObjectWithEpoch)
       .then(({data}) => {
-        const start = timeAddedConvert(data.createdAt, data.epochDate)
+        const start = new Date(data.epochDate).toISOString()
 
         dispatch({
           type: "CREATE_TRAIN",
@@ -59,7 +59,8 @@ export function createTrains(plainTrainObject) {
 
 export function updateTrain(plainTrainObject) {
   return async (dispatch) => {
-    const eventObject = {...plainTrainObject};
+    let epochDate = epochConvert(timeAddedConvert(plainTrainObject.start, plainTrainObject.epochDate));
+    const eventObject = {...plainTrainObject, epochDate };
     delete eventObject.start;
     delete eventObject.date;
 
@@ -67,7 +68,7 @@ export function updateTrain(plainTrainObject) {
     .then(() => {
       dispatch({
         type: 'UPDATE_TRAIN',
-        plainTrainObject
+        plainTrainObject: {...plainTrainObject}
       })
       dispatch({type: 'SET_EDIT', isEditMode: false, payload: null});
     })

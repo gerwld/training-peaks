@@ -1,8 +1,8 @@
 import React from "react"
 import EditTrainForm from "./EditTrainForm"
 import { useDispatch } from "react-redux"
-import { updateTrain } from "@/redux/actions/event-actions"
-import { deleteTrains } from "@/redux/actions/event-actions"
+import { updateTrain } from "redux/actions/event-actions"
+import { deleteTrains } from "redux/actions/event-actions"
 
 const EditTrainPopup = ({ isEditMode, toggleEdit, currentObj }) => {
  const d = useDispatch()
