@@ -26,7 +26,7 @@ const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
     <FullCalendar
      ref={fullCalendar}
      plugins={[dayGridPlugin, interactionPlugin]}
-     height={Math.max(height - 158, 700)}
+     height={Math.max(height - 158, 400)}
      headerToolbar={null}
      initialView="dayGridWeek"
      editable={true}
