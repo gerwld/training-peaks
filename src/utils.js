@@ -4,7 +4,6 @@ export function getHashValues(hash) {
 }
 
 export function hashById(array) {
-  console.log(array);
   if(array) {
   let hash = {}
 
