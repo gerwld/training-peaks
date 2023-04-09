@@ -22,7 +22,7 @@ const DayCellMount = ({ mountData }) => {
   if(daygrid) {
     daygrid.style.minHeight = cellHeight > 5 ? `calc(100% - ${cellHeight + 5}px)` : '100%';
   } 
- }, [daygrid])
+ }, [daygrid, dayFeel, dayCellRef])
 
  return (
   <div className="dayc_mount" ref={dayCellRef}>
