@@ -44,16 +44,15 @@ const CalendarHeader = ({ calendarRef }) => {
  return (
   <div className="calendar_header">
    <div className="calendar_block__ml">
-    <button onClick={toggleWeekPicker} className="calendar_datepicker">
+   <h1 className="calendar_date">{title}</h1>
+
+    {/* <button onClick={toggleWeekPicker} className="calendar_datepicker">
      <span className="calendar_date">{title}</span>
      <MdOutlineKeyboardArrowDown />
     </button>
-
-    
-
     <div className="week_picker">
     <input type="week" ref={weekPicker} />
-    </div>
+    </div> */}
    </div>
 
    <div className="calendar_block__nav">

@@ -20,6 +20,7 @@ const SettingsPage = () => {
     <PremiumLeft username={authObj.email} />
 
     <Form
+    initialValues={{plan_date: new Date().toISOString().split('T')[0]}}
      onSubmit={onSettingsSave}
      render={({ handleSumbit }) => {
       return (
@@ -38,7 +39,7 @@ const SettingsPage = () => {
          <label>
           <span className="l_title">Start date:</span>
           <span className="l_desc">When 1st day of the plan should start. You can change it in settings any time.</span>
-          <Field component="input" type="date" name="title" placeholder="Title..." required={true} />
+          <Field component="input" type="date" name="plan_date" placeholder="Title..." required={true} />
          </label>
 
          <button className="btn settings_btn" type="submit">Save</button>

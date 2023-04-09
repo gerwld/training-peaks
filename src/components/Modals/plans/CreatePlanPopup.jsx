@@ -35,7 +35,7 @@ const CreatePlanPopup = ({ isCreatePlanMode }) => {
  return (
   <div className={`modal modal_createnew ${isOpened ? "modal_open" : "modal_close"}`}>
    <div className="modal_content">
-    <h1 className="modal_title"></h1>
+    <h1 className="modal_title">Create new plan</h1>
     <Form
      initialValues={{ name: "New Plan #1" }}
      onSubmit={onSubmit}
