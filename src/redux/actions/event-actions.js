@@ -125,9 +125,9 @@ export function createFeel (data) {
   }
 }
 
-export function updateFeel (object) {
+export function updateFeel (data) {
   return async (dispatch) => {
-    FeelService.updateFeel(object)
+    FeelService.updateFeel(data)
     .then(({data}) => {
 
     })

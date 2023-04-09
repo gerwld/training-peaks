@@ -10,7 +10,7 @@ const SetFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {
 
  const onSubmit = (data) => {
   if (currentFeelsObj) {
-   d(updateFeel(data.id, data))
+   d(updateFeel(data))
   } else {
    d(createFeel(data))
   }
