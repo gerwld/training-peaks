@@ -1,7 +1,7 @@
 import updatePlanDaysIndexes from "../../utils/updatePlanDaysIndexes"
 
 const initialState = {
- isInit: true,
+ isInit: false,
  isEditMode: false,
  isDeleteMode: false,
  isCreatePlanMode: false,

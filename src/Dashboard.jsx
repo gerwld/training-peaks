@@ -40,9 +40,9 @@ const Dashboard = () => {
          <Route path="settings" element={<SettingsPage />} />
          <Route path="/report-issue" element={<ReportIssuePage />} />
 
-         <Route path="/select-plan" element={<PlanPageStart isInit={isPlansInit} />} />
+         <Route path="/select-plan" element={<PlanPageStart />} />
          <Route path="/plans/:plan_id" element={<AddPlanPage isInit={isPlansInit} />} />
-         <Route path="/plans/" element={<PlanPageAll isInit={isPlansInit} />} />
+         <Route path="/plans/" element={<PlanPageAll />} />
        </Routes>
 
        {/* POPUPS  */}

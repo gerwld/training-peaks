@@ -1,9 +1,8 @@
 import React from "react";
 import { BsCalendar3, BsAward, BsChatRightText } from 'react-icons/bs';
 import { useDispatch } from "react-redux";
-import { MainLoader } from "components";
 
-const PlanPageStart = ({isInit}) => {
+const PlanPageStart = () => {
   const d = useDispatch();
   const onCreateNewPlan = () => {
     d({type: 'SET_CREATEMODE_PLAN', isCreatePlanMode: true})
@@ -39,7 +38,6 @@ const PlanPageStart = ({isInit}) => {
      </div>
     </div>
    </div>
-   <MainLoader isVisible={!isInit} />
   </div>
  );
 };

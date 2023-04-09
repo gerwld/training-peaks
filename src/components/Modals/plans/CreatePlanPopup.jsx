@@ -10,13 +10,14 @@ const CreatePlanPopup = ({ isCreatePlanMode }) => {
  const d = useDispatch()
 
  const onSubmit = (data) => {
-  d({type: "INIT_PLANS", isInit: false})
+  d({ type: "INIT_PLANS", isInit: false })
+
   PlanService.createPlan(data).then(({ data }) => {
    d({ type: "CREATE_PLAN", currentPlanId: data.id, isCreatePlanMode: false })
    navigate(`/plans/${data.id}`)
    setTimeout(() => {
-   d({type: "INIT_PLANS", isInit: true})
-  }, 400)
+    d({ type: "INIT_PLANS", isInit: true })
+   }, 400)
   })
  }
 
