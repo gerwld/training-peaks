@@ -16,9 +16,9 @@ const DayFeel = withSetFeel((props) => {
    </div>
 
    <div className="cf_dayfeel__content">
-   {dayFeel.sleepHours &&
+   {dayFeel.sleepTime &&
     <span className="cf_dayfeel__param">
-     Sleep hours: <span className="metric">{dayFeel.sleepHours}h</span>
+     Sleep hours: <span className="metric">{dayFeel.sleepTime}h</span>
     </span>}
     {dayFeel.weight &&
     <span className="cf_dayfeel__param">
