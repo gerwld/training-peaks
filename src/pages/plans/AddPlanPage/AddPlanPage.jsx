@@ -39,7 +39,7 @@ const AddPlanPage = ({isInit}) => {
  return (
   <div className="addplanpage">
    <div className="addplanpage_title">
-    <input type="text" placeholder="Click here to set plan name..." value={planName} onChange={() => {}} />
+    <h2>{planName}</h2>
    </div>
 
    <div className="addplanpage_content">

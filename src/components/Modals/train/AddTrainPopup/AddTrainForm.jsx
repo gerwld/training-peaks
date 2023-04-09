@@ -1,13 +1,13 @@
 import React from "react"
 import { Field, Form } from "react-final-form"
-import {epochDateConvert} from "@/utils/epochConvert"
+import {epochDateConvert} from "utils/epochConvert"
 
 const AddTrainForm = ({ onAddTrain, selectedDate }) => {
  const date = epochDateConvert(selectedDate, true)
 
  return (
   <Form
-   initialValues={{ date }}
+   initialValues={{ date}}
    onSubmit={onAddTrain}
    render={({ handleSubmit }) => (
     <form onSubmit={handleSubmit} className="AddTrainForm">

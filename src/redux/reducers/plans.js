@@ -4,7 +4,7 @@ const initialState = {
  isInit: true,
  isEditMode: false,
  isDeleteMode: false,
- isCreatePlanMode: true,
+ isCreatePlanMode: false,
 
  allPlans: null,
  currentPlanId: null,

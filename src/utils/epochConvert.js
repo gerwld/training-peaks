@@ -1,6 +1,6 @@
 
 export const epochDateConvert = (date, isEpoch, convertToDays) => {
- if (typeof date !== "undefined" || date !== null) {
+ if (date && (typeof date !== "undefined" || date !== null)) {
   if (isEpoch) {
    let humanDate = new Date(Number(date))
    let dateString = new Date(humanDate.getTime() - humanDate.getTimezoneOffset() * 60000).toISOString().split("T")[0]
