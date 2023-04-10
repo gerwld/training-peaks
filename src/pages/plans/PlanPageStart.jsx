@@ -1,12 +1,8 @@
 import React from "react";
 import { BsCalendar3, BsAward, BsChatRightText } from 'react-icons/bs';
-import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 const PlanPageStart = () => {
-  const d = useDispatch();
-  const onCreateNewPlan = () => {
-    d({type: 'SET_CREATEMODE_PLAN', isCreatePlanMode: true})
-  }
  return (
   <div className="plan_page">
    <div className="plan_content">
@@ -18,7 +14,7 @@ const PlanPageStart = () => {
       <div className="plan_block__icon">
         <BsAward/>
       </div>
-      <button onClick={onCreateNewPlan} className="plan_btn btn">Start Now</button>
+      <NavLink to="/plans" className="plan_btn btn">Start Now</NavLink>
      </div>
      <div className="plan_block">
       <h2 className="plan_block__title">Get On A Plan</h2>

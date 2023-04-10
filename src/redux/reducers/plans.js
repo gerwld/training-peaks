@@ -74,6 +74,11 @@ export default function plans(state = initialState, action) {
       newPlanId: null,
       isCreatePlanMode: false
   }
+
+  case 'FETCH_PLANS':
+    return {...state,
+      allPlans: action.payload
+    }
   default:
    return state
  }

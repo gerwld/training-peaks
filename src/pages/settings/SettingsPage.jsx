@@ -4,6 +4,7 @@ import { Field, Form } from "react-final-form"
 
 import PremiumLeft from "components/UI/blocks/PremiumLeft"
 import UserInfo from "../../components/UI/blocks/UserInfo"
+import PlanService from "../../api/PlanService"
 
 
 const SettingsPage = () => {
@@ -12,6 +13,12 @@ const SettingsPage = () => {
  }))
 
  const onSettingsSave = () => {}
+
+ const onSelect = (id, startEpochDate) => {
+  PlanService.setCurrentPlan(id, startEpochDate)
+   .then(({ data }) => {})
+   .catch((error) => {})
+ }
 
  return (
   <div className="page_content page_content__100 settings_page">

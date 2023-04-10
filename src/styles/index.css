@@ -119,7 +119,7 @@ html {
   font-weight: 400;
 
   color: var(--text-color);
-  background-color: #f7f9fa;
+  background-color: #f7f9fa!important;
 
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -529,10 +529,22 @@ a.navbar-l1_logo:hover {
 }
 
 .plan_title {
-  font-size: 35px;
+  font-size: 34px;
   font-weight: 500;
-  text-align: center;
+  line-height: 145%;
+  text-align: left;
   margin-bottom: 30px;
+}
+
+.no_plans button {
+  height: 55px;
+  color: var(--color-1-orange);
+  border: 1.5px solid var(--color-1-orange);
+  transition: box-shadow 0.2s;
+}
+
+.no_plans button:hover {
+  box-shadow: var(--box-shadow);
 }
 
 .plan_blocks {
@@ -1995,11 +2007,12 @@ span.l_desc {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - var(--hf-height));
+  padding: 20px 0;
+  min-height: calc(100vh - var(--hf-height));
 }
 
 .planpg_all__content {
-  padding: 40px 30px;
+  padding: 20px 30px 40px 30px;
   width: 500px;
   background-color: #fff;
   border-radius: 10px;
@@ -2014,14 +2027,36 @@ span.l_desc {
   border-bottom: 1px solid #eee;
 }
 
+.planpg_all__item .group {
+  display: flex;
+}
+
+.add_new button,
+.planpg_all__item a,
 .planpg_all__item button {
+  display: inline-block;
+  padding: 10px 15px;
+  height: 45px;
   margin-left: 6px;
   color: var(--basic-orange);
   border: 1.5px solid var(--basic-orange);
+  border-radius: 5px;
+  transition: background 0.2s ease, border 0.2s ease, transform 0.1s ease, outline 0.1s ease, box-shadow 0.2s;
 }
 
+.planpg_all__item a:hover,
 .planpg_all__item button:hover {
   background-color: var(--basic-link-hover);
+}
+
+.add_new button:hover {
+  box-shadow: var(--box-shadow);
+}
+
+.add_new {
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .planpg_all__item__title {

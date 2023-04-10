@@ -8,6 +8,15 @@ export default class PlanService {
   return instance.get("/plans/active");
  }
 
+ static async setCurrentPlan(planId, startAtEpochDate) {
+  return instance.get("/users", {
+    params: {
+      planId,
+      startAtEpochDate
+    }
+  });
+ }
+
  static async getPlan(id) {
   return instance.get(`/plans/${id}`);
  }
