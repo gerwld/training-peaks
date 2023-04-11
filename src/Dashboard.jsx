@@ -41,7 +41,7 @@ const Dashboard = () => {
          <Route path="/report-issue" element={<ReportIssuePage />} />
 
          <Route path="/select-plan" element={<PlanPageStart />} />
-         <Route path="/plans/:plan_id" element={<AddPlanPage isInit={isPlansInit} />} />
+         <Route path="/plans/:PLAN_ID" element={<AddPlanPage isInit={isPlansInit} />} />
          <Route path="/plans/" element={<PlanPageAll />} />
        </Routes>
 

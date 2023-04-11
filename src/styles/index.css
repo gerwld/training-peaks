@@ -534,6 +534,7 @@ a.navbar-l1_logo:hover {
   line-height: 145%;
   text-align: left;
   margin-bottom: 30px;
+  color: var(--text-color);
 }
 
 .no_plans button {
@@ -1648,6 +1649,10 @@ span.cf_dayplan__distance {
   min-height: 280px;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
+}
+
+.plan_choosenext {
+  min-height: 280px;
 }
 
 .addplanitem .tc_icon svg{

@@ -10,10 +10,10 @@ import PlanService from "api/PlanService"
 
 const AddPlanPage = ({ isInit }) => {
  const d = useDispatch()
- const { plan_id } = useParams()
+ const { PLAN_ID } = useParams()
  const nav = useNavigate();
  const [isAddDay, setAddDay] = useState(false)
- const { currentDays, currentObj, planName, planId } = useSelector(({ plans }) => ({
+ const { currentDays, currentObj, planName } = useSelector(({ plans }) => ({
   planName: plans.currentPlanName,
   currentDays: plans.currentDays,
   currentObj: plans.currentObj,
@@ -25,18 +25,36 @@ const AddPlanPage = ({ isInit }) => {
  }
 
  const onSavePlan = () => {
+  let newDaysArr = [...currentDays].filter(e => e.isFreeDay !== true).map((e) => {
+    delete e.isFreeDay
+    return e;
+  })
+  if(newDaysArr && PLAN_ID)
+  PlanService.addPlanItemsBatch(PLAN_ID, newDaysArr)
+  .then(({data}) => {
+    d({ type: "SET_EDIT_PLAN", payload: data })
+  })
  }
 
  useEffect(() => {
-  if (Number(plan_id) || Number(plan_id) === 0) {
+  if (Number(PLAN_ID) || Number(PLAN_ID) === 0) {
+
    d({ type: "INIT_PLANS", isInit: false })
-   PlanService.getPlan(plan_id).then(({ data }) => {
-    d({ type: "SET_EDIT_PLAN", payload: data })
+   PlanService.getPlan(PLAN_ID).then(({ data }) => {
+    d({ type: "SET_EDIT_PLAN", payload: data, days: getDaysWithFreeDays(data.days) })
     d({ type: "INIT_PLANS", isInit: true })
    })
   }
   else nav('/plans');
  }, [])
+
+ const getDaysWithFreeDays = (days) => {
+  let allTrainDays = [...days].map(e => e.planDayNumber);
+  let maxDay = allTrainDays.filter((a, b) => b - a)[0];
+  let allFreeDays = [...Array(maxDay)].map((_, i) => i + 1).filter(e => allTrainDays.indexOf(e) === -1);
+  let allFreeDaysArr = allFreeDays.map(e => ({isFreeDay: true, planDayNumber: e}))
+  return [...days.map(e => ({...e, isFreeDay: false})), ...allFreeDaysArr];
+ }
 
  const showAddBtnOrForm = (isAddDay) => {
   if (isAddDay)

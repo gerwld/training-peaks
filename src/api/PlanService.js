@@ -30,6 +30,11 @@ export default class PlanService {
  static async addPlanItem(planId, payload) {
   return instance.post(`/plans/${planId}/add-item`, payload);
  }
+
+ static async addPlanItemsBatch(planId, payload) {
+  return instance.post(`/plans/${planId}/batch-add-item`, payload);
+ }
+
  static async deletePlanItem(planId, itemId) {
   return instance.delete(`/plans/${planId}/delete-item/${itemId}`);
  }
