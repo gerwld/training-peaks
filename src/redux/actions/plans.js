@@ -1,4 +1,4 @@
-import PlanService from "../../api/PlanService"
+import PlanService from "api/PlanService"
 
 export const getAllPlans = () => {
  return (dispatch) => {

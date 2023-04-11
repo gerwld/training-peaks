@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { Field, Form } from "react-final-form"
 import { useNavigate } from "react-router-dom"
 import PlanService from "../../../api/PlanService"
+import showMessage from "react-hot-toast";
 
 const CreatePlanPopup = ({ isCreatePlanMode }) => {
  const [isOpened, setIsOpened] = useState(isCreatePlanMode)
@@ -12,13 +13,19 @@ const CreatePlanPopup = ({ isCreatePlanMode }) => {
  const onSubmit = (data) => {
   d({ type: "INIT_PLANS", isInit: false })
 
-  PlanService.createPlan(data).then(({ data }) => {
+  let fetch = PlanService.createPlan(data).then(({ data }) => {
    d({ type: "CREATE_PLAN", currentPlanId: data.id, isCreatePlanMode: false })
    navigate(`/plans/${data.id}`)
    setTimeout(() => {
     d({ type: "INIT_PLANS", isInit: true })
    }, 400)
   })
+
+  showMessage.promise(fetch, {
+    loading: "Loading",
+    success: `Plan "${data.name}" created successfully.`,
+    error: (err) =>  err?.response.data.message || 'Unknown error'
+   });
  }
 
  const onCloseFeels = () => {

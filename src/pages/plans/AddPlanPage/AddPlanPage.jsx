@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
-import AddPlanItem from "./AddPlanItem"
-import AddPlanForm from "./AddPlanForm"
 import { v4 as uniqueId } from "uuid"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate, useParams } from "react-router-dom"
+
+import AddPlanItem from "./AddPlanItem"
+import AddPlanForm from "./AddPlanForm"
 import { MainLoader } from "components"
-import PlanService from "../../../api/PlanService"
+import PlanService from "api/PlanService"
 
 const AddPlanPage = ({ isInit }) => {
  const d = useDispatch()
@@ -21,6 +22,9 @@ const AddPlanPage = ({ isInit }) => {
 
  const toggleAdd = () => {
   setAddDay(!isAddDay)
+ }
+
+ const onSavePlan = () => {
  }
 
  useEffect(() => {
@@ -68,7 +72,7 @@ const AddPlanPage = ({ isInit }) => {
     <NavLink to="/plans" className="addplab_btn btn">
      Show my Plans
     </NavLink>
-    <button className="addplab_btn btn">Save Plan</button>
+    <button onClick={onSavePlan} className="addplab_btn btn">Save Plan</button>
    </div>
    <MainLoader isVisible={!isInit} />
   </div>
