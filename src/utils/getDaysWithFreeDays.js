@@ -11,6 +11,11 @@ export const getDaysWithFreeDays = (daysWidthoutFree) => {
  let allFreeDaysArr = [...allFreeDays].map((e) => ({ isFreeDay: true, planDayNumber: e, id: udid() }))
  let allDaysWithFreeDays = [...[...days].map((e) => ({ ...e, isFreeDay: false })), ...allFreeDaysArr];
  let allDaysWithFreeDaysSorted = allDaysWithFreeDays.sort((a, b) => a.planDayNumber - b.planDayNumber);
+ let allDaysWithFreeDaysSortedUnique = 
+  [...allDaysWithFreeDaysSorted].filter((e, i) => {
+    if(i === 0 || e.planDayNumber !== allDaysWithFreeDaysSorted[i - 1].planDayNumber) return true;
+    return false
+ })
 
- return allDaysWithFreeDaysSorted;
+ return allDaysWithFreeDaysSortedUnique;
 }

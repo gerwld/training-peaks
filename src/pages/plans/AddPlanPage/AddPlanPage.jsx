@@ -75,7 +75,9 @@ const AddPlanPage = ({ isInit }) => {
    </div>
 
    <div className="addplanpage_content">
-    {currentDays?.length ? [...Array(currentDays?.length)].map((_, i) => <AddPlanItem key={uniqueId() + "_planitem"} index={i + 1} item={currentDays.find(({ planDayNumber }) => planDayNumber === i + 1)} />) : ""}
+    {currentDays?.length ? 
+    currentDays.map((item, i) => <AddPlanItem key={uniqueId() + "_planitem"} index={i + 1} item={item} />) 
+    : ""}
 
     {showAddBtnOrForm(isAddDay)}
    </div>
