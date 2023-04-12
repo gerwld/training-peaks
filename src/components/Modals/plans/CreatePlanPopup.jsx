@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import PlanService from "../../../api/PlanService"
 import showMessage from "react-hot-toast";
 
-const CreatePlanPopup = ({ isCreatePlanMode }) => {
+const CreatePlanPopup = ({ isCreatePlanMode, nextIndex }) => {
  const [isOpened, setIsOpened] = useState(isCreatePlanMode)
  const navigate = useNavigate()
  const d = useDispatch()
@@ -44,13 +44,13 @@ const CreatePlanPopup = ({ isCreatePlanMode }) => {
    <div className="modal_content">
     <h1 className="modal_title">Create new plan</h1>
     <Form
-     initialValues={{ name: "New Plan #1" }}
+     initialValues={{ name: `New Plan #${nextIndex}` }}
      onSubmit={onSubmit}
      render={({ handleSubmit }) => (
       <form onSubmit={handleSubmit} className="SetFeelsForm">
        <label>
         <span className="l_title">Title:</span>
-        <Field component="input" type="text" name="name" placeholder="New Plan #1" autoComplete="false" />
+        <Field component="input" type="text" name="name" placeholder={`New Plan #${nextIndex}`} autoComplete="false" />
        </label>
        <label>
         <span className="l_title">Description (not required):</span>

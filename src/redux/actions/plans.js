@@ -17,6 +17,18 @@ export const getAllPlans = () => {
  }
 }
 
+export const getCurrentPlan = () => {
+  return dispatch => {
+    PlanService.getCurrentPlan()
+    .then(({data}) => {
+      dispatch({type: 'SET_CURRENT_PLAN', ...data})
+    })
+    .catch((error) => {
+      throw new Error(error)
+    })
+  }
+}
+
 export const updatePlan = (planId, payload) => {
   return dispatch => {
     PlanService.addPlanItemsBatch(planId, payload)

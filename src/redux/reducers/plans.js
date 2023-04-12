@@ -11,7 +11,12 @@ const initialState = {
  currentDays: null,
  currentPlanId: null,
  currentPlanName: "My Plan #1",
- currentDays: []
+ currentDays: [],
+
+ globalPlanId:  null,
+ globalPlanname: null,
+ startAtEpochDate: null,
+ globalPlanCurrentDays: [],
 }
 
 export default function plans(state = initialState, action) {
@@ -27,7 +32,10 @@ export default function plans(state = initialState, action) {
     }
   case 'SET_CURRENT_PLAN':
     return {...state,
-      currentDays: action.payload
+      globalPlanId: action.id,
+      globalPlanname: action.name,
+      startAtEpochDate: action.startAtEpochDate,
+      globalPlanCurrentDays: action.days
     }
     case 'SET_EDIT_PLAN':
     return {...state,

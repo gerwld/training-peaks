@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Navbar } from "./components";
@@ -10,11 +10,13 @@ import EditTrainPopup from "./components/modals/train/EditTrainPopup/EditTrainPo
 import SetFeelsPopup from "./components/modals/feels/SetFeelsPopup";
 import AddPlanPage from "./pages/plans/AddPlanPage/AddPlanPage";
 import CreatePlanPopup from "./components/modals/plans/CreatePlanPopup";
+import { getCurrentPlan } from "./redux/actions/plans";
 
 const Dashboard = () => {
  const d = useDispatch();
- const { authObj, isCreateMode, isEditMode, selectedDate, isFeelsMode, currentObj, currentFeelsObj, isCreatePlanMode, isPlansInit } = useSelector(({ auth, app, plans }) => ({
+ const { authObj, isCreateMode, isEditMode, selectedDate, isFeelsMode, currentObj, currentFeelsObj, isCreatePlanMode, isPlansInit, allPlans } = useSelector(({ auth, app, plans }) => ({
   authObj: auth.authObj,
+  allPlans: plans.allPlans,
   isPlansInit: plans.isInit,
   isCreateMode: app.isCreateMode,
   isEditMode: app.isEditMode,
@@ -22,7 +24,8 @@ const Dashboard = () => {
   selectedDate: app.selectedDate,
   currentObj: app.currentObj,
   currentFeelsObj: app.currentFeelsObj,
-  isCreatePlanMode: plans.isCreatePlanMode
+  isCreatePlanMode: plans.isCreatePlanMode,
+
  }));
  const toggleCreate = () => {
   d(setCreateMode(!isCreateMode));
@@ -30,6 +33,10 @@ const Dashboard = () => {
  const toggleEdit = () => {
   d({ type: "TOGGLE_EDIT", payload: null });
  };
+
+ useEffect(() => {
+  d(getCurrentPlan());
+ }, [])
 
  return (
    <div className="app_main">
@@ -49,7 +56,7 @@ const Dashboard = () => {
        <SetFeelsPopup {...{ isFeelsMode, selectedDate, currentFeelsObj, toggleCreate }} />
        <AddTrainPopup {...{ isCreateMode, toggleCreate, selectedDate }} />
        <EditTrainPopup isEditMode={isEditMode} toggleEdit={toggleEdit} currentObj={currentObj} />
-       <CreatePlanPopup isCreatePlanMode={isCreatePlanMode} />
+       <CreatePlanPopup isCreatePlanMode={isCreatePlanMode} nextIndex={allPlans?.length + 1} />
      </div>
    </div>
  )

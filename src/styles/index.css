@@ -402,6 +402,26 @@ select:invalid {
   border: 2px solid var(--hover-primary-orange);
 }
 
+.btn__line {
+  padding: 6px 22px;
+  font-size: 0.92rem;
+  line-height: 140%;
+  color: var(--color-1-orange);
+  background-color: transparent;
+}
+
+.margin-10px-tb {
+  margin: 10px 0;
+}
+
+.btn__line:hover {
+  
+  background-color: transparent;
+  color: var(--color-1-orange);
+  border-color: var(--color-1-orange);
+  box-shadow: var(--box-shadow);
+}
+
 
 .navbar-l1_logo {
   text-transform: uppercase;
@@ -2074,4 +2094,8 @@ span.l_desc {
 
 .settings_btn {
   margin-top: 30px;
+}
+
+.db-block {
+  display: block;
 }
