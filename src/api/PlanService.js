@@ -32,7 +32,7 @@ export default class PlanService {
  }
 
  static async addPlanItemsBatch(planId, payload) {
-  return instance.post(`/plans/${planId}/batch-add-item`, payload);
+  return instance.put(`/plans/${planId}/batch-update-or-create-items`, payload);
  }
 
  static async deletePlanItem(planId, itemId) {

@@ -7,6 +7,7 @@ import AddPlanItem from "./AddPlanItem"
 import AddPlanForm from "./AddPlanForm"
 import { MainLoader } from "components"
 import PlanService from "api/PlanService"
+import { getDaysWithFreeDays } from "../../../utils/getDaysWithFreeDays"
 
 const AddPlanPage = ({ isInit }) => {
  const d = useDispatch()
@@ -26,6 +27,7 @@ const AddPlanPage = ({ isInit }) => {
 
  const onSavePlan = () => {
   let newDaysArr = [...currentDays].filter(e => e.isFreeDay !== true).map((e) => {
+    if(!e?.id) e.id = uniqueId();
     delete e.isFreeDay
     return e;
   })
@@ -47,14 +49,6 @@ const AddPlanPage = ({ isInit }) => {
   }
   else nav('/plans');
  }, [])
-
- const getDaysWithFreeDays = (days) => {
-  let allTrainDays = [...days].map(e => e.planDayNumber);
-  let maxDay = allTrainDays.filter((a, b) => b - a)[0];
-  let allFreeDays = [...Array(maxDay)].map((_, i) => i + 1).filter(e => allTrainDays.indexOf(e) === -1);
-  let allFreeDaysArr = allFreeDays.map(e => ({isFreeDay: true, planDayNumber: e}))
-  return [...days.map(e => ({...e, isFreeDay: false})), ...allFreeDaysArr];
- }
 
  const showAddBtnOrForm = (isAddDay) => {
   if (isAddDay)

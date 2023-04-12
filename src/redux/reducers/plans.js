@@ -33,7 +33,7 @@ export default function plans(state = initialState, action) {
     return {...state,
       currentPlanId: action.payload.currentPlanId,
       currentPlanName: action.payload.name,
-      currentDays: action.payload.days
+      currentDays: action.days
     }
 
   case 'ADD_PLANDAY':
