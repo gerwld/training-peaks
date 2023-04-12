@@ -6,8 +6,8 @@ import { NavLink, useNavigate, useParams } from "react-router-dom"
 import AddPlanItem from "./AddPlanItem"
 import AddPlanForm from "./AddPlanForm"
 import { MainLoader } from "components"
-import PlanService from "api/PlanService"
-import { getDaysWithFreeDays } from "../../../utils/getDaysWithFreeDays"
+import { getDaysWithoutFreeDays } from "utils/getDaysWithFreeDays"
+import { getPlan, updatePlan } from "redux/actions/plans"
 
 const AddPlanPage = ({ isInit }) => {
  const d = useDispatch()
@@ -26,26 +26,13 @@ const AddPlanPage = ({ isInit }) => {
  }
 
  const onSavePlan = () => {
-  let newDaysArr = [...currentDays].filter(e => e.isFreeDay !== true).map((e) => {
-    if(!e?.id) e.id = uniqueId();
-    delete e.isFreeDay
-    return e;
-  })
-  if(newDaysArr && PLAN_ID)
-  PlanService.addPlanItemsBatch(PLAN_ID, newDaysArr)
-  .then(({data}) => {
-    d({ type: "SET_EDIT_PLAN", payload: data })
-  })
+  let newDaysArr = getDaysWithoutFreeDays(currentDays)
+  if (PLAN_ID) d(updatePlan(PLAN_ID, newDaysArr))
  }
 
  useEffect(() => {
   if (Number(PLAN_ID) || Number(PLAN_ID) === 0) {
-
-   d({ type: "INIT_PLANS", isInit: false })
-   PlanService.getPlan(PLAN_ID).then(({ data }) => {
-    d({ type: "SET_EDIT_PLAN", payload: data, days: getDaysWithFreeDays(data.days) })
-    d({ type: "INIT_PLANS", isInit: true })
-   })
+    d(getPlan(PLAN_ID));
   }
   else nav('/plans');
  }, [])
@@ -76,7 +63,7 @@ const AddPlanPage = ({ isInit }) => {
 
    <div className="addplanpage_content">
     {currentDays?.length ? 
-    currentDays.map((item, i) => <AddPlanItem key={uniqueId() + "_planitem"} index={i + 1} item={item} />) 
+    currentDays.map((item, i) => <AddPlanItem key={uniqueId() + "_planitem"} index={i + 1} item={item} PLAN_ID={PLAN_ID} />) 
     : ""}
 
     {showAddBtnOrForm(isAddDay)}

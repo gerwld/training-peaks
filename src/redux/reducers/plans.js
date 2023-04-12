@@ -36,6 +36,12 @@ export default function plans(state = initialState, action) {
       currentDays: action.days
     }
 
+    case 'SET_CURRENT_DAYS':
+      return {...state,
+        currentDays: action.payload
+      }
+  
+
   case 'ADD_PLANDAY':
     return {
       ...state,
@@ -43,7 +49,7 @@ export default function plans(state = initialState, action) {
     }
 
   case 'DELETE_PLANDAY':
-    let currentDaysFiltered = [...state.currentDays].filter(({planDayNumber}) => planDayNumber !== action.payload);
+    let currentDaysFiltered = [...state.currentDays].filter(({id}) => id !== action.itemId);
     return {...state,
     currentDays: updatePlanDaysIndexes(currentDaysFiltered, 'planDayNumber')
   }

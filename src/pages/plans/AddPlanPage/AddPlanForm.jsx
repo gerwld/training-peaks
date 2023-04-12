@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Form, Field } from "react-final-form"
 import { MdClose } from "react-icons/md"
 import { useDispatch } from "react-redux"
+import { v4 } from "uuid"
 
 const AddPlanForm = (props) => {
  const { isEditMode, toggleEdit, currentObj, toggleAdd } = props;
@@ -40,8 +41,8 @@ const FormComponent = ({ currentObj, currentDay, isEditMode, onClose }) => {
 
  const onSubmit = (data) => {
   if (isFreeDay || isEditMode)
-       d({ type: "UPDATE_PLANDAY", payload: {...data, isFreeDay, planDayNumber: currentDay} });
-  else d({ type: "ADD_PLANDAY", payload: {...data, isFreeDay, planDayNumber: currentDay} });
+       d({ type: "UPDATE_PLANDAY", payload: {...data, isFreeDay, planDayNumber: currentDay, id: data.id ? data.id : v4()} });
+  else d({ type: "ADD_PLANDAY", payload: {...data, isFreeDay, planDayNumber: currentDay, id: data.id ? data.id : v4()} });
  }
 
  useEffect(() => {

@@ -19,3 +19,24 @@ export const getDaysWithFreeDays = (daysWidthoutFree) => {
 
  return allDaysWithFreeDaysSortedUnique;
 }
+
+
+export const getDaysWithoutFreeDays = (daysFromState) => {
+  let days = structuredClone(daysFromState);
+  if (!days?.length) return [];
+
+  let daysWithoutFree = days.filter(e => !e?.isFreeDay)
+  let daysWithoutFreeCropped = daysWithoutFree.map(e => {
+    delete e.isFreeDay;
+    return e;
+  })
+
+  let daysWithoutFreeCroppedSorted = daysWithoutFreeCropped.sort((a, b) => a.planDayNumber - b.planDayNumber);
+  let daysWithoutFreeCroppedSortedUnique = 
+  [...daysWithoutFreeCroppedSorted].filter((e, i) => {
+    if(i === 0 || e.planDayNumber !== daysWithoutFreeCroppedSorted[i - 1].planDayNumber) return true;
+    return false
+ })
+
+  return daysWithoutFreeCroppedSortedUnique;
+}

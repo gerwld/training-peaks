@@ -5,8 +5,9 @@ import { GiRunningShoe } from "react-icons/gi"
 import { MdClose } from "react-icons/md"
 import AddPlanForm from "./AddPlanForm"
 import { useDispatch } from "react-redux"
+import { deletePlan } from "../../../redux/actions/plans"
 
-const AddPlanItem = ({ item, index }) => {
+const AddPlanItem = ({ item, index, PLAN_ID }) => {
   const d = useDispatch();
  const [isEditMode, setEditMode] = useState(false)
 
@@ -14,8 +15,8 @@ const AddPlanItem = ({ item, index }) => {
   setEditMode(!isEditMode)
  }
 
- const deleteCurrent = () => {
-  d({type: 'DELETE_PLANDAY', payload: item.planDayNumber})
+ const deleteCurrent= () => {
+  d(deletePlan(PLAN_ID, item?.id));  
  }
 
  if (isEditMode) return (
