@@ -49,13 +49,14 @@ export default function plans(state = initialState, action) {
     }
 
   case 'DELETE_PLANDAY':
-    let currentDaysFiltered = [...state.currentDays].filter(({id}) => id !== action.itemId);
+    let currentDaysFiltered = [...state.currentDays].filter(({id}) => id !== action.itemID);
+    console.log(currentDaysFiltered, state.currentDays, action.itemID);
     return {...state,
     currentDays: updatePlanDaysIndexes(currentDaysFiltered, 'planDayNumber')
   }
   case 'UPDATE_PLANDAY':
     return {...state,
-    currentDays: [...state.currentDays.filter(({planDayNumber}) => planDayNumber !== action.payload.planDayNumber), action.payload]
+    currentDays: [...state.currentDays.filter(({id}) => id !== action.payload.id), action.payload].sort((a,b) => a.planDayNumber - b.planDayNumber)
   }
   case 'SET_EDITMODE_PLAN': 
     return {...state,

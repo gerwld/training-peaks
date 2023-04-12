@@ -21,7 +21,7 @@ export const updatePlan = (planId, payload) => {
   return dispatch => {
     PlanService.addPlanItemsBatch(planId, payload)
     .then(({data}) => {
-      dispatch({ type: "SET_CURRENT_DAYS", payload: data })
+      dispatch({ type: "SET_CURRENT_DAYS", payload: getDaysWithFreeDays(data) })
       showMessage.success('Plan saved successfully.')
     })
     .catch(error => {
@@ -45,10 +45,9 @@ export const getPlan = (planId) => {
 
 export const deletePlan = (planID, itemID) => {
   return dispatch => {
+    dispatch({type: 'DELETE_PLANDAY', itemID})
     PlanService.deletePlanItem(planID, itemID)
     .then((_) => {
-      dispatch({type: 'DELETE_PLANDAY', itemID})
-      dispatch(getPlan(planID));
       showMessage.success('Day has been deleted from the plan.')
     })
     .catch((error) => {

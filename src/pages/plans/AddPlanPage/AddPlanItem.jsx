@@ -16,7 +16,7 @@ const AddPlanItem = ({ item, index, PLAN_ID }) => {
  }
 
  const deleteCurrent= () => {
-  d(deletePlan(PLAN_ID, item?.id));  
+  d(deletePlan(PLAN_ID, item?.id));
  }
 
  if (isEditMode) return (
