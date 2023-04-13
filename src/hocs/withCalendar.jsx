@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { fetchFeels, fetchTrains, updateTrain } from "redux/actions/event-actions"
 import eventToPlainObj from "utils/eventToPlainObj"

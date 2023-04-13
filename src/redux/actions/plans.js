@@ -1,6 +1,8 @@
 import PlanService from "api/PlanService"
 import { toast as showMessage } from "react-hot-toast"
-import { getDaysWithFreeDays } from "../../utils/getDaysWithFreeDays"
+import { getDaysWithFreeDays } from "utils/getDaysWithFreeDays"
+import { planDaysWithEpoch } from "utils/planDaysWithEpoch"
+import { hashByEpoch } from "../../utils"
 
 export const getAllPlans = () => {
  return (dispatch) => {
@@ -21,7 +23,7 @@ export const getCurrentPlan = () => {
   return dispatch => {
     PlanService.getCurrentPlan()
     .then(({data}) => {
-      dispatch({type: 'SET_CURRENT_PLAN', ...data})
+      dispatch({type: 'SET_CURRENT_PLAN', ...data, globalPlanCurrentDays: hashByEpoch(planDaysWithEpoch(data.days, data.startAtEpochDate))})
     })
     .catch((error) => {
       throw new Error(error)

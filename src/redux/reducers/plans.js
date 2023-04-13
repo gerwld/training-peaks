@@ -35,7 +35,7 @@ export default function plans(state = initialState, action) {
       globalPlanId: action.id,
       globalPlanname: action.name,
       startAtEpochDate: action.startAtEpochDate,
-      globalPlanCurrentDays: action.days
+      globalPlanCurrentDays: action.globalPlanCurrentDays
     }
     case 'SET_EDIT_PLAN':
     return {...state,

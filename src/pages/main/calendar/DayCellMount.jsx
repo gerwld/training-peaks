@@ -8,12 +8,14 @@ import { epochDayConvert } from "utils/epochConvert"
 const DayCellMount = ({ mountData }) => {
  const dayCellRef = React.useRef()
  const daygrid = mountData?.el?.querySelector(".fc-daygrid-day-frame");
-  const {feels} = useSelector(({main}) => ({
-    feels: main.feelsById
+  const {feels, plans} = useSelector(({main, plans}) => ({
+    feels: main.feelsById,
+    plans: plans.globalPlanCurrentDays
   }))
 
  const epochDay = epochDayConvert(mountData.date);
  const dayFeel = feels[epochDay];
+ const dayPlan = plans[epochDay];
  
  
 
@@ -29,7 +31,8 @@ const DayCellMount = ({ mountData }) => {
    {dayFeel &&
      <DayFeel {...{ dayFeel, date: mountData.date }} />}
 
-     <DayPlan/>
+   {dayPlan &&
+     <DayPlan {...dayPlan}/>}
   </div>
  )
 }

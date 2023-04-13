@@ -3,7 +3,8 @@ import { Form, Field } from "react-final-form"
 import { MdClose } from "react-icons/md"
 import { useDispatch } from "react-redux"
 import { v4 } from "uuid"
-import { deleteFreeDayPlan, deletePlan } from "../../../redux/actions/plans"
+
+import { deleteFreeDayPlan } from "redux/actions/plans"
 
 const AddPlanForm = (props) => {
  const { isEditMode, toggleEdit, currentObj, toggleAdd } = props;
@@ -15,12 +16,6 @@ const onClose = () => {
   if(toggleAdd) toggleAdd();
   else toggleEdit();
   }
-
-  useEffect(() => {
-    console.log(props);
-  }, [props])
-
-  
 
  return (
   <div className="addplan_wrap">
