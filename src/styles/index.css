@@ -2099,3 +2099,63 @@ span.l_desc {
 .db-block {
   display: block;
 }
+
+.calendar_stats_tooltip {
+  position: relative;
+  margin-right: 10px;
+}
+
+.stats_tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  min-width: 300px;
+  min-height: 200px;
+  padding: 10px;
+  margin: 5px 0 0;
+  background-color: #fff;
+  z-index: 100;
+  box-shadow: rgba(69, 75, 83, 0.4) 0px 2px 4px, rgba(52, 54, 57, 0.3) 0px 7px 13px -3px, rgba(43, 44, 46, 0.2) 0px -3px 0px inset;
+  border-top: 3px solid #e6ebf0;
+
+  opacity: 0;
+  transform: translate(50%,-50%) scale(0);
+  pointer-events: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.stats_tooltip:hover,
+.cl_btn__stats:focus + .stats_tooltip {
+  opacity: 1;
+  transform: translate(0%,0%) scale(1);
+  pointer-events: all;
+  
+}
+
+.calendar_stats_tooltip:hover .cl_btn__stats {
+  outline: 3px solid rgba(44, 62, 80, 0.5);
+}
+
+.cl_btn__stats {
+  margin-right: 0;
+}
+
+.stats_item {
+  margin-top: 1em;
+}
+
+.stats_title {
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.tooltip_title {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.stats_metric {
+  font-weight: 600;
+  font-size: 1.1em;
+}

@@ -5,7 +5,7 @@ import showMessage from "react-hot-toast"
 export const fetchStatistics = (fromEpochDay, toEpochDay) => {
   return (dispatch) => {
     StatisticService.getRunDistance(fromEpochDay, toEpochDay)
-    .then(data => {
+    .then(({data}) => {
       dispatch({type: "SET_STATISTICS", payload: data})
     })
     .catch((error) => {

@@ -23,9 +23,9 @@ const DayCellMount = ({ mountData }) => {
  useLayoutEffect(() => {
   const cellHeight = dayCellRef?.current?.offsetHeight;
   if(daygrid) {
-    daygrid.style.minHeight = cellHeight > 5 ? `calc(100% - ${cellHeight + 5}px)` : '100%';
+    daygrid.style.minHeight = cellHeight > 5 ? `calc(100% - ${cellHeight + 6}px)` : '100%';
   } 
- }, [daygrid, dayFeel, dayCellRef])
+ }, [daygrid, dayFeel, dayPlan, dayCellRef])
 
  return (
   <div className="dayc_mount" ref={dayCellRef}>

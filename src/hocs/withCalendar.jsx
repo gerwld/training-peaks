@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useDispatch } from "react-redux"
 import { fetchFeels, fetchTrains, updateTrain } from "redux/actions/event-actions"
 import {epochDateConvert, epochDayConvert, eventToPlainObj} from "@/utils"

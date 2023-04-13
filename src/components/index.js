@@ -7,5 +7,7 @@ export { default as Navbar } from "./UI/Navbar";
 export { default as ModalAuth } from "./modals/ModalAuth";
 export { default as PremiumLeft } from "./UI/blocks/PremiumLeft";
 export { default as UserInfo } from "./UI/blocks/UserInfo";
+export { default as StatisticsBlock } from "./UI/blocks/StatisticsBlock";
+export { default as StatisticsTooltip } from "./modals/statistics/StatisticsTooltip";
 
 

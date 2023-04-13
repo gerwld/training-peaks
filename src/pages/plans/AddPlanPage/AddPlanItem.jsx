@@ -33,7 +33,7 @@ const AddPlanItem = ({ item, index, PLAN_ID }) => {
   return (
    <div className="addplanitem">
     <div className="addplanitem__nav">
-     <span className="addplanitem__index">Day #{index} (planday: {item.planDayNumber})</span>
+     <span className="addplanitem__index">Day #{index}</span>
      <div className="addplain__btns">
       <button onClick={toggleEdit} title="Edit Plan Day">
        <FaRegEdit />

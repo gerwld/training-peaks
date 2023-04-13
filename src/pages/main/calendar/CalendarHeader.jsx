@@ -5,6 +5,7 @@ import { AiOutlineBarChart, AiOutlinePlus } from "react-icons/ai"
 import { setCreateMode } from "redux/actions/app-actions"
 import { useDispatch } from "react-redux"
 import { epochDateConvert } from "@/utils"
+import { StatisticsTooltip } from "components"
 
 const CalendarHeader = ({ calendarRef }) => {
  const d = useDispatch()
@@ -59,9 +60,13 @@ const CalendarHeader = ({ calendarRef }) => {
      <AiOutlinePlus />
     </button>
 
-    <button className="cl_btn cl_btn__stats" title="Current week statistics">
-     <AiOutlineBarChart />
-    </button>
+    <div className="calendar_stats_tooltip">
+      <button className="cl_btn cl_btn__stats" title="Current week statistics">
+      <AiOutlineBarChart />
+      </button>
+      
+      <StatisticsTooltip date={title} />
+    </div>
 
     <button onClick={prevHandle} className="cl_btn cl_btn__prev" title="Previous week">
      <span className="fc-icon fc-icon-chevron-left" />
