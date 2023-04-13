@@ -833,7 +833,7 @@ input[type='range'] {
   width: 100%;
 }
 
-input:focus {
+input[type='range']:focus {
   padding: 0 !important;
 }
 
