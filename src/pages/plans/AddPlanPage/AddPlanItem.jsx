@@ -25,6 +25,7 @@ const AddPlanItem = ({ item, index, PLAN_ID }) => {
      currentObj: item,
      isEditMode: true,
      toggleEdit,
+     planId: PLAN_ID
     }}
    />
   )

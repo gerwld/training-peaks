@@ -39,7 +39,7 @@ export default function plans(state = initialState, action) {
     }
     case 'SET_EDIT_PLAN':
     return {...state,
-      currentPlanId: action.payload.currentPlanId,
+      currentPlanId: action.payload.id,
       currentPlanName: action.payload.name,
       currentDays: action.days
     }

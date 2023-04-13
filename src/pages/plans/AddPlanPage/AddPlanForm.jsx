@@ -3,6 +3,7 @@ import { Form, Field } from "react-final-form"
 import { MdClose } from "react-icons/md"
 import { useDispatch } from "react-redux"
 import { v4 } from "uuid"
+import { deleteFreeDayPlan, deletePlan } from "../../../redux/actions/plans"
 
 const AddPlanForm = (props) => {
  const { isEditMode, toggleEdit, currentObj, toggleAdd } = props;
@@ -14,6 +15,12 @@ const onClose = () => {
   if(toggleAdd) toggleAdd();
   else toggleEdit();
   }
+
+  useEffect(() => {
+    console.log(props);
+  }, [props])
+
+  
 
  return (
   <div className="addplan_wrap">
@@ -31,7 +38,7 @@ const onClose = () => {
  )
 }
 
-const FormComponent = ({ currentObj, currentDay, isEditMode, onClose }) => {
+const FormComponent = ({ currentObj, currentDay, isEditMode, onClose, planId }) => {
  const [isFreeDay, setFreeDay] = useState(currentObj?.isFreeDay || false)
  const d = useDispatch()
 
@@ -40,8 +47,9 @@ const FormComponent = ({ currentObj, currentDay, isEditMode, onClose }) => {
  }
 
  const onSubmit = (data) => {
+  if(isFreeDay && planId && data.id) deleteFreeDayPlan(planId, data.id)
   if (isFreeDay || isEditMode)
-       d({ type: "UPDATE_PLANDAY", payload: {...data, isFreeDay, planDayNumber: currentDay, id: data.id ? data.id : v4()} });
+    d({ type: "UPDATE_PLANDAY", payload: {...data, isFreeDay, planDayNumber: currentDay, id: data.id ? data.id : v4()} }); 
   else d({ type: "ADD_PLANDAY", payload: {...data, isFreeDay, planDayNumber: currentDay, id: data.id ? data.id : v4()} });
  }
 

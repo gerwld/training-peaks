@@ -68,3 +68,13 @@ export const deletePlan = (planID, itemID) => {
     })
   }
 }
+
+
+
+export const deleteFreeDayPlan = (planID, itemID) => {
+    PlanService.deletePlanItem(planID, itemID)
+    .catch((error) => {
+      showMessage.error(error.message || 'Error occured. Please try again');
+      throw new Error(error);
+    })
+}

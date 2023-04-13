@@ -14,12 +14,13 @@ const AddPlanPage = ({ isInit }) => {
  const { PLAN_ID } = useParams()
  const nav = useNavigate();
  const [isAddDay, setAddDay] = useState(false)
- const { currentDays, currentObj, planName } = useSelector(({ plans }) => ({
+ const { currentDays, currentObj, planName, planId } = useSelector(({ plans }) => ({
   planName: plans.currentPlanName,
   currentDays: plans.currentDays,
   currentObj: plans.currentObj,
   planId: plans.currentPlanId,
  }))
+
 
  const toggleAdd = () => {
   setAddDay(!isAddDay)
@@ -45,6 +46,7 @@ const AddPlanPage = ({ isInit }) => {
       planDayNumber: currentDays?.length + 1 || 1,
       currentObj,
       toggleAdd,
+      planId
      }}
     />
    )
