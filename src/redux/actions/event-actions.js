@@ -128,6 +128,7 @@ export function createFeel (data) {
 
 export function updateFeel (data) {
   return async (dispatch) => {
+    console.log(data);
     FeelService.updateFeel(data)
     .then(({data}) => {
       dispatch({type: 'UPDATE_FEEL', payload: data});

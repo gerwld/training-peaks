@@ -4,18 +4,21 @@ import { Field, Form } from "react-final-form"
 
 import PremiumLeft from "components/UI/blocks/PremiumLeft"
 import UserInfo from "components/UI/blocks/UserInfo"
-import { getAllPlans, getCurrentPlan } from "../../redux/actions/plans"
-import { epochDayConvert } from "../../utils/epochConvert"
+import { getAllPlans, getCurrentPlan } from "redux/actions/plans"
+import {  epochDayConvert } from "utils/epochConvert"
 import { setCurrentPlan } from "redux/actions/settings"
 
 
 const SettingsPage = () => {
   const d = useDispatch();
- const { authObj, allPlans, globalPlanId } = useSelector(({ auth, plans }) => ({
+ const { authObj, allPlans, globalPlanId, planStartEpoch} = useSelector(({ auth, plans }) => ({
   authObj: auth.authObj,
   allPlans: plans.allPlans,
-  globalPlanId: plans.globalPlanId
+  globalPlanId: plans.globalPlanId,
+  planStartEpoch: plans.startAtEpochDate
  }))
+
+ let date = epochDayConvert(planStartEpoch, true).toISOString().split('T')[0];
 
  const onSettingsSave = ({plan_id, plan_date}) => {
   setCurrentPlan(plan_id, epochDayConvert(plan_date));
@@ -38,7 +41,7 @@ const SettingsPage = () => {
 
     <Form
     initialValues={{
-      plan_date: new Date().toISOString().split('T')[0],
+      plan_date: date ? date : new Date().toISOString().split('T')[0],
       plan_id: globalPlanId ? globalPlanId : allPlans && allPlans[0]?.id
     }}
      onSubmit={onSettingsSave}

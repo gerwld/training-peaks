@@ -14,6 +14,7 @@ const DayCellMount = ({ mountData }) => {
   }))
 
  const epochDay = epochDayConvert(mountData.date);
+ 
  const dayFeel = feels[epochDay];
  const dayPlan = plans[epochDay];
  

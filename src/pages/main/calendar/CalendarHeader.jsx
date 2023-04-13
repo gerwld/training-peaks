@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import moment from "moment"
 
-import { MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { AiOutlineBarChart, AiOutlinePlus } from "react-icons/ai"
 import { setCreateMode } from "redux/actions/app-actions"
 import { useDispatch } from "react-redux"
