@@ -8,38 +8,8 @@ export const setFeelsInit = (isInit) => ({ type: SET_FEELS_INIT, isInit })
 const initState = {
  isTrainsInit: false,
  isFeelsInit: false,
- feelsById: {
-  additionalProp1: {
-   date: "string",
-   epochDay: 1680991200,
-   heartRate: 60,
-   text: "Desrciption 1",
-   moodRate: 3,
-   weight: 89,
-  },
-  additionalProp2: {
-   date: "string",
-   epochDay: 1680732000,
-   sleepHours: 8,
-   heartRate: 120,
-   moodRate: 6,
-   text: "Description 2",
-   weight: 85,
-  },
-  additionalProp3: {
-   date: "string",
-   epochDay: 0,
-   heartRate: 0,
-   moodRate: 4,
-   text: "string",
-   weight: 0,
-  },
- },
- eventsById: [
-  { id: 36, name: "test lable", description: "test descr", link: "link", distance: 100, epochDate: 1680220800, createdAt: "2023-04-02T16:09:22.504198Z", start: "2023-03-31" },
-  { id: 35, name: "test lable", description: "test descr", link: "link", distance: 100, epochDate: 1680220800, createdAt: "2023-04-02T16:09:22.504198Z", start: "2023-03-31" },
-  { id: 33, name: "test lable", description: "test descr", link: "link", distance: 100, epochDate: 1680220800, createdAt: "2023-04-02T16:09:22.504198Z", start: "2023-03-31" },
- ],
+ feelsById: [],
+ eventsById: [],
 }
 
 const mainReducer = (state = initState, action) => {
