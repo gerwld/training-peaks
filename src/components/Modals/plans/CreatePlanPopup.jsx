@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { Field, Form } from "react-final-form"
 import { useNavigate } from "react-router-dom"
-import PlanService from "../../../api/PlanService"
+
+import { PlanService } from "api"
 import showMessage from "react-hot-toast";
 
 const CreatePlanPopup = ({ isCreatePlanMode, nextIndex }) => {

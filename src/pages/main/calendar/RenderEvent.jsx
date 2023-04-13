@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch } from "react-redux"
-import eventToPlainObj from "utils/eventToPlainObj"
+import { eventToPlainObj } from "@/utils"
 import DayTrain from "./DayTrain"
 
 const RenderEvent = (eventInfo) => {

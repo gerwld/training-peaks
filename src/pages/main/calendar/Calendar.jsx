@@ -4,15 +4,14 @@ import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
 import interactionPlugin from "@fullcalendar/interaction"
 
-import withCalendar from "hocs/withCalendar"
 import RenderEvent from "./RenderEvent"
 import DayCell from "./DayCellAddTrain"
 import DayHeader from "./DayHeader"
-import { getHashValues } from "utils"
 import CalendarHeader from "./CalendarHeader"
-import useWindowDimensions from "hooks/useWindowDimensions"
 import DayCellMount from "./DayCellMount"
-import { epochDayConvert } from "utils/epochConvert"
+import { withCalendar } from "hocs"
+import { useWindowDimensions } from "hooks"
+import { getHashValues, epochDayConvert } from "@/utils"
 
 const Calendar = ({ handleEventChange, handleDates, events, feels }) => {
  const fullCalendar = React.useRef()

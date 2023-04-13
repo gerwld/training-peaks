@@ -4,7 +4,7 @@ import moment from "moment"
 import { AiOutlineBarChart, AiOutlinePlus } from "react-icons/ai"
 import { setCreateMode } from "redux/actions/app-actions"
 import { useDispatch } from "react-redux"
-import {epochDateConvert} from "utils/epochConvert"
+import { epochDateConvert } from "@/utils"
 
 const CalendarHeader = ({ calendarRef }) => {
  const d = useDispatch()

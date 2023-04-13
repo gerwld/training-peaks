@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 
 import { AuthSocialService } from '@/api/AuthService';
-import { getUser } from '@/redux/reducers/auth-reducer';
-import generateOauthGoogleLink from '@/utils/generateOauthGoogleLink';
+import {generateOauthGoogleLink} from '@/utils';
 
 const AuthSocial = () => {
   const dispatch = useDispatch();
@@ -26,7 +25,6 @@ const AuthSocial = () => {
         AuthSocialService.getClientIDGoogle()
         .then(({data}) => {
           const link = generateOauthGoogleLink(data);
-          console.log(link);
           window.location.replace(link);
         })
         .catch((_) =>  nav('/'))

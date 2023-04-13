@@ -6,8 +6,8 @@ import { NavLink, useNavigate, useParams } from "react-router-dom"
 import AddPlanItem from "./AddPlanItem"
 import AddPlanForm from "./AddPlanForm"
 import { MainLoader } from "components"
-import { getDaysWithoutFreeDays } from "utils/getDaysWithFreeDays"
-import { getPlan, updatePlan } from "redux/actions/plans"
+import { getDaysWithoutFreeDays } from "@/utils"
+import { getPlan, updatePlan } from "redux"
 
 const AddPlanPage = ({ isInit }) => {
  const d = useDispatch()

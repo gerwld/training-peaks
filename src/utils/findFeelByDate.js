@@ -1,4 +1,4 @@
-import {epochDateConvert} from "utils/epochConvert"
+import {epochDateConvert} from "."
 
 const findFeelByDate = (date, feelsArray) => {
  if (date && feelsArray) {

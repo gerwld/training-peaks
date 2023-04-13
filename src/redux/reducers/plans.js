@@ -1,4 +1,4 @@
-import updatePlanDaysIndexes from "../../utils/updatePlanDaysIndexes"
+import { updatePlanDaysIndexes } from "@/utils"
 
 const initialState = {
  isInit: false,
@@ -58,7 +58,6 @@ export default function plans(state = initialState, action) {
 
   case 'DELETE_PLANDAY':
     let currentDaysFiltered = [...state.currentDays].filter(({id}) => id !== action.itemID);
-    console.log(currentDaysFiltered, state.currentDays, action.itemID);
     return {...state,
     currentDays: updatePlanDaysIndexes(currentDaysFiltered, 'planDayNumber')
   }

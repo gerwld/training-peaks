@@ -1,4 +1,4 @@
-import {epochDateConvert} from "utils/epochConvert";
+import {epochDateConvert} from ".";
 
 const timeAddedConvert = (createdAt, epochDate) => {
   const timeAdded = createdAt.split('T')[1];

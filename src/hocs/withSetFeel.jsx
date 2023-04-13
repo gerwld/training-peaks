@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch } from "react-redux"
-import {epochDateConvert} from "utils/epochConvert"
+import {epochDateConvert} from "@/utils"
 import { addFeelsMode } from "redux/actions/app-actions"
 
 const withSetFeel = (Children) => {

@@ -1,4 +1,4 @@
-import {epochDateConvert} from "utils/epochConvert";
+import {epochDateConvert} from ".";
 
 const eventToPlainObj = (event) => {
   let plain = event.toPlainObject();

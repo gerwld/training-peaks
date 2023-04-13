@@ -1,0 +1,6 @@
+export { default as AuthService } from "./AuthService"
+export { default as FeelService } from "./FeelService"
+export { default as PlanService } from "./PlanService"
+export { default as StatisticService } from "./StatisticService"
+export { default as TrainService } from "./TrainService"
+export { instance } from "./instance"

@@ -1,8 +1,7 @@
-import axios from "axios";
-import AuthService from "@/api/AuthService";
 import showMessage from "react-hot-toast";
-import { setAxiosSession } from "../../utils/setAxiosSession";
-import { setInit } from "@/redux/actions/app-actions";
+import {AuthService} from "api";
+import { setInit } from "redux";
+import {setAxiosSession} from "@/utils/index.js";
 
 const LOGOUT = "@@training-app/dash-reducer/LOGOUT";
 const SET_USER_DATA = "@@training-app/dash-reducer/SET_USER_DATA";
@@ -111,6 +110,5 @@ export const userRegister = (data) => {
 export const restorePassword = (data) => {
   return (dispatch) => {
     const fetch = AuthService.restorePassword(data);
-    console.log(fetch);
   }
 }

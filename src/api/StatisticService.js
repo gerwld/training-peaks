@@ -1,4 +1,4 @@
-import { instance } from "./instance"
+import { instance } from "."
 
 export default class StatisticService {
  static async getRunDistance(fromEpochDay, toEpochDay) {

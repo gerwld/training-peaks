@@ -3,11 +3,10 @@ import s from "./s.module.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import LoginForm from "./LoginForm";
-import RegisterForm from "./RegisterForm";
-import { NavbarDefault } from "@/components";
-import { userAuth, userRegister } from "@/redux/reducers/auth-reducer";
-import useRegSuccess from "@/hooks/useRegSuccess";
+import { LoginForm, RegisterForm } from "pages";
+import { NavbarDefault } from "components";
+import { userAuth, userRegister } from "redux";
+import { useRegSuccess } from "hooks";
 
 const AuthPage = ({ isReg }) => {
  useRegSuccess();

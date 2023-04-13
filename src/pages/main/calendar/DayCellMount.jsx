@@ -3,7 +3,7 @@ import { Provider, useSelector } from "react-redux"
 import store from "redux/store"
 import DayFeel from "./DayFeel"
 import DayPlan from "./DayPlan"
-import { epochDayConvert } from "utils/epochConvert"
+import { epochDayConvert } from "@/utils"
 
 const DayCellMount = ({ mountData }) => {
  const dayCellRef = React.useRef()

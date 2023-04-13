@@ -1,4 +1,4 @@
-import { getDaysWithFreeDays } from "./getDaysWithFreeDays";
+import { getDaysWithFreeDays } from ".";
 
 export const planDaysWithEpoch = (arr, epochStart) => {
   let days = getDaysWithFreeDays(arr);

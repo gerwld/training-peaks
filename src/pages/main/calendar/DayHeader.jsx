@@ -1,6 +1,6 @@
 import React from "react"
 import { IoIosTimer } from "react-icons/io"
-import withSetFeel from "hocs/withSetFeel"
+import { withSetFeel } from "hocs"
 
 const DayHeader = ({ text, onFeelSelect }) => {
  return (

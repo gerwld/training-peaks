@@ -1,4 +1,4 @@
-import { hashById } from "@/utils"
+import { hashById } from "@/utils";
 
 const SET_TRAINS_INIT = "@@training-app/app-reducer/SET_TRAINS_INIT"
 const SET_FEELS_INIT = "@@training-app/app-reducer/SET_FEELS_INIT"
@@ -42,7 +42,7 @@ const initState = {
  ],
 }
 
-export const mainReducer = (state = initState, action) => {
+const mainReducer = (state = initState, action) => {
  switch (action.type) {
   case SET_TRAINS_INIT:
    return {
@@ -108,3 +108,5 @@ export const mainReducer = (state = initState, action) => {
    return state
  }
 }
+
+export default mainReducer;

@@ -1,8 +1,7 @@
 import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { fetchFeels, fetchTrains, updateTrain } from "redux/actions/event-actions"
-import eventToPlainObj from "utils/eventToPlainObj"
-import {epochDateConvert, epochDayConvert} from "utils/epochConvert"
+import {epochDateConvert, epochDayConvert, eventToPlainObj} from "@/utils"
 import { fetchStatistics } from "redux/actions/statistics"
 
 const withCalendar = (Component) => {

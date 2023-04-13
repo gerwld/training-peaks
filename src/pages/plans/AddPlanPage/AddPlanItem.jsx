@@ -5,7 +5,7 @@ import { GiRunningShoe } from "react-icons/gi"
 import { MdClose } from "react-icons/md"
 import AddPlanForm from "./AddPlanForm"
 import { useDispatch } from "react-redux"
-import { deletePlan } from "../../../redux/actions/plans"
+import { deletePlan } from "redux"
 
 const AddPlanItem = ({ item, index, PLAN_ID }) => {
   const d = useDispatch();

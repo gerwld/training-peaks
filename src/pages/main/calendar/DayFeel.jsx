@@ -1,7 +1,7 @@
 import React from "react"
 import { IoIosTimer } from "react-icons/io"
 import { FaRegEdit } from "react-icons/fa"
-import withSetFeel from "hocs/withSetFeel"
+import { withSetFeel } from "hocs"
 
 const DayFeel = withSetFeel((props) => {
   const { onFeelSelect, dayFeel } = props;

@@ -1,9 +1,6 @@
 import PlanService from "api/PlanService"
 import { toast as showMessage } from "react-hot-toast"
-import { getDaysWithFreeDays } from "utils/getDaysWithFreeDays"
-import { planDaysWithEpoch } from "utils/planDaysWithEpoch"
-import { hashByEpoch } from "../../utils"
-
+import { getDaysWithFreeDays, planDaysWithEpoch, hashByEpoch } from "@/utils/index.js";
 export const getAllPlans = () => {
  return (dispatch) => {
   dispatch({ type: "INIT_PLANS", isInit: false })

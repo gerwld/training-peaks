@@ -1,2 +1,3 @@
 export { default as withClickOutside } from "./withClickOutside";
-export { default as withUrlLangSetter } from "./withUrlLangSetter";
+export { default as withCalendar } from "./withCalendar"
+export { default as withSetFeel } from "./withSetFeel"

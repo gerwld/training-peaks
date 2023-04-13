@@ -1,7 +1,7 @@
 import React from "react"
 import { MdOutlineCenterFocusStrong } from "react-icons/md"
 
-const DayPlan = ({ description, distance, epochDay, id, planDayNumber, title, isFreeDay }) => {
+const DayPlan = ({ description, distance, planDayNumber, title, isFreeDay }) => {
 if(!isFreeDay) return (
   <div className="cf_dayplan">
    <div className="cf_dayplan__header">

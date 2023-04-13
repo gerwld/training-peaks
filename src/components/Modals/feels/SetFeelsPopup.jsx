@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
+
 import SetFeelsForm from "./SetFeelsForm"
-import {epochDateConvert} from "utils/epochConvert"
+import { epochDateConvert } from "@/utils"
 import { createFeel, updateFeel } from "redux/actions/event-actions"
 
 const SetFeelsPopup = ({ isFeelsMode, selectedDate, currentFeelsObj }) => {

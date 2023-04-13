@@ -2,11 +2,9 @@ import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Field, Form } from "react-final-form"
 
-import PremiumLeft from "components/UI/blocks/PremiumLeft"
-import UserInfo from "components/UI/blocks/UserInfo"
-import { getAllPlans, getCurrentPlan } from "redux/actions/plans"
-import {  epochDayConvert } from "utils/epochConvert"
-import { setCurrentPlan } from "redux/actions/settings"
+import { PremiumLeft, UserInfo } from "@/components"
+import { getAllPlans, getCurrentPlan, setCurrentPlan } from "redux"
+import { epochDayConvert } from "@/utils"
 
 
 const SettingsPage = () => {

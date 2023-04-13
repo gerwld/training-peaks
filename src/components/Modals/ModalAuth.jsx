@@ -1,10 +1,10 @@
 import React from "react";
-import withClickOutside from "../../hocs/withClickOutside";
-
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { userLogOut } from "@/redux/reducers/auth-reducer";
 
+
+import { userLogOut } from "redux";
+import {withClickOutside} from "hocs";
 import { AiOutlineUser } from "react-icons/ai";
 import s from "./s.module.css";
 

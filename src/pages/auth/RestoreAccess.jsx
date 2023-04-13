@@ -3,7 +3,7 @@ import { Field, Form } from "react-final-form"
 import { useDispatch } from "react-redux"
 
 import { NavbarDefault } from "components"
-import { restorePassword } from "redux/reducers/auth-reducer"
+import { restorePassword } from "redux"
 import s from "./s.module.css"
 
 const RestoreAccess = () => {

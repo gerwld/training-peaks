@@ -1,5 +1,5 @@
 import axios from "axios"
-import { instance } from "./instance"
+import { instance } from "."
 
 export default class TrainService {
   static async getTrains(fromEpochDate, toEpochDate) {

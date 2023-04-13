@@ -1,12 +1,10 @@
 import TrainService from "api/TrainService"
-import {epochDateConvert, epochDayConvert} from "utils/epochConvert";
+import {epochDateConvert, epochDayConvert, timeAddedConvert, hashByEpoch} from "@/utils/index.js";
 
 import { setCreateMode } from "redux/actions/app-actions";
 import { setFeelsInit, setTrainsInit } from "../reducers/main-reducer";
-import timeAddedConvert from "utils/timeAddedConvert";
 import FeelService from "../../api/FeelService";
 import showMessage from "react-hot-toast";
-import { hashByEpoch } from "../../utils";
 
 
 
@@ -128,16 +126,9 @@ export function createFeel (data) {
 
 export function updateFeel (data) {
   return async (dispatch) => {
-    console.log(data);
     FeelService.updateFeel(data)
     .then(({data}) => {
       dispatch({type: 'UPDATE_FEEL', payload: data});
     })
-  }
-}
-
-export function deleteFeel (eventID) {
-  return async (dispatch) => {
-
   }
 }

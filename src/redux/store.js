@@ -1,9 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import appReducer from "./reducers/app-reducer"
-import authReducer from "./reducers/auth-reducer"
-import { mainReducer } from "./reducers/main-reducer"
-import statistics from "./reducers/statistics"
-import plans from "./reducers/plans"
+import { mainReducer, appReducer, authReducer, statistics, plans } from "."
 
 const store = configureStore({
  reducer: {

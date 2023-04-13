@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid"
 import { NavLink } from "react-router-dom"
 
 import { MainLoader } from "components"
-import { getAllPlans } from "redux/actions/plans"
+import { getAllPlans } from "redux"
 
 const PlanPageAll = () => {
  const d = useDispatch()
