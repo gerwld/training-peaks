@@ -9,7 +9,7 @@ export default class PlanService {
  }
 
  static async setCurrentPlan(planId, startAtEpochDate) {
-  return instance.put("/users", {
+  return instance.put("/users", {}, {
     params: {
       planId,
       startAtEpochDate
