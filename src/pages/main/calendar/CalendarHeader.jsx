@@ -6,18 +6,17 @@ import { setCreateMode } from "redux/actions/app-actions"
 import { useDispatch } from "react-redux"
 import { epochDateConvert } from "@/utils"
 import { StatisticsTooltip } from "components"
+import DateRangePicker from "rsuite/esm/DateRangePicker"
+import { MdOutlineKeyboardArrowDown } from "react-icons/md"
 
 const CalendarHeader = ({ calendarRef }) => {
  const d = useDispatch()
- const weekPicker = useRef();
  const [title, settitle] = useState(new moment().format("MMMM DD, YYYY"))
- const [calendarApi, setApi] = useState()
- const setTitle = () => settitle(calendarApi.currentDataManager.data.viewTitle)
+ const [calendarApi, setApi] = useState();
+ const [value, setValue] = React.useState();
+ const [isPicker, setPicker] = useState(false);
 
- useEffect(() => {
-  settitle(calendarRef.current.getApi().currentDataManager.data.viewTitle)
-  setApi(calendarRef.current.getApi())
- }, [title])
+ const setTitle = () => settitle(calendarApi.currentData.viewTitle)
 
  const nextHandle = () => {
   calendarApi.next()
@@ -32,31 +31,53 @@ const CalendarHeader = ({ calendarRef }) => {
   setTitle()
  }
 
- const toggleWeekPicker = () => {
-  weekPicker.current?.showPicker();
-  }
+ const setDateHandle = (dateRange) => {
+  calendarApi.gotoDate(new Date(dateRange[0]).toISOString());
+  settitle(calendarApi.currentData.viewTitle)
+ }
 
- const handleDateSelect = async () => {
+ const handleAddTraining = async () => {
   const currentEpochDay = epochDateConvert(new moment().format("MM, DD, YYYY"))
   d(setCreateMode(true, currentEpochDay))
  }
 
+ useEffect(() => {
+  const api = calendarRef.current.getApi();
+  if(api?.currentData) {
+    settitle(api.currentData.viewTitle)
+    setApi(api)
+    setValue([
+      new Date(api?.currentData.dateProfile.activeRange.start),
+      new Date(new Date(api?.currentData.dateProfile.activeRange.end) - (1000 * 60 * 60 * 24))
+    ])
+  }
+ }, [title, calendarRef?.current ])
+
  return (
   <div className="calendar_header">
-   <div className="calendar_block__ml">
-   <h1 className="calendar_date">{title}</h1>
-
-    {/* <button onClick={toggleWeekPicker} className="calendar_datepicker">
+   <div className={`calendar_block__ml ${isPicker ? 'opened' : ''}`}>
+    <button className="calendar_datepicker">
      <span className="calendar_date">{title}</span>
      <MdOutlineKeyboardArrowDown />
     </button>
+    
     <div className="week_picker">
-    <input type="week" ref={weekPicker} />
-    </div> */}
+      {value && 
+      <DateRangePicker 
+      onEnter={() => setPicker(true)} 
+      onExit={() => setPicker(false)} 
+      isoWeek 
+      oneTap 
+      showOneCalendar 
+      value={value} 
+      hoverRange="week" 
+      ranges={[]} 
+      onChange={setDateHandle}/>}
+    </div>
    </div>
 
    <div className="calendar_block__nav">
-    <button onClick={handleDateSelect} className="cl_btn cl_btn__addnew" title="Add Training">
+    <button onClick={handleAddTraining} className="cl_btn cl_btn__addnew" title="Add Training">
      <AiOutlinePlus />
     </button>
 

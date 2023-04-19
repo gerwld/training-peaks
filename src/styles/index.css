@@ -66,6 +66,7 @@
   --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
+
 a {
   color: var(--basic-orange);
 }
@@ -278,6 +279,11 @@ input:focus {
   outline: none;
   border-color: var(--basic-orange-text) !important;
   padding-left: 5px !important;
+}
+
+input.rs-picker-toggle-textbox:focus {
+  border-color: transparent !important;
+  padding-left: 10px!important;
 }
 
 select:focus,
@@ -1619,35 +1625,41 @@ span.cf_dayplan__distance {
   transition: transform 0.2s ease;
 }
 
-.calendar_datepicker:focus svg {
+.opened .calendar_datepicker svg {
   transform: rotate(-180deg);
 }
 
-.calendar_datepicker:focus {
-  transform: translateY(-2px);
+.opened .calendar_datepicker {
+  box-shadow: 0 0 0px 3px  rgba(255, 98, 0, 0.355);
 }
 
 .calendar_block__ml {
   position: relative;
 }
 
-.calendar_header input {
-  transition: none;
-  opacity: 0;
+.calendar_block__ml .calendar_datepicker {
+  pointer-events: none!important;
+}
+
+.week_picker,
+.week_picker .rs-stack {
   position: absolute;
-  bottom: -3px;
-  left: 0px;
-  pointer-events: none;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  user-select: none;
+  opacity: 0;
 }
 
-.calendar_header input[type="week" i]::-webkit-calendar-picker-indicator {
-  width: 100%;
-  height: 100%;
-  pointer-events: all;
+.week_picker .rs-picker-toggle {
+  width: 250px;
+  height: 50px;
 }
 
-.calendar_header input::-webkit-datetime-edit {
-  pointer-events: none;
+.week_picker span,
+.week_picker input {
+  display: none;
 }
 
 .addplanpage {
@@ -1987,6 +1999,7 @@ span.addplanitem__index {
   border-bottom: 1px solid var(--basic-border-color);
 }
 
+.statistics_page,
 .settings_page {
   min-height: calc(100vh - var(--hf-height));
   background-color: #fff;
@@ -2158,4 +2171,21 @@ span.l_desc {
 .stats_metric {
   font-weight: 600;
   font-size: 1.1em;
+}
+
+
+.page_title {
+  margin-bottom: 30px;
+}
+
+.rs-picker-toggle-textbox  {
+  cursor: pointer;
+}
+
+.rs-picker-menu {
+  width: 350px;
+}
+
+.rs-stack-item {
+  width: 100%;
 }

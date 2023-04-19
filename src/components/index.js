@@ -10,4 +10,7 @@ export { default as UserInfo } from "./UI/blocks/UserInfo";
 export { default as StatisticsBlock } from "./UI/blocks/StatisticsBlock";
 export { default as StatisticsTooltip } from "./modals/statistics/StatisticsTooltip";
 
-
+export { default as AddTrainPopup } from "./modals/train/AddTrainPopup/AddTrainPopup";
+export { default as EditTrainPopup } from "./modals/train/EditTrainPopup/EditTrainPopup";
+export { default as CreatePlanPopup } from "./modals/plans/CreatePlanPopup";
+export { default as SetFeelsPopup } from "./modals/feels/SetFeelsPopup";

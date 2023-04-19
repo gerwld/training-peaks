@@ -5,11 +5,8 @@ import { Navbar } from "./components";
 import { MainPage, ReportIssuePage, SettingsPage, PlanPageAll, PlanPageStart } from "./pages";
 import { setCreateMode } from "@/redux/actions/app-actions";
 
-import AddTrainPopup from "./components/modals/train/AddTrainPopup/AddTrainPopup";
-import EditTrainPopup from "./components/modals/train/EditTrainPopup/EditTrainPopup";
-import SetFeelsPopup from "./components/modals/feels/SetFeelsPopup";
-import AddPlanPage from "./pages/plans/AddPlanPage/AddPlanPage";
-import CreatePlanPopup from "./components/modals/plans/CreatePlanPopup";
+import {AddTrainPopup, SetFeelsPopup, EditTrainPopup, CreatePlanPopup} from "./components";
+import {AddPlanPage, StatisticsPage} from "./pages";
 import { getCurrentPlan } from "./redux/actions/plans";
 
 const Dashboard = () => {
@@ -46,10 +43,14 @@ const Dashboard = () => {
          <Route path="/*" element={<MainPage />} />
          <Route path="settings" element={<SettingsPage />} />
          <Route path="/report-issue" element={<ReportIssuePage />} />
+         <Route path="/statistics/" element={<StatisticsPage />} />
+
 
          <Route path="/select-plan" element={<PlanPageStart />} />
          <Route path="/plans/:PLAN_ID" element={<AddPlanPage isInit={isPlansInit} />} />
          <Route path="/plans/" element={<PlanPageAll />} />
+
+
        </Routes>
 
        {/* POPUPS  */}
