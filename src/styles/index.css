@@ -2235,3 +2235,7 @@ span.l_desc {
 .rs-picker-daterange-calendar-group {
   display: flex;
 }
+
+.statschart_wrapper {
+  margin-top: 50px;
+}
