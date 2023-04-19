@@ -53,11 +53,13 @@ const SettingsPage = () => {
          <>
           <label>
             <span className="l_title">Choose a plan:</span>
+            <div className="select">
             <Field name="plan_id" component="select">
               {allPlans.map(({id, name}, i) => 
                 <option value={id} key={id + "_opt"}>{name}</option>)}
               
             </Field>
+            </div>
           </label>
 
           <label>

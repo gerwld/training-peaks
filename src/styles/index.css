@@ -790,6 +790,41 @@ label>i {
   font-style: normal;
 }
 
+.select {
+  display: inline-block;
+  position: relative;
+  margin: 5px 0 15px;
+}
+
+.select > select {
+  margin: 0!important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+label {
+  width: fit-content;
+}
+
+form label {
+  width: 100%;
+}
+
+.select::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 2px solid rgb(65, 65, 65);
+  border-top: none;
+  border-left: none;
+  position: absolute;
+  right: 10px;
+  bottom: calc(50% - 2px);
+  transform: rotate(45deg);
+  pointer-events: none;
+  user-select: none;
+}
+
 input[type='number'] {
   display: inline-block;
   max-width: 300px;
@@ -1630,7 +1665,7 @@ span.cf_dayplan__distance {
 }
 
 .opened .calendar_datepicker {
-  box-shadow: 0 0 0px 3px  rgba(255, 98, 0, 0.355);
+  box-shadow: 0 0 0px 3px  rgba(255, 98, 0, 0.216);
 }
 
 .calendar_block__ml {
@@ -2125,11 +2160,11 @@ span.l_desc {
 
   min-width: 300px;
   min-height: 200px;
-  padding: 10px;
+  padding: 0px;
   margin: 5px 0 0;
   background-color: #fff;
   z-index: 100;
-  box-shadow: rgba(69, 75, 83, 0.4) 0px 2px 4px, rgba(52, 54, 57, 0.3) 0px 7px 13px -3px, rgba(43, 44, 46, 0.2) 0px -3px 0px inset;
+  box-shadow: 6px 7px 10px 3px rgb(0 0 0 / 7%);
   border-top: 3px solid #e6ebf0;
 
   opacity: 0;
@@ -2155,22 +2190,27 @@ span.l_desc {
 }
 
 .stats_item {
-  margin-top: 1em;
+  margin-top: 0.6em;
+  padding: 0 10px;
 }
 
 .stats_title {
   font-weight: 400;
+  font-size: 1rem;
   margin-right: 5px;
 }
 
 .tooltip_title {
-  font-size: 1.1rem;
+  display: block;
+  padding: 5px 5px 5px 10px;
+  font-size: 1rem;
   font-weight: 500;
+  border-bottom: 1px solid var(--basic-border-color);
 }
 
 .stats_metric {
   font-weight: 600;
-  font-size: 1.1em;
+  font-size: 1rem;
 }
 
 
@@ -2183,9 +2223,15 @@ span.l_desc {
 }
 
 .rs-picker-menu {
-  width: 350px;
+  min-width: 400px;
+  max-width: 492px;
 }
 
-.rs-stack-item {
-  width: 100%;
+.rs-picker-daterange-panel  > .rs-stack > .rs-stack-item {
+  flex: 1;
+}
+
+
+.rs-picker-daterange-calendar-group {
+  display: flex;
 }

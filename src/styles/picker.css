@@ -4124,7 +4124,7 @@ label:hover .rs-checkbox-wrapper .rs-checkbox-inner::before {
 .rs-picker-menu .rs-calendar .rs-calendar-month-dropdown-cell-content,
 .rs-picker-menu .rs-calendar .rs-calendar-table-cell-content {
   width: 100%;
-  max-width: 50px;
+  /* max-width: 50px; */
   height: 30px
 }
 
@@ -4208,12 +4208,12 @@ label:hover .rs-checkbox-wrapper .rs-checkbox-inner::before {
 }
 
 .rs-picker-daterange-header {
-  padding: 12px 12px;
+  padding: 10px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.42857143;
   border-bottom: 1px solid #e5e5ea;
-  border-bottom: 1px solid var(--rs-border-primary)
+  border-bottom: 1px solid var(--light-border-color);
 }
 
 .rs-picker-daterange-calendar-group {
@@ -10865,12 +10865,12 @@ textarea.rs-picker-search-input {
 .rs-picker-menu {
   text-align: left;
   z-index: 7;
-  border-radius: 3px;
+  border-radius: 0px;
   background-color: #fff;
   background-color: var(--rs-bg-overlay);
   border: 1px solid #eee;
 
-  box-shadow: rgba(20, 20, 53, 0.2) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: 6px 7px 10px 3px rgb(0 0 0 / 7%);
   overflow: hidden;
   -webkit-transition: none;
   transition: none;
@@ -14998,4 +14998,8 @@ textarea.rs-picker-search-input {
   border: none;
   outline: 0 !important;
   cursor: pointer
+}
+
+.picker-safarifix .rs-picker-menu{
+  max-width: 350px;
 }

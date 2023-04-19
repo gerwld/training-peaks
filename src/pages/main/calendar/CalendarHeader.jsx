@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import moment from "moment"
 
+import { MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { AiOutlineBarChart, AiOutlinePlus } from "react-icons/ai"
 import { setCreateMode } from "redux/actions/app-actions"
+import DateRangePicker from "rsuite/esm/DateRangePicker"
 import { useDispatch } from "react-redux"
 import { epochDateConvert } from "@/utils"
 import { StatisticsTooltip } from "components"
-import DateRangePicker from "rsuite/esm/DateRangePicker"
-import { MdOutlineKeyboardArrowDown } from "react-icons/md"
+
 
 const CalendarHeader = ({ calendarRef }) => {
  const d = useDispatch()
@@ -60,8 +61,8 @@ const CalendarHeader = ({ calendarRef }) => {
      <span className="calendar_date">{title}</span>
      <MdOutlineKeyboardArrowDown />
     </button>
-    
-    <div className="week_picker">
+
+    <div className="week_picker picker-safarifix">
       {value && 
       <DateRangePicker 
       onEnter={() => setPicker(true)} 
