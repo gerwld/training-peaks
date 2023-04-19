@@ -16,10 +16,10 @@ const SettingsPage = () => {
   planStartEpoch: plans.startAtEpochDate
  }))
 
- let date = epochDayConvert(planStartEpoch, true).toISOString().split('T')[0];
+ let date = planStartEpoch ? epochDayConvert(planStartEpoch, true).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
 
  const onSettingsSave = ({plan_id, plan_date}) => {
-  setCurrentPlan(plan_id, epochDayConvert(plan_date));
+  d(setCurrentPlan(plan_id, epochDayConvert(plan_date)));
  }
 
  const onCreateNewPlan = () => {
@@ -39,7 +39,7 @@ const SettingsPage = () => {
 
     <Form
     initialValues={{
-      plan_date: date ? date : new Date().toISOString().split('T')[0],
+      plan_date: date,
       plan_id: globalPlanId ? globalPlanId : allPlans && allPlans[0]?.id
     }}
      onSubmit={onSettingsSave}
