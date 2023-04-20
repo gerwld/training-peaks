@@ -18,7 +18,7 @@ export const epochDateConvert = (date, isEpoch, convertToDays) => {
 export const epochDayConvert = (date, isEpoch) => {
   if (typeof date !== "undefined" || date !== null) {
    if (isEpoch) {
-    return (new Date(date * 86400000));
+    return (new Date(date * 86400000) / 1);
    } 
    else {
     let dateFixed = Date.parse(date);

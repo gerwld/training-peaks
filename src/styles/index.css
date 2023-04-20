@@ -363,7 +363,7 @@ select:invalid {
 }
 
 .content_wrapper {
-  max-width: 1380px;
+  max-width: 1460px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 10px;
@@ -390,6 +390,7 @@ select:invalid {
 
   line-height: 1em;
   font-weight: 500;
+  font-size: 0.96rem;
   color: #fff;
   text-decoration: none;
   text-align: center;
@@ -432,6 +433,7 @@ select:invalid {
 .navbar-l1_logo {
   text-transform: uppercase;
   font-weight: 600;
+  font-weight: 601;
   color: #000;
   font-size: 20px;
   transition: transform 0.2s ease;
@@ -458,7 +460,7 @@ a.navbar-l1_logo:hover {
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 10px;
+  padding: 0 14px;
 
   line-height: var(--hf-height);
   font-weight: 400;
@@ -699,7 +701,6 @@ a.navbar-l1_logo:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
   padding: 20px;
 
   color: #fff;
@@ -709,7 +710,7 @@ a.navbar-l1_logo:hover {
 
 .premiumleft__title {
   margin: 0;
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 600;
   letter-spacing: 0.04em;
   line-height: 160%;
@@ -719,6 +720,10 @@ a.navbar-l1_logo:hover {
   margin: 0.4em 0;
   font-size: 1.05rem;
   line-height: 160%;
+}
+
+.premiumleft__buttons {
+  display: flex;
 }
 
 .premiumleft__buttons a {
@@ -818,7 +823,7 @@ form label {
   border-top: none;
   border-left: none;
   position: absolute;
-  right: 10px;
+  right: 14px;
   bottom: calc(50% - 2px);
   transform: rotate(45deg);
   pointer-events: none;
@@ -1183,7 +1188,7 @@ span.tc_title {
 }
 
 .calendar-main {
-  padding: 0 10px 10px !important;
+  padding: 0 12px 10px !important;
 }
 
 .fc-daygrid-dot-event {
@@ -1569,7 +1574,7 @@ span.cf_dayplan__distance {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
+  padding: 10px 0;
 }
 
 .cl_btn {
@@ -2238,4 +2243,21 @@ span.l_desc {
 
 .statschart_wrapper {
   margin-top: 50px;
+}
+
+.select_range_msg {
+  margin-top: 20px;
+}
+
+.select_range_msg span {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.select_range_msg svg {
+  font-size: 1.8rem;
+  margin-right: 5px;
+  margin-top: -2px;
+  stroke-width: 1.5;
 }

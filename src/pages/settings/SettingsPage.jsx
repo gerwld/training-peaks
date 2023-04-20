@@ -16,7 +16,9 @@ const SettingsPage = () => {
   planStartEpoch: plans.startAtEpochDate
  }))
 
- let date = planStartEpoch ? epochDayConvert(planStartEpoch, true).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+ let date = typeof epochDayConvert(planStartEpoch, true) === 'object' ? 
+ epochDayConvert(planStartEpoch, true)?.toISOString().split('T')[0] 
+ : new Date()?.toISOString().split('T')[0];
 
  const onSettingsSave = ({plan_id, plan_date}) => {
   d(setCurrentPlan(plan_id, epochDayConvert(plan_date)));
@@ -33,7 +35,7 @@ const SettingsPage = () => {
 
  return (
   <div className="page_content page_content__100 settings_page">
-   <div className="page-content dashboard_wrapper">
+   <div className="page-content dashboard_wrapper content_wrapper">
     <UserInfo username={authObj.email} />
     <PremiumLeft username={authObj.email} />
 

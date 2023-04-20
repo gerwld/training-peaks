@@ -1,13 +1,31 @@
 let initialState = {
-  runDistance: null
+  isInit: true,
+  runDistance: null,
+  currentRange: [],
+  statsData: null
 }
 
 export default function statistics(state = initialState, action) {
  switch (action.type) {
-  case 'SET_STATISTICS':
+  case 'SET_STATS_INIT':
+    return {
+      ...state,
+      isInit: action.payload
+    }
+  case 'SET_STATS':
     return {
       ...state,
       runDistance: action.payload
+    }
+  case 'SET_STATS_RANGE':
+    return {
+      ...state,
+      currentRange: action.payload
+    }
+  case 'SET_STATS_GLOB':
+    return {
+      ...state,
+      statsData: action.payload
     }
   default:
    return state
