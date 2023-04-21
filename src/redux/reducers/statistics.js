@@ -25,7 +25,9 @@ export default function statistics(state = initialState, action) {
   case 'SET_STATS_GLOB':
     return {
       ...state,
-      statsData: action.payload
+      statsData: action.payload,
+      totalDistance: action.totalDistance,
+      avgWeight: action.avgWeight,
     }
   default:
    return state

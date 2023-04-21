@@ -34,7 +34,7 @@
  user-select: all;
 }
 
-.modal_window ul {
+.modal_window nav {
  list-style: none;
  padding: 0;
  margin: 0;
@@ -42,7 +42,6 @@
  user-select: none;
 }
 
-.modal_window span,
 .modal_window button,
 .modal_window a {
  display: block;
@@ -64,7 +63,7 @@
  cursor: pointer;
 }
 
-.modal_window span:hover,
+
 .modal_window button:hover,
 .modal_window a:hover {
  background-color: var(--basic-link-hover);

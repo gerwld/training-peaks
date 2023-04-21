@@ -49,10 +49,7 @@ export const fetchStatisticsGlobal = (fromEpochDate, toEpochDate) => {
 
    Promise.all( [trainsStats, feelsStats] )
    .then((payload) => {
-    dispatch({ type: "SET_STATS_INIT", payload: true });
-    dispatch({ type: "SET_STATS_GLOB", 
-    payload:
-     [...payload?.map(e => {
+    const data = [...payload?.map(e => {
       let newArr = [...e].sort((a,b) => a.month - b.month);
       let res = [];
 
@@ -67,12 +64,18 @@ export const fetchStatisticsGlobal = (fromEpochDate, toEpochDate) => {
       })
       return res;
    })].flat(1)
-  
-  });
+
+   const { totalDistance, avgWeight } = {
+    totalDistance: [...payload[0]].reduce((a, c) => a + Number(c.metric), 0),
+    avgWeight: [...payload[1]].reduce((a, c) => a + Number(c.metric), 0) / payload[1].length
+   }
+
+    dispatch({ type: "SET_STATS_INIT", payload: true });
+    dispatch({ type: "SET_STATS_GLOB", payload: data, totalDistance, avgWeight});
    })
    .catch((error) => {
     console.log(error);
-    showMessage.error(error?.response?.data?.message || error.message || "Unknown error");
+    showMessage.error(error?.response?.data?.message || error?.message || "Unknown error");
    });
 
  };

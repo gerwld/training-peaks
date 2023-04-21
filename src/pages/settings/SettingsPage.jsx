@@ -75,9 +75,9 @@ const SettingsPage = () => {
           <span className="l_title">Choose a plan:</span>
           <button onClick={onCreateNewPlan} type="button" className="btn btn__line margin-10px-tb db-block">Create New Plan</button>
          </>}
-
-         <button className="btn settings_btn" type="submit">Save</button>
         </section>
+
+        <button className="btn settings_btn" type="submit">Save</button>
        </form>
       )
      }}

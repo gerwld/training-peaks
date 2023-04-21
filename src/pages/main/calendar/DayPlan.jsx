@@ -1,5 +1,6 @@
 import React from "react"
 import { MdOutlineCenterFocusStrong } from "react-icons/md"
+import {CgCalendarToday} from 'react-icons/cg';
 
 const DayPlan = ({ description, distance, planDayNumber, title, isFreeDay }) => {
 if(!isFreeDay) return (
@@ -17,6 +18,17 @@ if(!isFreeDay) return (
     </span>
    </div>
   </div>
+ )
+ else return (
+  <div className="cf_dayplan">
+  <div className="cf_dayplan__header">
+   <MdOutlineCenterFocusStrong />
+   <span>Day #{planDayNumber}</span>
+  </div>
+  <div className="cf_dayplan__content">
+   <span className="cf_dayplan__title cf_dayplan__title__free"> <CgCalendarToday/> Free day</span>
+  </div>
+ </div>
  )
 }
 

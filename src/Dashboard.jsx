@@ -37,7 +37,7 @@ const Dashboard = () => {
 
  return (
    <div className="app_main">
-     <Navbar authName={authObj.email} />
+     <Navbar {...{...authObj}} />
      <div className="app_content">
        <Routes>
          <Route path="/*" element={<MainPage />} />
@@ -45,12 +45,9 @@ const Dashboard = () => {
          <Route path="/report-issue" element={<ReportIssuePage />} />
          <Route path="/statistics/" element={<StatisticsPage />} />
 
-
          <Route path="/select-plan" element={<PlanPageStart />} />
          <Route path="/plans/:PLAN_ID" element={<AddPlanPage isInit={isPlansInit} />} />
          <Route path="/plans/" element={<PlanPageAll />} />
-
-
        </Routes>
 
        {/* POPUPS  */}

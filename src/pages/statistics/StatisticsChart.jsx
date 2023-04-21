@@ -7,10 +7,22 @@ const scale = {
  },
 };
 
-function StatisticsChart({ statsData }) {
+const StatisticsChart = ({ statsData, totalDistance, avgWeight }) => {
  return (
   <div className="statschart_wrapper">
-   <Chart padding={[10, 20, 50, 40]} scale={scale} autoFit height={600} data={statsData}>
+
+{(!isNaN(totalDistance) || !isNaN(avgWeight)) ?
+  <div className="stats_totalsblock">
+    <span className="totals_header">In selected range:</span>
+    <ul className="statschart_totals">
+      {!isNaN(totalDistance) ? <li><span className="totals_metric">Total distance:</span>{totalDistance}km</li>        : ''}
+      {!isNaN(avgWeight) ?     <li><span className="totals_metric">Average weight:</span>{avgWeight.toFixed(2)}kg</li> : ''}
+    </ul>
+  </div>
+  : ''}
+
+
+   <Chart padding={[10, 20, 50, 40]} scale={scale} autoFit height={650} data={statsData}>
     <LineAdvance shape="smooth" point area position="month*metric" color="city" />
    </Chart>
   </div>

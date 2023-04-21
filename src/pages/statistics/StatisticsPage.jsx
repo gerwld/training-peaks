@@ -5,17 +5,22 @@ import DateRangePicker from 'rsuite/DateRangePicker';
 import StatisticsChart from "./StatisticsChart";
 import { fetchStatisticsGlobal } from "@/redux/actions/statistics";
 import { SecLoader100 } from "@/components";
+
+import { AiOutlineDeploymentUnit } from "react-icons/ai";
 import {TbHandFinger} from 'react-icons/tb';
 import "styles/picker.css";
-import { AiOutlineDeploymentUnit } from "react-icons/ai";
+
+
 
 
 const StatisticsPage = () => {
   const dispatch = useDispatch();
-  const {currentRange, statsData, isInit} = useSelector(({statistics}) => ({
+  const {isInit, currentRange, statsData, totalDistance, avgWeight} = useSelector(({statistics}) => ({
     isInit: statistics.isInit,
     currentRange: statistics.currentRange,
-    statsData: statistics.statsData
+    statsData: statistics.statsData,
+    totalDistance: statistics.totalDistance,
+    avgWeight: statistics.avgWeight
   }))
 
   const fetchStatistics = (range) => {
@@ -47,14 +52,13 @@ const StatisticsPage = () => {
 
     <DateRangePicker onChange={onRangeSet} value={currentRange?.map(e => new Date(e))} placeholder="Select Date Range" />
 
-
   {/* if rangepicker not empty */}
   { currentRange?.length ? 
 
     // show no data or chart 
     <>
     {statsData?.length ? 
-    <StatisticsChart {...{statsData}}/>  
+    <StatisticsChart {...{statsData, totalDistance, avgWeight}}/>  
     : <div className="select_range_msg">
         <span> <AiOutlineDeploymentUnit/>No data in selected range.</span>
       </div>}

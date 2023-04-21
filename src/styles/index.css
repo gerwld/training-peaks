@@ -135,7 +135,7 @@ button {
   margin: 0;
   color: #4b4e50;
   background-color: #fff;
-  border: 1.5px solid rgba(251, 78, 5, 0.4);
+  border: 1.4px solid rgba(251, 78, 5, 0.4);
   border-radius: 5px;
   transition: background 0.2s ease, border 0.2s ease, transform 0.1s ease, outline 0.1s ease;
 }
@@ -342,7 +342,7 @@ tr:nth-child(even) {
 }
 
 select {
-  height: 55px;
+  height: 50px;
   padding: 10px;
   margin: 15px 0 10px;
   font-size: 1rem;
@@ -350,7 +350,7 @@ select {
   color: #213547;
   box-sizing: border-box;
   border-radius: 3px;
-  border: 1.5px solid #d7dade;
+  border: 1.4px solid #d7dade;
 }
 
 select option:first-child,
@@ -566,9 +566,9 @@ a.navbar-l1_logo:hover {
 }
 
 .no_plans button {
-  height: 55px;
+  height: 50px;
   color: var(--color-1-orange);
-  border: 1.5px solid var(--color-1-orange);
+  border: 1.4px solid var(--color-1-orange);
   transition: box-shadow 0.2s;
 }
 
@@ -701,25 +701,26 @@ a.navbar-l1_logo:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 15px 20px;
 
   color: #fff;
-  background: linear-gradient(270deg, #4f6373, #0b273c);
-  border-radius: 6px;
+  background: linear-gradient(270deg, #677d91, #0b273c);
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .premiumleft__title {
   margin: 0;
-  font-size: 21px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 1.36rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   line-height: 160%;
 }
 
 .premiumleft__desc {
   margin: 0.4em 0;
-  font-size: 1.05rem;
-  line-height: 160%;
+  font-size: 0.96rem;
+  line-height: 140%;
 }
 
 .premiumleft__buttons {
@@ -727,7 +728,7 @@ a.navbar-l1_logo:hover {
 }
 
 .premiumleft__buttons a {
-  margin-right: 18px;
+  margin-right: 15px;
 }
 
 .premiumleft__buttons a:nth-last-child(1) {
@@ -746,16 +747,21 @@ a.navbar-l1_logo:hover {
   height: 70px;
   margin-right: 15px;
 
-  background-color: #a8b2be;
+  background-color: rgb(208, 214, 221);
   overflow: hidden;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 10px;
 }
 
 .userinfo__avatar svg {
   width: 30px;
   height: 30px;
   margin: 20px;
+}
+
+.userinfo__username {
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .userinfo__info {
@@ -768,7 +774,7 @@ input[type='email'],
 input[type='password'] {
   display: block;
   width: 100%;
-  min-height: 55px;
+  min-height: 50px;
 
   padding: 14px 15px;
   padding-left: 0;
@@ -779,7 +785,7 @@ input[type='password'] {
   background-color: transparent;
 
   border: none;
-  border-bottom: 1.5px solid #d7dade;
+  border-bottom: 1.4px solid #d7dade;
   box-sizing: border-box;
 }
 
@@ -833,7 +839,7 @@ form label {
 input[type='number'] {
   display: inline-block;
   max-width: 300px;
-  border: 1.5px solid #d7dade;
+  border: 1.4px solid #d7dade;
   padding-left: 15px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -864,7 +870,7 @@ input[type='date'] {
   color: #000;
   line-height: 1em;
   background-color: transparent;
-  border: 1.5px solid #d7dade;
+  border: 1.4px solid #d7dade;
   box-sizing: border-box;
 }
 
@@ -896,7 +902,7 @@ textarea {
   resize: none;
   border-radius: none;
   background-color: transparent;
-  border: 1.5px solid #d7dade;
+  border: 1.4px solid #d7dade;
 }
 
 .label,
@@ -964,7 +970,7 @@ input[type=number]::-webkit-outer-spin-button {
   height: 20px;
   background: var(--basic-orange);
   cursor: grab;
-  border: 1.5px solid rgba(0, 0, 0, 0.167);
+  border: 1.4px solid rgba(0, 0, 0, 0.167);
   border-radius: 50%;
 
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -977,7 +983,7 @@ input[type=number]::-webkit-outer-spin-button {
   height: 20px;
   background: var(--basic-orange);
   cursor: grab;
-  border: 1.5px solid var(--basic-orange);
+  border: 1.4px solid var(--basic-orange);
   border-radius: 50%;
 
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -1368,7 +1374,7 @@ span.metric {
 
   color: var(--basic-orange-text);
   font-size: 40px;
-  border: 1.5px solid var(--basic-orange);
+  border: 1.4px solid var(--basic-orange);
   opacity: 0;
   pointer-events: all;
   transition: opacity 0.1s linear;
@@ -1494,9 +1500,21 @@ thead .fc-day-today .fc_daygeader__title::after {
 }
 
 span.cf_dayplan__title {
-  font-size: 1.06rem;
-  font-weight: 600;
-  margin-bottom: 4px;
+  display: block;
+  font-size: 1.04rem;
+  font-weight: 500;
+  margin: 2px 0 5px;
+  line-height: 120%;
+}
+
+.cf_dayplan__title svg {
+  font-size: 1.4em;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+span.cf_dayplan__title__free {
+  margin: 0 4px;
 }
 
 span.cf_dayplan__distance {
@@ -1746,7 +1764,7 @@ span.cf_dayplan__distance {
   font-weight: 400;
   font-size: 0.96rem;
   color: var(--color-1-orange);
-  border: 1.5px solid var(--color-1-orange);
+  border: 1.4px solid var(--color-1-orange);
   border-radius: 5px;
   transition: 0.2s ease;
   background-color: transparent;
@@ -2056,7 +2074,7 @@ span.addplanitem__index {
 .settings_page select,
 .settings_page input {
   margin: 5px 0 15px;
-  height: 55px;
+  height: 50px;
   min-width: 200px;
   border-radius: 0;
   background-color: #fff;
@@ -2068,7 +2086,12 @@ span.addplanitem__index {
 }
 
 span.l_desc {
-  font-size: 0.9rem;
+  display: block;
+  max-width: 320px;
+  font-size: 0.86rem;
+  line-height: 140%;
+  margin: 0.42em 0.1em 0.5em!important;
+  opacity: 0.9;
 }
 
 .set_plan {
@@ -2076,7 +2099,7 @@ span.l_desc {
 }
 
 .set_plan h3 {
-  font-size: 20px;
+  font-size: 1.4rem;
   margin-bottom: 20px;
 }
 
@@ -2117,7 +2140,7 @@ span.l_desc {
   height: 45px;
   margin-left: 6px;
   color: var(--basic-orange);
-  border: 1.5px solid var(--basic-orange);
+  border: 1.4px solid var(--basic-orange);
   border-radius: 5px;
   transition: background 0.2s ease, border 0.2s ease, transform 0.1s ease, outline 0.1s ease, box-shadow 0.2s;
 }
@@ -2146,7 +2169,7 @@ span.l_desc {
 }
 
 .settings_btn {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .db-block {
@@ -2242,7 +2265,7 @@ span.l_desc {
 }
 
 .statschart_wrapper {
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .select_range_msg {
@@ -2260,4 +2283,87 @@ span.l_desc {
   margin-right: 5px;
   margin-top: -2px;
   stroke-width: 1.5;
+}
+
+.stats_group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coin_balance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:  10px 0;
+  font-size: 0.9rem;
+  color: #4a4f54;
+}
+
+.coin_balance svg {
+  font-size: 1.5em;
+  margin-right: 5px;
+  margin-top: -1px;
+}
+
+.coin_balance i {
+  font-style: normal;
+  margin-left: 3px;
+  font-weight: 500;
+  font-size: 1.04em;
+}
+
+
+form section label {
+  padding-left: 0.6em;
+  border-left: 2px dashed #e3e8eb;
+  
+}
+
+section label:nth-last-child(1) input[name="plan_date"] {
+  margin-bottom: 8px;
+}
+
+.totals_header {
+  font-weight: 500;
+}
+
+.statschart_totals {
+  padding-left: 14px;
+  margin: 0;
+  list-style: none;
+}
+
+.totals_header,
+.statschart_totals,
+.statschart_totals span,
+.statschart_totals li {
+  font-size: 0.86rem;
+  line-height: 150%;
+}
+
+.statschart_totals {
+  font-weight: 500;
+}
+
+.totals_metric span,
+.totals_metric {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.statschart_wrapper {
+  margin-top: 20px;
+  position: relative;
+}
+
+.stats_totalsblock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 10px 10px 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  z-index: 100;
 }
