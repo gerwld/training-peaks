@@ -1,11 +1,10 @@
 # training-peaks
 Assets &amp; frontend for training-peaks
 
-![localhost_5173_ (2)](https://user-images.githubusercontent.com/47056812/234433498-76b5c0cb-5939-42e6-8209-576ef8752677.png)
-
+<img width="1680" alt="image" src="https://user-images.githubusercontent.com/47056812/234434165-322e988f-af5c-48a9-840c-e70f46469cab.png">
 
 ### To run the project:
 ```
-$ pnpm i 
-$ pnpm dev
+$ pnpm i
+$ pnpm run dev
 ```
