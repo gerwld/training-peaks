@@ -4,24 +4,25 @@ import jsconfigPaths from "vite-jsconfig-paths";
 import path from "path";
 
 export default defineConfig({
- plugins: [jsconfigPaths(), react()],
- base: "./",
- define: {
-  APP_VERSION: JSON.stringify(process.env.npm_package_version),
- },
- server: {
-  proxy: {
-   "/api": {
-    target: "http://3.76.81.252:8000",
-    changeOrigin: true,
-    secure: false,
-   },
+  plugins: [jsconfigPaths(), react()],
+  base: "/training-peaks",
+  baseUrl: "/training-peaks",
+  define: {
+    APP_VERSION: JSON.stringify(process.env.npm_package_version),
   },
- },
- resolve: {
-  mainFields: [],
-  alias: [
-    { find: '@', replacement: path.resolve(__dirname, 'src') },
-  ],
- },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://3.76.81.252:8000",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
+  resolve: {
+    mainFields: [],
+    alias: [
+      { find: '@', replacement: path.resolve(__dirname, 'src') },
+    ],
+  },
 });
